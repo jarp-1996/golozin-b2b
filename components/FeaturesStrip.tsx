@@ -1,8 +1,8 @@
 export function FeaturesStrip() {
   const titles = [
-    "Envíos coordinados",
-    "Descuentos por volumen",
-    "Asesoría por WhatsApp"
+    "Envíos coordinados en Lima",
+    "Pedido mínimo: S/ 50",
+    "Descuentos por volumen"
   ];
 
   return (

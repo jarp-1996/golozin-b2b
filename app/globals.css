@@ -34,6 +34,6 @@ body {
 }
 
 .animate-marquee-lr {
-  animation: marquee-lr 35s linear infinite;
+  animation: marquee-lr 70s linear infinite;
 }
 

@@ -1,7 +1,6 @@
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { ProductCard } from '@/components/ProductCard';
-import { HowItWorks } from '@/components/HowItWorks';
 import { getProducts, getCategories } from '@/lib/catalog';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -79,10 +78,6 @@ export default async function Home() {
         </section>
 
 
-        {/* ── ¿Cómo Funciona? ───────────────────────────── */}
-        <HowItWorks />
-
-        {/* ── Categorías ────────────────────────────────── */}
         <section className="py-16 bg-white/50 border-y border-[#1A1A2E]/5">
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col items-center text-center mb-10">
