@@ -1,8 +1,9 @@
 export function FeaturesStrip() {
   const titles = [
-    "Envíos coordinados en Lima",
-    "Cotizaciones sin compromiso",
-    "Descuentos por volumen"
+    "Envíos a todo el Perú",
+    "Golosinas internacionales",
+    "Golosinas peruanas",
+    "Una nueva experiencia"
   ];
 
   return (
