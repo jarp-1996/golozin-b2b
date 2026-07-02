@@ -61,7 +61,7 @@ export default async function Home() {
             </div>
 
             {/* Columna derecha: Imagen */}
-            <div className="w-full md:w-1/2 h-[45vh] md:h-full relative mt-8 md:mt-0">
+            <div className="w-full md:w-1/2 h-[45vh] md:min-h-[500px] relative mt-8 md:mt-0">
               <div className="absolute inset-0 rounded-3xl md:rounded-none overflow-hidden md:overflow-visible shadow-2xl md:shadow-none bg-transparent">
                 <Image 
                   src="/images/hero-banner.png" 
