@@ -104,8 +104,8 @@ export default function CheckoutPage() {
               <span>S/ {subtotal.toFixed(2)}</span>
             </div>
             {paymentMethod === 'tarjeta' && (
-              <div className="flex justify-between text-[#E3001B] font-medium">
-                <span>Recargo por tarjeta (5%)</span>
+              <div className="flex justify-between text-gray-500 font-medium">
+                <span>Tarifa de procesamiento</span>
                 <span>S/ {surcharge.toFixed(2)}</span>
               </div>
             )}
@@ -242,10 +242,9 @@ export default function CheckoutPage() {
           {/* TARJETA FLOW (MercadoPago) */}
           {paymentMethod === 'tarjeta' && (
             <div className="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 animate-in fade-in slide-in-from-bottom-4">
-              <div className="bg-[#009EE3]/10 text-[#009EE3] p-4 rounded-xl mb-6 text-sm flex gap-3 items-start">
-                <AlertTriangle className="w-5 h-5 shrink-0 mt-0.5" />
+              <div className="bg-gray-50 text-gray-500 p-4 rounded-xl mb-6 text-sm flex gap-3 items-start border border-gray-100">
                 <p>
-                  <strong>¿Por qué el recargo?</strong> Las tarjetas cobran comisión. Para mantener nuestros <strong>precios de mayorista</strong>, este cargo lo asume el método de pago. Puedes usar Yape para evitarlo.
+                  <strong>Pago seguro garantizado.</strong> Se aplica una pequeña tarifa de procesamiento por el uso de tarjeta. (Opcional: usa Yape sin tarifas adicionales).
                 </p>
               </div>
               
