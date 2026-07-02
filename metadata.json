@@ -1,0 +1,6 @@
+{
+  "name": "Golozin",
+  "description": "Tienda de golosinas tops, inspirada en las mejores dulcerías.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
