@@ -1,7 +1,7 @@
 export function FeaturesStrip() {
   const titles = [
     "Envíos coordinados en Lima",
-    "Pedido mínimo: S/ 50",
+    "Cotizaciones sin compromiso",
     "Descuentos por volumen"
   ];
 
