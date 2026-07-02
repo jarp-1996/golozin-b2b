@@ -33,10 +33,10 @@ export default async function Home() {
                 Golosinas Premium · Lima, Perú
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#0B2545] tracking-tight mb-4 leading-[1.1] max-w-xl">
-                Abastece tu negocio con las mejores marcas al <span className="text-[#E3001B]">por mayor</span>
+                Arma tu pack perfecto para fiestas o sorprende con una <span className="text-[#E3001B]">Mystery Box</span>
               </h1>
               <p className="text-gray-600 text-base md:text-lg mb-8 max-w-md leading-relaxed">
-                Tu socio estratégico para bodegas y minimarkets. Encuentra los mejores precios por volumen y aumenta tu rentabilidad.
+                El lugar ideal para encontrar las mejores marcas, armar tus packs de cumpleaños o regalar dulces experiencias.
               </p>
               
               <div className="flex flex-col sm:flex-row flex-wrap gap-4">
@@ -45,7 +45,7 @@ export default async function Home() {
                   href="/tienda"
                   className="group relative flex items-center justify-center gap-2 bg-[#0B2545] text-white font-bold py-4 px-8 rounded-lg text-lg transition-all shadow-md hover:shadow-lg hover:bg-[#11345d]"
                 >
-                  <span className="relative z-10">Ver Catálogo Mayorista</span>
+                  <span className="relative z-10">Ver Packs y Golosinas</span>
                 </Link>
                 {/* Botón secundario: WhatsApp */}
                 <a
@@ -93,9 +93,9 @@ export default async function Home() {
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row items-end justify-between mb-12">
               <div>
-                <span className="text-[#E3001B] text-xs font-black tracking-widest uppercase mb-2 block">Catálogo Mayorista</span>
-                <h2 className="text-3xl md:text-4xl font-black tracking-tight text-[#0B2545] mb-2">Los más pedidos por bodegueros</h2>
-                <p className="text-gray-500">Los artículos con mayor rotación que no pueden faltar en tu inventario.</p>
+                <span className="text-[#E3001B] text-xs font-black tracking-widest uppercase mb-2 block">Packs de Regalo</span>
+                <h2 className="text-3xl md:text-4xl font-black tracking-tight text-[#0B2545] mb-2">Ideales para cumpleaños y regalos</h2>
+                <p className="text-gray-500">Nuestras Mystery Boxes y combos más pedidos para disfrutar y compartir.</p>
               </div>
               <Link href="/tienda" className="text-[#0B2545] font-bold hover:text-[#E3001B] mt-4 md:mt-0 transition-colors flex items-center gap-2">
                 Ver catálogo completo 

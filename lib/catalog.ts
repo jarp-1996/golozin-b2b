@@ -162,13 +162,53 @@ export async function getBrands(): Promise<string[]> {
   return Array.from(new Set(data.map(p => p.brand)));
 }
 
+const B2C_BOXES: Product[] = [
+  {
+    id: 'box-1',
+    name: "Golozin Mystery Box",
+    brand: "GOLOZIN PACKS",
+    price: 49.90,
+    image: "/images/mystery_box.png",
+    category: "Packs y Regalos",
+    segment: "fiestas",
+    inStock: true
+  },
+  {
+    id: 'box-2',
+    name: "Premium Chocolate Box (M&M's, Snickers, Hershey's)",
+    brand: "GOLOZIN PACKS",
+    price: 65.00,
+    originalPrice: 75.00,
+    image: "/images/premium_box.png",
+    category: "Packs y Regalos",
+    segment: "fiestas",
+    inStock: true
+  },
+  {
+    id: 'box-3',
+    name: "Dulces Peruanos Box (Vizzio, Sublime, Morochas)",
+    brand: "GOLOZIN PACKS",
+    price: 35.50,
+    image: "/images/peruvian_box.png",
+    category: "Packs y Regalos",
+    segment: "fiestas",
+    inStock: true
+  }
+];
+
 export async function getProducts(segment?: Segment): Promise<Product[]> {
   let query = supabase.from('products').select('*');
   if (segment) {
     query = query.eq('segment', segment);
   }
   const { data } = await query;
-  return (data || []).map(mapProduct);
+  const dbProducts = (data || []).map(mapProduct);
+  
+  // Inyectar nuestras cajas B2C al principio
+  if (!segment || segment === 'fiestas') {
+    return [...B2C_BOXES, ...dbProducts];
+  }
+  return dbProducts;
 }
 
 export async function searchProducts(query: string, segment?: Segment): Promise<Product[]> {
@@ -183,10 +223,16 @@ export async function searchProducts(query: string, segment?: Segment): Promise<
   }
   
   const { data } = await dbQuery;
-  return (data || []).map(mapProduct);
+  const dbProducts = (data || []).map(mapProduct);
+  
+  const boxResults = B2C_BOXES.filter(box => box.name.toLowerCase().includes(query.toLowerCase()));
+  return [...boxResults, ...dbProducts];
 }
 
 export async function getProductById(id: string): Promise<Product | undefined> {
+  const box = B2C_BOXES.find(b => b.id === id);
+  if (box) return box;
+
   const { data } = await supabase.from('products').select('*').eq('id', id).single();
   return data ? mapProduct(data) : undefined;
 }

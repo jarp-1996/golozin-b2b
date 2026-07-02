@@ -137,9 +137,6 @@ export function ProductCard({
             <span className={`text-lg font-black ${product.inStock ? 'text-[#E3001B]' : 'text-gray-400'}`}>
               {sol(product.price)}
             </span>
-            <span className="text-xs text-gray-400">
-              {isPack ? `el display · ${sol(pricePerUnit)} c/u` : 'por unidad'}
-            </span>
           </div>
         </div>
 
@@ -180,7 +177,7 @@ export function ProductCard({
 
   // ─── VISTA GRILLA ────────────────────────────────────────────────────────────
   return (
-    <div className={`bg-white flex flex-col h-full group p-4 relative rounded-xl border border-gray-200 hover:border-gray-300 hover:shadow-md transition-all duration-300 ${!product.inStock ? 'opacity-75' : ''}`}>
+    <div className={`bg-white flex flex-col h-full group p-2 md:p-4 relative rounded-xl border border-gray-200 hover:border-gray-300 hover:shadow-md transition-all duration-300 ${!product.inStock ? 'opacity-75' : ''}`}>
 
       {/* Imagen */}
       <Link href={`/producto/${product.id}?segment=${product.segment}`} className="relative aspect-square bg-white rounded-lg mb-4 flex items-center justify-center overflow-hidden">
@@ -207,7 +204,7 @@ export function ProductCard({
           <Heart className={`w-4 h-4 ${isFavorite ? 'fill-[#E3001B] text-[#E3001B]' : ''}`} />
         </button>
         {/* Producto */}
-        <div className={`relative w-[160px] h-[160px] max-w-full transition-transform duration-300 ${product.inStock ? 'group-hover:scale-105' : 'grayscale'}`}>
+        <div className={`relative w-full h-full min-h-[150px] md:min-h-[160px] transition-transform duration-300 ${product.inStock ? 'group-hover:scale-105' : 'grayscale'}`}>
           <Image src={product.image} alt={product.name} fill className="object-contain" referrerPolicy="no-referrer" />
         </div>
       </Link>
@@ -222,7 +219,7 @@ export function ProductCard({
         </Link>
 
         {/* Precio principal */}
-        <div className="mb-2">
+        <div className="mb-4">
           <div className="flex items-baseline gap-1.5 flex-wrap">
             <span className={`text-xl font-black ${product.inStock ? 'text-[#E3001B]' : 'text-gray-400'}`}>
               {sol(product.price)}
@@ -231,30 +228,7 @@ export function ProductCard({
               <span className="text-xs text-gray-400 line-through">{sol(product.originalPrice)}</span>
             )}
           </div>
-          <p className="text-[11px] text-gray-400 mt-0.5">
-            {isPack
-              ? `el display · ${sol(pricePerUnit)} por unidad`
-              : 'precio mayorista por unidad'}
-          </p>
         </div>
-
-        {/* Tabla de precios por volumen */}
-        {product.inStock && (
-          <div className="bg-gray-50 rounded-lg p-3 mb-4">
-            <p className="text-[10px] text-gray-500 font-bold uppercase tracking-wider mb-2">Precio por volumen</p>
-            <div className="space-y-1">
-              {volumePricing.map((tier, i) => (
-                <div key={i} className="flex items-center justify-between">
-                  <span className="text-[11px] text-gray-500">{tier.label}</span>
-                  <span className={`text-[11px] font-bold ${i === 0 ? 'text-gray-700' : 'text-green-600'}`}>
-                    {sol(tier.price)}
-                    {i > 0 && <span className="text-[9px] text-green-500 ml-1">(-{i === 1 ? '5' : '10'}%)</span>}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
 
         {/* Botón de acción */}
         <div className="mt-auto flex flex-col gap-2" onClick={e => e.preventDefault()}>

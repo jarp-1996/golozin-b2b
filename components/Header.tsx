@@ -209,10 +209,10 @@ export function Header() {
           <nav className="w-full py-3.5">
             <div className="flex flex-wrap items-center justify-center text-white text-[15px] font-medium px-4 gap-8 mx-auto">
               <Link href="/" className="hover:text-gray-300 transition-colors">Inicio</Link>
-              <Link href="/tienda" className="hover:text-gray-300 transition-colors">Catálogo Mayorista</Link>
-              <Link href="/tienda?filter=ofertas" className="hover:text-gray-300 transition-colors">Ofertas y Liquidaciones</Link>
+              <Link href="/tienda" className="hover:text-gray-300 transition-colors">Packs y Mystery Boxes</Link>
+              <Link href="/tienda?filter=ofertas" className="hover:text-gray-300 transition-colors">Combos en Oferta</Link>
               <a 
-                href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? '51967171097'}?text=${encodeURIComponent('Hola, me gustaría solicitar una proforma para compras al por mayor.')}`} 
+                href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? '51967171097'}?text=${encodeURIComponent('Hola, me gustaría solicitar un pack personalizado o hacer una consulta.')}`} 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="hover:text-[#25D366] transition-colors flex items-center gap-1.5"
