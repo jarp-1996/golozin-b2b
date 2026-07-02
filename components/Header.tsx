@@ -211,7 +211,14 @@ export function Header() {
               <Link href="/" className="hover:text-gray-300 transition-colors">Inicio</Link>
               <Link href="/tienda" className="hover:text-gray-300 transition-colors">Catálogo Mayorista</Link>
               <Link href="/tienda?filter=ofertas" className="hover:text-gray-300 transition-colors">Ofertas y Liquidaciones</Link>
-              <Link href="/contacto" className="hover:text-gray-300 transition-colors">Nosotros</Link>
+              <a 
+                href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? '51967171097'}?text=${encodeURIComponent('Hola, me gustaría solicitar una proforma para compras al por mayor.')}`} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="hover:text-[#25D366] transition-colors flex items-center gap-1.5"
+              >
+                Cotizar (WhatsApp)
+              </a>
             </div>
           </nav>
         </div>

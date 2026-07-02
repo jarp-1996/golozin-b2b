@@ -18,7 +18,7 @@ export default function CheckoutPage() {
   const router = useRouter();
   const { showToast } = useToast();
   
-  const [paymentMethod, setPaymentMethod] = useState<'yape' | 'tarjeta' | 'cotizacion'>('yape');
+  const [paymentMethod, setPaymentMethod] = useState<'yape' | 'tarjeta'>('yape');
   const [isProcessing, setIsProcessing] = useState(false);
   const [paymentSuccess, setPaymentSuccess] = useState(false);
 
@@ -26,21 +26,7 @@ export default function CheckoutPage() {
   const subtotal = totalPrice;
   const surcharge = paymentMethod === 'tarjeta' ? subtotal * 0.05 : 0;
   const finalTotal = subtotal + surcharge;
-  const [whatsappLink, setWhatsappLink] = useState('');
-
   const waNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? '51967171097';
-  
-  useEffect(() => {
-    // Generar el mensaje de WhatsApp con la proforma
-    let msj = `*NUEVA COTIZACIÓN MAYORISTA* 📦\n\nHola, me gustaría cotizar los siguientes productos:\n\n`;
-    items.forEach(i => {
-      msj += `- ${i.quantity}x ${i.name} (S/ ${(i.price * i.quantity).toFixed(2)})\n`;
-    });
-    msj += `\n*Subtotal:* S/ ${subtotal.toFixed(2)}`;
-    
-    const link = `https://wa.me/${waNumber}?text=${encodeURIComponent(msj)}`;
-    setWhatsappLink(link);
-  }, [items, subtotal, waNumber]);
   
   const handleCopyAmount = () => {
     navigator.clipboard.writeText(finalTotal.toFixed(2));
@@ -120,7 +106,7 @@ export default function CheckoutPage() {
         <div className="flex flex-col gap-6">
           <h2 className="text-2xl font-black text-gray-900">¿Cómo quieres pagar?</h2>
           
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-2 gap-4">
             <button
               onClick={() => setPaymentMethod('yape')}
               className={`p-4 rounded-2xl border-2 flex flex-col items-center gap-3 transition-all ${paymentMethod === 'yape' ? 'border-[#742384] bg-[#742384]/5' : 'border-gray-200 hover:border-gray-300'}`}
@@ -154,34 +140,7 @@ export default function CheckoutPage() {
                 </div>
               </div>
             </button>
-            <button
-              onClick={() => setPaymentMethod('cotizacion')}
-              className={`p-3 md:p-4 rounded-2xl border-2 flex flex-col items-center justify-center gap-2 transition-all ${paymentMethod === 'cotizacion' ? 'border-[#25D366] bg-[#25D366]/5' : 'border-gray-200 hover:border-gray-300'}`}
-            >
-              <Smartphone className={`w-8 h-8 ${paymentMethod === 'cotizacion' ? 'text-[#25D366]' : 'text-gray-400'}`} />
-              <span className={`font-bold text-center text-sm ${paymentMethod === 'cotizacion' ? 'text-[#25D366]' : 'text-gray-500'}`}>Cotizar por<br className="hidden md:block"/> WhatsApp</span>
-            </button>
           </div>
-
-          {/* COTIZACION FLOW */}
-          {paymentMethod === 'cotizacion' && (
-            <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 text-center animate-in fade-in slide-in-from-bottom-4">
-              <div className="w-16 h-16 bg-[#25D366]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Smartphone className="w-8 h-8 text-[#25D366]" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Envíanos tu Proforma</h3>
-              <p className="text-gray-500 mb-6 text-sm">Al hacer clic, se generará un mensaje automático con todo tu carrito para que un asesor te confirme el stock y costos de envío (sin compromiso de pago).</p>
-              
-              <a 
-                href={whatsappLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block w-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold py-4 rounded-xl transition-all shadow-md"
-              >
-                Enviar al WhatsApp
-              </a>
-            </div>
-          )}
 
           {/* YAPE FLOW */}
           {paymentMethod === 'yape' && (
