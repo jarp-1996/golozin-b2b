@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { Facebook, Instagram, Youtube, Music, Clock, MapPin } from 'lucide-react';
 
 const WA_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? '51967171097';
-const WA_URL = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent('Hola, quiero información sobre ventas al por mayor 📦')}`;
+const WA_URL = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent('Hola, me gustaría solicitar un pack personalizado o hacer una consulta. 🎁')}`;
 
 export function Footer() {
   return (
@@ -27,7 +27,7 @@ export function Footer() {
                 <span className="text-xl font-bold tracking-tight text-white uppercase">GOLOZIN</span>
               </div>
               <p className="text-[14px] text-gray-400 mb-4 leading-relaxed max-w-xs">
-                El distribuidor mayorista líder en snacks y golosinas importadas. Tu aliado estratégico para bodegas y negocios. 
+                La tienda de regalos dulces más completa. Sorprende con nuestras Mystery Boxes y chocolates premium para cada ocasión.
               </p>
               
               {/* Horario */}
@@ -75,8 +75,9 @@ export function Footer() {
               <div className="w-8 h-0.5 bg-[#E3001B] mb-6"></div>
               <ul className="space-y-3 text-[14px] text-gray-400 font-medium">
                 <li><Link href="/" className="hover:text-white transition-colors">Inicio</Link></li>
-                <li><Link href="/tienda" className="hover:text-white transition-colors">Catálogo Mayorista</Link></li>
-                <li><Link href="/ofertas" className="hover:text-white transition-colors">Ofertas y Liquidaciones</Link></li>
+                <li><Link href="/tienda" className="hover:text-white transition-colors">Explorar Boxes</Link></li>
+                <li><Link href="/tienda" className="hover:text-white transition-colors">Arma tu Pack</Link></li>
+                <li><a href={`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent('Hola, me gustaría cotizar regalos corporativos para mi empresa.')}`} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Regalos Corporativos</a></li>
               </ul>
             </div>
             
@@ -93,7 +94,7 @@ export function Footer() {
           </div>
           
           <div className="flex justify-center pt-6 border-t border-gray-800 text-[12px] text-gray-500">
-            <p>© 2026 Golozin Mayorista. Todos los derechos reservados.</p>
+            <p>© 2026 Golozin. Todos los derechos reservados.</p>
           </div>
         </div>
       </footer>
