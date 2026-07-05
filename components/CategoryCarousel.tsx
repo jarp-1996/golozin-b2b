@@ -28,7 +28,7 @@ export function CategoryCarousel({ categories, allProducts }: CategoryCarouselPr
       {/* Left Arrow */}
       <button 
         onClick={scrollPrev}
-        className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-6 z-10 bg-white shadow-lg border border-gray-100 rounded-full p-2 text-gray-700 hover:text-[#E3001B] hover:scale-110 opacity-0 group-hover:opacity-100 transition-all duration-300 hidden md:flex"
+        className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-6 z-10 bg-white shadow-lg border border-gray-100 rounded-full p-2 text-gray-700 hover:text-[#1F2937] hover:scale-110 opacity-0 group-hover:opacity-100 transition-all duration-300 hidden md:flex"
       >
         <ChevronLeft className="w-6 h-6" strokeWidth={2.5} />
       </button>
@@ -36,7 +36,7 @@ export function CategoryCarousel({ categories, allProducts }: CategoryCarouselPr
       {/* Right Arrow */}
       <button 
         onClick={scrollNext}
-        className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-6 z-10 bg-white shadow-lg border border-gray-100 rounded-full p-2 text-gray-700 hover:text-[#E3001B] hover:scale-110 opacity-0 group-hover:opacity-100 transition-all duration-300 hidden md:flex"
+        className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-6 z-10 bg-white shadow-lg border border-gray-100 rounded-full p-2 text-gray-700 hover:text-[#1F2937] hover:scale-110 opacity-0 group-hover:opacity-100 transition-all duration-300 hidden md:flex"
       >
         <ChevronRight className="w-6 h-6" strokeWidth={2.5} />
       </button>
@@ -51,7 +51,7 @@ export function CategoryCarousel({ categories, allProducts }: CategoryCarouselPr
                   href={`/tienda?category=${encodeURIComponent(cat)}`} 
                   className="bg-white rounded-2xl p-6 flex flex-col items-center justify-center text-center shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group/item hover:-translate-y-1 h-full"
                 >
-                  <div className="relative w-20 h-20 rounded-full bg-blue-50 mb-4 overflow-hidden group-hover/item:scale-110 transition-transform duration-300 border-2 border-transparent group-hover/item:border-[#E3001B] flex items-center justify-center">
+                  <div className="relative w-20 h-20 rounded-full bg-blue-50 mb-4 overflow-hidden group-hover/item:scale-110 transition-transform duration-300 border-2 border-transparent group-hover/item:border-[#1F2937] flex items-center justify-center">
                     {sampleProduct ? (
                       <Image
                         src={sampleProduct.image}
@@ -62,7 +62,7 @@ export function CategoryCarousel({ categories, allProducts }: CategoryCarouselPr
                         sizes="80px"
                       />
                     ) : (
-                      <div className="w-full h-full flex items-center justify-center text-[#0B2545] group-hover/item:bg-[#0B2545] group-hover/item:text-white transition-colors duration-300">
+                      <div className="w-full h-full flex items-center justify-center text-[#991B1B] group-hover/item:bg-[#991B1B] group-hover/item:text-white transition-colors duration-300">
                         <span className="font-black text-xl">{cat.substring(0, 2).toUpperCase()}</span>
                       </div>
                     )}

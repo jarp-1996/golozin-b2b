@@ -96,7 +96,7 @@ export default async function PackDetailPage({ params }: { params: Promise<{ id:
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Breadcrumb / Back */}
-        <Link href="/packs" className="inline-flex items-center gap-2 text-gray-500 hover:text-[#E3001B] font-medium mb-8 transition-colors">
+        <Link href="/packs" className="inline-flex items-center gap-2 text-gray-500 hover:text-[#1F2937] font-medium mb-8 transition-colors">
           <ArrowLeft className="w-4 h-4" />
           Volver a todos los packs
         </Link>
@@ -126,12 +126,12 @@ export default async function PackDetailPage({ params }: { params: Promise<{ id:
           {/* Details */}
           <div>
             <div className="mb-2">
-              <span className="text-sm font-bold text-[#E3001B] uppercase tracking-widest bg-red-50 px-3 py-1 rounded-full">
+              <span className="text-sm font-bold text-[#1F2937] uppercase tracking-widest bg-red-50 px-3 py-1 rounded-full">
                 {pack.event === 'personal' ? 'Para ti' : 'Para Fiesta'}
               </span>
             </div>
             
-            <h1 className="text-4xl md:text-5xl font-black text-[#1A1A2E] mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl font-black text-[#111827] mb-6 leading-tight">
               {pack.title}
             </h1>
             
@@ -140,10 +140,10 @@ export default async function PackDetailPage({ params }: { params: Promise<{ id:
             </p>
             
             {/* Price Box */}
-            <div className="bg-[#FFF8F0] border-2 border-[#1A1A2E]/5 rounded-3xl p-8 mb-8">
+            <div className="bg-[#F9FAFB] border-2 border-[#111827]/5 rounded-3xl p-8 mb-8">
               <p className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">Precio de referencia</p>
               <div className="flex items-end gap-3 mb-6">
-                <span className="text-5xl font-black text-[#1A1A2E]">
+                <span className="text-5xl font-black text-[#111827]">
                   S/ {pack.priceRef.toFixed(2)}
                 </span>
               </div>
@@ -162,7 +162,7 @@ export default async function PackDetailPage({ params }: { params: Promise<{ id:
                   href={waCustomizeUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 flex items-center justify-center gap-2 bg-white text-[#1A1A2E] border-2 border-[#1A1A2E]/10 hover:border-[#1A1A2E]/30 hover:bg-gray-50 font-bold py-4 px-6 rounded-2xl text-lg transition-all"
+                  className="flex-1 flex items-center justify-center gap-2 bg-white text-[#111827] border-2 border-[#111827]/10 hover:border-[#111827]/30 hover:bg-gray-50 font-bold py-4 px-6 rounded-2xl text-lg transition-all"
                 >
                   Personalizar
                 </a>
@@ -171,7 +171,7 @@ export default async function PackDetailPage({ params }: { params: Promise<{ id:
             
             {/* Contents */}
             <div>
-              <h3 className="text-2xl font-black text-[#1A1A2E] mb-6">¿Qué incluye?</h3>
+              <h3 className="text-2xl font-black text-[#111827] mb-6">¿Qué incluye?</h3>
               <ul className="space-y-4">
                 {pack.contents.map((item, idx) => (
                   <li key={idx} className="flex items-start gap-3">

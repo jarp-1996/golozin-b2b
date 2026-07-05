@@ -40,19 +40,19 @@ const packsData = [
 
 export function PacksSection() {
   return (
-    <section className="py-24 bg-[#FFF8F0] relative overflow-hidden" id="packs">
+    <section className="py-24 bg-[#F9FAFB] relative overflow-hidden" id="packs">
       {/* Decorative blobs */}
       <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-[#FF6B9D]/5 blur-3xl" />
-      <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 rounded-full bg-[#E3001B]/5 blur-3xl" />
+      <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 rounded-full bg-[#1F2937]/5 blur-3xl" />
 
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col md:flex-row items-end justify-between mb-12 gap-6">
           <div className="max-w-2xl">
-            <span className="text-[#E3001B] text-xs font-black tracking-widest uppercase mb-3 block flex items-center gap-2">
-              <span className="w-8 h-px bg-[#E3001B]"></span>
+            <span className="text-[#1F2937] text-xs font-black tracking-widest uppercase mb-3 block flex items-center gap-2">
+              <span className="w-8 h-px bg-[#1F2937]"></span>
               Listos para llevar
             </span>
-            <h2 className="text-3xl md:text-5xl font-black tracking-tight text-[#1A1A2E] mb-4 leading-[1.1]">
+            <h2 className="text-3xl md:text-5xl font-black tracking-tight text-[#111827] mb-4 leading-[1.1]">
               Packs pre-armados para tu <span className="text-[#FF6B9D]">fiesta</span>
             </h2>
             <p className="text-gray-600 text-lg">
@@ -61,7 +61,7 @@ export function PacksSection() {
           </div>
           <Link 
             href="/packs" 
-            className="group flex items-center gap-2 text-[#1A1A2E] font-bold hover:text-[#E3001B] transition-colors whitespace-nowrap bg-white px-5 py-3 rounded-xl shadow-sm border border-gray-100 hover:shadow-md"
+            className="group flex items-center gap-2 text-[#111827] font-bold hover:text-[#1F2937] transition-colors whitespace-nowrap bg-white px-5 py-3 rounded-xl shadow-sm border border-gray-100 hover:shadow-md"
           >
             Ver todos los packs
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

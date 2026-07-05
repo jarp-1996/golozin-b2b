@@ -3,7 +3,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { Search, ShoppingBag, User, Heart, ChevronDown, Candy } from 'lucide-react';
 import { useCart } from './CartContext';
-import { searchProducts, Product, getCategories, getBrands } from '@/lib/catalog';
+import { Product } from '@/lib/catalog';
+import { searchProductsAction } from '@/app/actions';
 import Image from 'next/image';
 import Link from 'next/link';
 import { CartDrawer } from './CartDrawer';
@@ -16,14 +17,6 @@ export function Header() {
   const [searchResults, setSearchResults] = useState<Product[]>([]);
   const [isSearchFocused, setIsSearchFocused] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
-  
-  // Data from Supabase
-  const [categories, setCategories] = useState<string[]>([]);
-  const [brands, setBrands] = useState<string[]>([]);
-
-  // States for dropdowns
-  const [isTiendaOpen, setIsTiendaOpen] = useState(false);
-  const [isMarcasOpen, setIsMarcasOpen] = useState(false);
 
   const searchRef = useRef<HTMLDivElement>(null);
   const navRef = useRef<HTMLDivElement>(null);
@@ -32,20 +25,11 @@ export function Header() {
   const searchParams = useSearchParams();
   const segment = searchParams.get('segment');
 
-  useEffect(() => {
-    async function loadGlobals() {
-      const cats = await getCategories();
-      const brs = await getBrands();
-      setCategories(cats);
-      setBrands(brs);
-    }
-    loadGlobals();
-  }, []);
 
   useEffect(() => {
     async function performSearch() {
       if (searchQuery.length >= 2) {
-        const results = await searchProducts(searchQuery, segment as any);
+        const results = await searchProductsAction(searchQuery, segment as string);
         setSearchResults(results.slice(0, 5));
       } else {
         setSearchResults([]);
@@ -60,8 +44,7 @@ export function Header() {
         setIsSearchFocused(false);
       }
       if (navRef.current && !navRef.current.contains(event.target as Node)) {
-        setIsTiendaOpen(false);
-        setIsMarcasOpen(false);
+        // Nothing to do for now since we removed the state
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
@@ -92,7 +75,7 @@ export function Header() {
             {/* Left: Search Bar (Hidden on Mobile) */}
             <div className="hidden md:flex justify-start">
               <div className="relative w-full max-w-[300px]" ref={searchRef}>
-                <form onSubmit={handleSearchSubmit} className="relative flex items-center w-full rounded-full bg-gray-100 border border-transparent focus-within:border-[#E3001B] focus-within:bg-white transition-colors">
+                <form onSubmit={handleSearchSubmit} className="relative flex items-center w-full rounded-full bg-gray-100 border border-transparent focus-within:border-[#1F2937] focus-within:bg-white transition-colors">
                   <input
                     className="w-full outline-none text-[13px] text-gray-700 py-2.5 pl-5 pr-10 bg-transparent rounded-full"
                     type="text"
@@ -103,7 +86,7 @@ export function Header() {
                     onFocus={() => setIsSearchFocused(true)}
                     autoComplete="off"
                   />
-                  <button type="submit" className="absolute right-0 grid place-items-center h-full px-4 text-gray-500 hover:text-[#E3001B] transition-colors rounded-r-full">
+                  <button type="submit" className="absolute right-0 grid place-items-center h-full px-4 text-gray-500 hover:text-[#1F2937] transition-colors rounded-r-full">
                     <Search className="h-4 w-4" strokeWidth={2} />
                   </button>
                 </form>
@@ -135,7 +118,7 @@ export function Header() {
                             <p className="text-[13px] text-gray-800">{product.name}</p>
                           </div>
                           <div className="text-right">
-                            <p className="text-[13px] font-bold text-[#E3001B]">S/ {product.price.toFixed(2)}</p>
+                            <p className="text-[13px] font-bold text-[#1F2937]">S/ {product.price.toFixed(2)}</p>
                           </div>
                         </Link>
                       ))}
@@ -150,11 +133,11 @@ export function Header() {
               <Link href="/" className="flex items-center gap-2">
                 <div className="relative w-10 h-10 md:w-12 md:h-12 flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
                   <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-sm">
-                    <rect x="23" y="23" width="54" height="54" rx="4" transform="rotate(45 50 50)" fill="#E3001B" />
+                    <rect x="23" y="23" width="54" height="54" rx="4" transform="rotate(45 50 50)" fill="#1F2937" />
                     <path 
                       d="M 74 34 L 50 14 L 14 50 L 50 86 L 86 50 L 50 50 L 50 74" 
                       fill="none" 
-                      stroke="#0B2545" 
+                      stroke="#991B1B" 
                       strokeWidth="14" 
                       strokeLinecap="round" 
                       strokeLinejoin="round" 
@@ -162,33 +145,33 @@ export function Header() {
                   </svg>
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-[28px] md:text-[34px] font-black text-[#0B2545] tracking-tight leading-none uppercase">Golozin</span>
+                  <span className="text-[28px] md:text-[34px] font-black text-[#991B1B] tracking-tight leading-none uppercase">Golozin</span>
                 </div>
               </Link>
             </div>
 
             {/* Right: Actions */}
             <div className="flex items-center justify-end gap-4 md:gap-6">
-              <Link href="/favoritos" className="relative text-gray-700 hover:text-[#E3001B] transition-colors hidden md:block">
+              <Link href="/favoritos" className="relative text-gray-700 hover:text-[#1F2937] transition-colors hidden md:block">
                 <Heart className="h-6 w-6" strokeWidth={1.5} />
               </Link>
 
-              <Link href="/cuenta" className="text-gray-700 hover:text-[#E3001B] transition-colors hidden sm:block">
+              <Link href="/cuenta" className="text-gray-700 hover:text-[#1F2937] transition-colors hidden sm:block">
                 <User className="h-6 w-6" strokeWidth={1.5} />
               </Link>
 
               <button 
                 onClick={() => setIsCartOpen(true)}
-                className="relative flex items-center gap-2 text-gray-700 hover:text-[#E3001B] transition-colors"
+                className="relative flex items-center gap-2 text-gray-700 hover:text-[#1F2937] transition-colors"
               >
                 <div className="relative">
                   <ShoppingBag className="h-6 w-6" strokeWidth={1.5} />
-                  <span className="absolute -top-1.5 -right-2 inline-flex items-center justify-center min-w-[16px] h-[16px] text-[10px] font-bold text-white bg-[#E3001B] rounded-full px-1">
+                  <span className="absolute -top-1.5 -right-2 inline-flex items-center justify-center min-w-[16px] h-[16px] text-[10px] font-bold text-white bg-[#1F2937] rounded-full px-1">
                     {totalItems}
                   </span>
                 </div>
                 <div className="hidden lg:block text-left ml-2">
-                  <p className="text-[14px] font-bold text-[#0B2545] whitespace-nowrap">S/ {totalPrice.toFixed(2)}</p>
+                  <p className="text-[14px] font-bold text-[#991B1B] whitespace-nowrap">S/ {totalPrice.toFixed(2)}</p>
                 </div>
               </button>
             </div>
@@ -198,43 +181,43 @@ export function Header() {
       </div>
 
       {/* Navigation Bar */}
-      <div className="w-full bg-[#0B2545] relative z-40 shadow-md" ref={navRef}>
+      <div className="w-full bg-[#991B1B] relative z-40 shadow-md" ref={navRef}>
         <div className="max-w-[1400px] mx-auto">
           {/* Nav Links */}
           <nav className="w-full hidden md:block">
             <ul className="flex flex-wrap items-center justify-center text-white text-[14px] font-bold tracking-wider uppercase h-14 gap-10">
               
               <li className="relative group h-full flex items-center">
-                <span className="cursor-pointer hover:text-[#E3001B] transition-colors flex items-center gap-1">
+                <span className="cursor-pointer hover:text-[#1F2937] transition-colors flex items-center gap-1">
                   Regalos por Ocasión <ChevronDown className="w-4 h-4 ml-0.5 opacity-80" strokeWidth={2.5} />
                 </span>
-                <div className="absolute top-full left-1/2 -translate-x-1/2 w-56 bg-white text-gray-800 shadow-xl border-t-4 border-[#E3001B] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top translate-y-2 group-hover:translate-y-0 rounded-b-md">
+                <div className="absolute top-full left-1/2 -translate-x-1/2 w-56 bg-white text-gray-800 shadow-xl border-t-4 border-[#1F2937] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top translate-y-2 group-hover:translate-y-0 rounded-b-md">
                   <div className="flex flex-col py-3">
-                    <Link href="/tienda?filter=cumpleanos" className="px-5 py-2.5 hover:bg-gray-50 hover:text-[#E3001B] font-medium transition-colors text-[13px] tracking-normal capitalize">Cumpleaños</Link>
-                    <Link href="/tienda?filter=aniversario" className="px-5 py-2.5 hover:bg-gray-50 hover:text-[#E3001B] font-medium transition-colors text-[13px] tracking-normal capitalize">Aniversarios</Link>
-                    <Link href="/tienda?filter=agradecimiento" className="px-5 py-2.5 hover:bg-gray-50 hover:text-[#E3001B] font-medium transition-colors text-[13px] tracking-normal capitalize">Agradecimientos</Link>
-                    <Link href="/tienda?filter=ninos" className="px-5 py-2.5 hover:bg-gray-50 hover:text-[#E3001B] font-medium transition-colors text-[13px] tracking-normal capitalize">Día del Niño</Link>
+                    <Link href="/tienda?filter=cumpleanos" className="px-5 py-2.5 hover:bg-gray-50 hover:text-[#1F2937] font-medium transition-colors text-[13px] tracking-normal capitalize">Cumpleaños</Link>
+                    <Link href="/tienda?filter=aniversario" className="px-5 py-2.5 hover:bg-gray-50 hover:text-[#1F2937] font-medium transition-colors text-[13px] tracking-normal capitalize">Aniversarios</Link>
+                    <Link href="/tienda?filter=agradecimiento" className="px-5 py-2.5 hover:bg-gray-50 hover:text-[#1F2937] font-medium transition-colors text-[13px] tracking-normal capitalize">Agradecimientos</Link>
+                    <Link href="/tienda?filter=ninos" className="px-5 py-2.5 hover:bg-gray-50 hover:text-[#1F2937] font-medium transition-colors text-[13px] tracking-normal capitalize">Día del Niño</Link>
                   </div>
                 </div>
               </li>
 
               <li className="relative group h-full flex items-center">
-                <span className="cursor-pointer hover:text-[#E3001B] transition-colors flex items-center gap-1">
+                <span className="cursor-pointer hover:text-[#1F2937] transition-colors flex items-center gap-1">
                   Explorar Boxes <ChevronDown className="w-4 h-4 ml-0.5 opacity-80" strokeWidth={2.5} />
                 </span>
-                <div className="absolute top-full left-1/2 -translate-x-1/2 w-64 bg-white text-gray-800 shadow-xl border-t-4 border-[#E3001B] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top translate-y-2 group-hover:translate-y-0 rounded-b-md">
+                <div className="absolute top-full left-1/2 -translate-x-1/2 w-64 bg-white text-gray-800 shadow-xl border-t-4 border-[#1F2937] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top translate-y-2 group-hover:translate-y-0 rounded-b-md">
                   <div className="flex flex-col py-3">
                     <Link href="/producto/box-1?segment=fiestas" className="px-5 py-3 hover:bg-gray-50 flex items-center gap-3 transition-colors border-b border-gray-50">
-                      <div className="bg-[#0B2545] p-1.5 rounded-md"><Candy className="w-4 h-4 text-white" /></div>
+                      <div className="bg-[#991B1B] p-1.5 rounded-md"><Candy className="w-4 h-4 text-white" /></div>
                       <div>
-                        <span className="block text-[14px] font-bold text-[#0B2545] capitalize tracking-normal">Mystery Box</span>
+                        <span className="block text-[14px] font-bold text-[#991B1B] capitalize tracking-normal">Mystery Box</span>
                         <span className="block text-[11px] text-gray-500 normal-case tracking-normal">Sorpresas dulces garantizadas</span>
                       </div>
                     </Link>
                     <Link href="/producto/box-2?segment=fiestas" className="px-5 py-3 hover:bg-gray-50 flex items-center gap-3 transition-colors border-b border-gray-50">
-                      <div className="bg-[#E3001B] p-1.5 rounded-md"><Candy className="w-4 h-4 text-white" /></div>
+                      <div className="bg-[#1F2937] p-1.5 rounded-md"><Candy className="w-4 h-4 text-white" /></div>
                       <div>
-                        <span className="block text-[14px] font-bold text-[#E3001B] capitalize tracking-normal">Premium Box</span>
+                        <span className="block text-[14px] font-bold text-[#1F2937] capitalize tracking-normal">Premium Box</span>
                         <span className="block text-[11px] text-gray-500 normal-case tracking-normal">Chocolates americanos y europeos</span>
                       </div>
                     </Link>
@@ -250,11 +233,11 @@ export function Header() {
               </li>
 
               <li className="h-full flex items-center">
-                <Link href="/tienda" className="hover:text-[#E3001B] transition-colors">Arma tu Pack</Link>
+                <Link href="/tienda" className="hover:text-[#1F2937] transition-colors">Arma tu Pack</Link>
               </li>
 
               <li className="h-full flex items-center">
-                <a href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? '51967171097'}?text=${encodeURIComponent('Hola, me gustaría cotizar regalos corporativos para mi empresa.')}`} target="_blank" rel="noopener noreferrer" className="hover:text-[#E3001B] transition-colors">Regalos Corporativos</a>
+                <a href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? '51967171097'}?text=${encodeURIComponent('Hola, me gustaría cotizar regalos corporativos para mi empresa.')}`} target="_blank" rel="noopener noreferrer" className="hover:text-[#1F2937] transition-colors">Regalos Corporativos</a>
               </li>
 
             </ul>
@@ -264,7 +247,7 @@ export function Header() {
 
       {/* Mobile Search */}
       <div className="md:hidden px-4 py-3 bg-white border-b border-gray-100">
-        <form onSubmit={handleSearchSubmit} className="relative flex items-center w-full rounded-md bg-white border border-gray-300 focus-within:border-[#E3001B]">
+        <form onSubmit={handleSearchSubmit} className="relative flex items-center w-full rounded-md bg-white border border-gray-300 focus-within:border-[#1F2937]">
           <input
             className="w-full outline-none text-[14px] text-gray-700 py-2.5 px-4 bg-transparent rounded-l-md"
             placeholder="Buscar ..."
@@ -272,7 +255,7 @@ export function Header() {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
-          <button type="submit" className="px-3 text-gray-400 hover:text-[#E3001B]">
+          <button type="submit" className="px-3 text-gray-400 hover:text-[#1F2937]">
             <Search className="h-4 w-4" />
           </button>
         </form>
@@ -283,12 +266,12 @@ export function Header() {
       {/* Botón flotante del Carrito */}
       <button
         onClick={() => setIsCartOpen(true)}
-        className="fixed bottom-[104px] right-6 bg-[#0B2545] text-white p-4 rounded-full shadow-[0_8px_30px_rgba(11,37,69,0.5)] hover:bg-[#E3001B] hover:shadow-[0_8px_30px_rgba(227,0,27,0.5)] transition-all hover:scale-110 z-50 flex items-center justify-center animate-in fade-in slide-in-from-bottom-8"
+        className="fixed bottom-[104px] right-6 bg-[#991B1B] text-white p-4 rounded-full shadow-[0_8px_30px_rgba(124,58,237,0.5)] hover:bg-[#1F2937] hover:shadow-[0_8px_30px_rgba(236,72,153,0.5)] transition-all hover:scale-110 z-50 flex items-center justify-center animate-in fade-in slide-in-from-bottom-8"
         aria-label="Ver carrito de compras"
       >
         <ShoppingBag className="w-7 h-7" />
         {totalItems > 0 && (
-          <span className="absolute -top-1 -right-1 bg-[#E3001B] text-white min-w-[24px] h-[24px] rounded-full flex items-center justify-center text-[12px] font-black border-2 border-[#0B2545] animate-bounce shadow-sm">
+          <span className="absolute -top-1 -right-1 bg-[#1F2937] text-white min-w-[24px] h-[24px] rounded-full flex items-center justify-center text-[12px] font-black border-2 border-[#991B1B] animate-bounce shadow-sm">
             {totalItems}
           </span>
         )}

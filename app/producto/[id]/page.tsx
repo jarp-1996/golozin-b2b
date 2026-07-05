@@ -1,6 +1,6 @@
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
-import { getProductById, getProducts } from '@/lib/catalog';
+import { getProductById, getRelatedProducts, getRecentProducts } from '@/lib/catalog';
 import { notFound } from 'next/navigation';
 import { ProductDetail } from './ProductDetail';
 import { ProductCard } from '@/components/ProductCard';
@@ -58,13 +58,11 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
     notFound();
   }
 
-  const allProducts = await getProducts();
-
   // Get related products (same category)
-  const relatedProducts = allProducts.filter(p => p.category === product.category && p.id !== product.id).slice(0, 4);
+  const relatedProducts = await getRelatedProducts(product.category, product.id, 4);
 
   // Get recently viewed products (mocked by picking random items)
-  const recentlyViewed = allProducts.slice(0, 4);
+  const recentlyViewed = await getRecentProducts(4);
 
   // Mock an original price for demonstration
   const productWithOriginalPrice = {
@@ -144,8 +142,8 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
                     <Image src={p.image} alt={p.name} fill className="object-contain p-1 group-hover:scale-105 transition-transform" />
                   </div>
                   <div>
-                    <h4 className="text-[13px] text-gray-800 font-medium leading-tight group-hover:text-[#E3001B] transition-colors line-clamp-2">{p.name}</h4>
-                    <p className="text-[14px] font-bold text-[#E3001B] mt-1">S/ {p.price.toFixed(2)}</p>
+                    <h4 className="text-[13px] text-gray-800 font-medium leading-tight group-hover:text-[#1F2937] transition-colors line-clamp-2">{p.name}</h4>
+                    <p className="text-[14px] font-bold text-[#1F2937] mt-1">S/ {p.price.toFixed(2)}</p>
                   </div>
                 </Link>
               ))}
@@ -161,8 +159,8 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
                     <Image src={p.image} alt={p.name} fill className="object-contain p-1 group-hover:scale-105 transition-transform" />
                   </div>
                   <div>
-                    <h4 className="text-[13px] text-gray-800 font-medium leading-tight group-hover:text-[#E3001B] transition-colors line-clamp-2">{p.name}</h4>
-                    <p className="text-[14px] font-bold text-[#E3001B] mt-1">S/ {p.price.toFixed(2)}</p>
+                    <h4 className="text-[13px] text-gray-800 font-medium leading-tight group-hover:text-[#1F2937] transition-colors line-clamp-2">{p.name}</h4>
+                    <p className="text-[14px] font-bold text-[#1F2937] mt-1">S/ {p.price.toFixed(2)}</p>
                   </div>
                 </Link>
               ))}

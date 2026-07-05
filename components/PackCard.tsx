@@ -46,11 +46,11 @@ export function PackCard({ id, title, event, description, imageUrl, priceRef, is
       {/* Contenido */}
       <div className="p-6 flex flex-col flex-grow">
         <div className="mb-2 flex items-center justify-between">
-          <span className="text-xs font-bold text-[#1A1A2E]/50 uppercase tracking-wider">{event}</span>
+          <span className="text-xs font-bold text-[#111827]/50 uppercase tracking-wider">{event}</span>
         </div>
         
         <Link href={`/packs/${id}`}>
-          <h3 className="text-xl font-black text-[#1A1A2E] mb-2 group-hover:text-[#E3001B] transition-colors line-clamp-2">
+          <h3 className="text-xl font-black text-[#111827] mb-2 group-hover:text-[#1F2937] transition-colors line-clamp-2">
             {title}
           </h3>
         </Link>
@@ -63,7 +63,7 @@ export function PackCard({ id, title, event, description, imageUrl, priceRef, is
         <div className="flex flex-col gap-3 mt-auto">
           <Link 
             href={`/packs/${id}`}
-            className="w-full text-center bg-gray-50 hover:bg-gray-100 text-[#1A1A2E] font-bold py-3 px-4 rounded-xl transition-colors text-sm"
+            className="w-full text-center bg-gray-50 hover:bg-gray-100 text-[#111827] font-bold py-3 px-4 rounded-xl transition-colors text-sm"
           >
             Ver detalles del pack
           </Link>

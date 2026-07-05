@@ -24,7 +24,7 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section className="py-20 bg-[#0B2545] text-white">
+    <section className="py-20 bg-[#991B1B] text-white">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-14">
@@ -52,9 +52,9 @@ export function HowItWorks() {
                 {/* Icon + Number */}
                 <div className="relative mb-6 z-10">
                   <div className="w-20 h-20 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shadow-lg">
-                    <Icon className="w-9 h-9 text-[#E3001B]" />
+                    <Icon className="w-9 h-9 text-[#1F2937]" />
                   </div>
-                  <div className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-[#E3001B] text-white text-xs font-black flex items-center justify-center shadow-md">
+                  <div className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-[#1F2937] text-white text-xs font-black flex items-center justify-center shadow-md">
                     {step.step}
                   </div>
                 </div>
@@ -70,7 +70,7 @@ export function HowItWorks() {
         <div className="text-center">
           <Link
             href="/tienda"
-            className="inline-flex items-center gap-3 bg-white text-[#0B2545] font-bold py-4 px-10 rounded-lg text-lg transition-all hover:bg-gray-100 shadow-md"
+            className="inline-flex items-center gap-3 bg-white text-[#991B1B] font-bold py-4 px-10 rounded-lg text-lg transition-all hover:bg-gray-100 shadow-md"
           >
             🛒 Comenzar mi Pedido
           </Link>

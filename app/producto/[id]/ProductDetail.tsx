@@ -36,11 +36,11 @@ export function ProductDetail({ product }: { product: Product }) {
             ) : (
               <>
                 {product.originalPrice && (
-                  <div className="w-14 h-14 bg-[#E3001B] text-white flex items-center justify-center rounded-[40%_60%_70%_30%_/_40%_50%_60%_50%] shadow-sm">
+                  <div className="w-14 h-14 bg-[#1F2937] text-white flex items-center justify-center rounded-[40%_60%_70%_30%_/_40%_50%_60%_50%] shadow-sm">
                     <span className="text-[13px] font-bold transform -rotate-12">Oferta</span>
                   </div>
                 )}
-                <div className="bg-[#0B2545] text-white text-[12px] font-bold px-3 py-1.5 rounded shadow-sm self-start">
+                <div className="bg-[#991B1B] text-white text-[12px] font-bold px-3 py-1.5 rounded shadow-sm self-start">
                   Nuevo
                 </div>
               </>
@@ -76,7 +76,7 @@ export function ProductDetail({ product }: { product: Product }) {
               S/ {product.originalPrice.toFixed(2)}
             </p>
           )}
-          <p className="text-3xl font-bold text-[#E3001B]">
+          <p className="text-3xl font-bold text-[#1F2937]">
             S/ {product.price.toFixed(2)}
           </p>
         </div>
@@ -85,7 +85,7 @@ export function ProductDetail({ product }: { product: Product }) {
           <li className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 bg-gray-400 rounded-full" />
             <span className="font-medium text-gray-900">Fecha de vencimiento:</span> 
-            <span className="text-[#E3001B] font-medium">03/2027</span>
+            <span className="text-[#1F2937] font-medium">03/2027</span>
           </li>
           <li className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 bg-gray-400 rounded-full" />
@@ -130,7 +130,7 @@ export function ProductDetail({ product }: { product: Product }) {
             disabled={!product.inStock}
             className={`flex-1 h-12 font-bold rounded-lg transition-colors flex items-center justify-center shadow-sm ${
               product.inStock 
-                ? 'bg-[#E3001B] hover:bg-[#cc0018] text-white' 
+                ? 'bg-[#1F2937] hover:bg-[#BE185D] text-white' 
                 : 'bg-gray-200 text-gray-500 cursor-not-allowed'
             }`}
           >
@@ -138,7 +138,7 @@ export function ProductDetail({ product }: { product: Product }) {
           </button>
         </div>
 
-        <button className="flex items-center gap-2 text-gray-600 hover:text-[#E3001B] transition-colors font-medium text-sm w-fit mb-8">
+        <button className="flex items-center gap-2 text-gray-600 hover:text-[#1F2937] transition-colors font-medium text-sm w-fit mb-8">
           <Heart className="w-5 h-5" />
           Añadir a favoritos
         </button>

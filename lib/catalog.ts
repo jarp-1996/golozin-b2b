@@ -14,6 +14,7 @@ export interface Product {
   segment: Segment;
   inStock: boolean;
   packSize?: string;
+  description?: string;
 }
 
 // Función helper para mapear de BD a frontend
@@ -150,10 +151,47 @@ export const catalog: Product[] = [
 // Array original comentado para evitar errores de despliegue si se necesita de fallback rápido
 // export const catalog: Product[] = [...]
 
+const B2C_BOXES: Product[] = [
+  {
+    id: 'pack-cumpleanos',
+    name: 'Pack Cumpleaños',
+    brand: "GOLOZIN BOX",
+    price: 45.00,
+    image: "/images/peruvian_box.png",
+    category: "Cajas",
+    segment: "fiestas",
+    inStock: true,
+    description: '¡El kit perfecto para que el cumpleañero sonría a más no poder! Incluye chocolates, gomitas y chupetines para celebrar a lo grande.'
+  },
+  {
+    id: 'box-pinata',
+    name: 'Box Piñata',
+    brand: "GOLOZIN BOX",
+    price: 85.00,
+    image: "/images/international_box.png",
+    category: "Cajas",
+    segment: "fiestas",
+    inStock: true,
+    description: '¿Listo para romper la piñata? Este box viene recargado de caramelos, chicles y galletas variadas para que a ningún invitado le falte su dulce.'
+  },
+  {
+    id: 'mega-pack-dulcero',
+    name: 'Mega Pack Dulcero',
+    brand: "GOLOZIN BOX",
+    price: 150.00,
+    image: "/images/premium_box.png",
+    category: "Cajas",
+    segment: "fiestas",
+    inStock: true,
+    description: '¡La madre de todos los packs! Ideal para eventos grandes o fiestas infantiles donde el azúcar es la estrella. Surtido premium que no te decepcionará.'
+  }
+];
+
 export async function getCategories(): Promise<Category[]> {
   const { data } = await supabase.from('products').select('category');
-  if (!data) return [];
-  return Array.from(new Set(data.map(p => p.category)));
+  const dbCategories = data ? data.map(p => p.category) : [];
+  const boxCategories = B2C_BOXES.map(box => box.category);
+  return Array.from(new Set([...dbCategories, ...boxCategories]));
 }
 
 export async function getBrands(): Promise<string[]> {
@@ -161,40 +199,6 @@ export async function getBrands(): Promise<string[]> {
   if (!data) return [];
   return Array.from(new Set(data.map(p => p.brand)));
 }
-
-const B2C_BOXES: Product[] = [
-  {
-    id: 'box-1',
-    name: "Golozin Mystery Box",
-    brand: "GOLOZIN PACKS",
-    price: 49.90,
-    image: "/images/mystery_box.png",
-    category: "Packs y Regalos",
-    segment: "fiestas",
-    inStock: true
-  },
-  {
-    id: 'box-2',
-    name: "Premium Chocolate Box (M&M's, Snickers, Hershey's)",
-    brand: "GOLOZIN PACKS",
-    price: 65.00,
-    originalPrice: 75.00,
-    image: "/images/premium_box.png",
-    category: "Packs y Regalos",
-    segment: "fiestas",
-    inStock: true
-  },
-  {
-    id: 'box-3',
-    name: "Dulces Peruanos Box (Vizzio, Sublime, Morochas)",
-    brand: "GOLOZIN PACKS",
-    price: 35.50,
-    image: "/images/peruvian_box.png",
-    category: "Packs y Regalos",
-    segment: "fiestas",
-    inStock: true
-  }
-];
 
 export async function getProducts(segment?: Segment): Promise<Product[]> {
   let query = supabase.from('products').select('*');
@@ -211,6 +215,98 @@ export async function getProducts(segment?: Segment): Promise<Product[]> {
   return dbProducts;
 }
 
+export async function getRelatedProducts(category: string, excludeId: string, limit: number = 4): Promise<Product[]> {
+  const { data } = await supabase.from('products').select('*').eq('category', category).neq('id', excludeId).limit(limit);
+  let dbProducts = (data || []).map(mapProduct);
+  
+  // Incluir cajas de la misma categoría si aplican, hasta el límite
+  const relatedBoxes = B2C_BOXES.filter(b => b.category === category && b.id !== excludeId);
+  return [...relatedBoxes, ...dbProducts].slice(0, limit);
+}
+
+export async function getRecentProducts(limit: number = 4): Promise<Product[]> {
+  const { data } = await supabase.from('products').select('*').order('id', { ascending: false }).limit(limit);
+  return (data || []).map(mapProduct);
+}
+
+export interface PaginatedProducts {
+  products: Product[];
+  total: number;
+}
+
+export async function getProductsPaginated(params: {
+  page: number;
+  limit: number;
+  segment?: Segment;
+  category?: string;
+  brand?: string;
+  q?: string;
+  sortBy?: string;
+  minPrice?: number;
+  maxPrice?: number;
+}): Promise<PaginatedProducts> {
+  let query = supabase.from('products').select('*', { count: 'exact' });
+
+  if (params.segment) {
+    query = query.eq('segment', params.segment);
+  }
+  if (params.category) {
+    query = query.eq('category', params.category);
+  }
+  if (params.brand) {
+    query = query.eq('brand', params.brand);
+  }
+  if (params.q) {
+    const q = `%${params.q}%`;
+    query = query.or(`name.ilike.${q},brand.ilike.${q},category.ilike.${q}`);
+  }
+  if (params.minPrice !== undefined) {
+    query = query.gte('price', params.minPrice);
+  }
+  if (params.maxPrice !== undefined) {
+    query = query.lte('price', params.maxPrice);
+  }
+
+  if (params.sortBy === 'precio_menor') {
+    query = query.order('price', { ascending: true });
+  } else if (params.sortBy === 'precio_mayor') {
+    query = query.order('price', { ascending: false });
+  } else {
+    // default sort by id desc
+    query = query.order('id', { ascending: false });
+  }
+
+  const from = (params.page - 1) * params.limit;
+  const to = from + params.limit - 1;
+
+  query = query.range(from, to);
+
+  const { data, count, error } = await query;
+  
+  if (error) {
+    console.error("Error fetching products", error);
+    return { products: [], total: 0 };
+  }
+  
+  let dbProducts = (data || []).map(mapProduct);
+
+  // Inyectar cajas si estamos en la primera página
+  if (params.page === 1 && (!params.segment || params.segment === 'fiestas') && !params.category && !params.brand && !params.q) {
+    dbProducts = [...B2C_BOXES, ...dbProducts];
+  }
+
+  // mock original price for some
+  dbProducts = dbProducts.map((p, i) => ({
+    ...p,
+    originalPrice: i % 3 === 0 ? p.price * 1.5 : undefined
+  }));
+
+  return {
+    products: dbProducts,
+    total: count || 0
+  };
+}
+
 export async function searchProducts(query: string, segment?: Segment): Promise<Product[]> {
   const q = `%${query}%`;
   let dbQuery = supabase
@@ -221,6 +317,8 @@ export async function searchProducts(query: string, segment?: Segment): Promise<
   if (segment) {
     dbQuery = dbQuery.eq('segment', segment);
   }
+  
+  dbQuery = dbQuery.limit(10);
   
   const { data } = await dbQuery;
   const dbProducts = (data || []).map(mapProduct);

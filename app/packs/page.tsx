@@ -74,7 +74,7 @@ export default async function PacksPage({
         
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-black text-[#1A1A2E] mb-4">
+          <h1 className="text-4xl md:text-5xl font-black text-[#111827] mb-4">
             {eventFilter ? `Packs para ${getEventName(eventFilter)}` : 'Todos nuestros Packs'}
           </h1>
           <p className="text-gray-500 max-w-2xl mx-auto text-lg">

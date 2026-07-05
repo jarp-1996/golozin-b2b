@@ -108,7 +108,7 @@ export function ProductCard({
   // ─── VISTA LISTA ────────────────────────────────────────────────────────────
   if (viewStyle === 'list') {
     return (
-      <div className={`bg-white flex flex-row group p-4 relative rounded-xl border border-gray-200 hover:border-gray-300 hover:shadow-md transition-all duration-300 ${!product.inStock ? 'opacity-75' : ''}`}>
+      <div className={`bg-white font-inter flex flex-row group p-4 relative rounded-xl border border-gray-200 hover:border-gray-300 hover:shadow-md transition-all duration-300 ${!product.inStock ? 'opacity-75' : ''}`}>
         {/* Imagen */}
         <Link href={`/producto/${product.id}?segment=${product.segment}`} className="relative w-[130px] h-[130px] flex-shrink-0 p-2 bg-white flex items-center justify-center mr-5">
           <div className="absolute top-0 left-0 flex flex-col gap-1 z-10">
@@ -116,11 +116,11 @@ export function ProductCard({
               <div className="bg-gray-800 text-white text-[10px] font-bold px-2 py-1 rounded shadow-sm uppercase">Agotado</div>
             )}
             {isBestSeller && product.inStock && (
-              <div className="bg-amber-400 text-amber-900 text-[9px] font-black px-2 py-1 rounded shadow-sm uppercase tracking-wide">⭐ Más pedido</div>
+              <div className="bg-[#A3E635] text-[#365314] text-[9px] font-black px-2 py-1 rounded shadow-sm uppercase tracking-wide">⭐ Más pedido</div>
             )}
           </div>
-          <button onClick={handleToggleFavorite} className="absolute top-0 right-0 z-20 p-1.5 bg-white/80 hover:bg-white rounded-full shadow-sm text-gray-400 hover:text-[#E3001B] transition-colors">
-            <Heart className={`w-4 h-4 ${isFavorite ? 'fill-[#E3001B] text-[#E3001B]' : ''}`} />
+          <button onClick={handleToggleFavorite} className="absolute top-0 right-0 z-20 p-1.5 bg-white/80 hover:bg-white rounded-full shadow-sm text-gray-400 hover:text-[#1F2937] transition-colors">
+            <Heart className={`w-4 h-4 ${isFavorite ? 'fill-[#1F2937] text-[#1F2937]' : ''}`} />
           </button>
           <div className={`relative w-full h-full transition-transform duration-300 ${product.inStock ? 'group-hover:scale-105' : 'grayscale'}`}>
             <Image src={product.image} alt={product.name} fill sizes="130px" className="object-contain" referrerPolicy="no-referrer" />
@@ -129,12 +129,12 @@ export function ProductCard({
 
         {/* Contenido */}
         <div className="flex flex-col justify-center flex-grow min-w-0">
-          <Link href={`/producto/${product.id}?segment=${product.segment}`} className="text-sm font-bold text-gray-800 mb-1 hover:text-[#E3001B] transition-colors line-clamp-2">
+          <Link href={`/producto/${product.id}?segment=${product.segment}`} className="text-sm font-bold text-gray-800 mb-1 hover:text-[#1F2937] transition-colors line-clamp-2">
             {product.name}
           </Link>
           <p className="text-xs text-gray-400 mb-2">{product.brand}</p>
           <div className="flex items-baseline gap-2 flex-wrap">
-            <span className={`text-lg font-black ${product.inStock ? 'text-[#E3001B]' : 'text-gray-400'}`}>
+            <span className={`text-lg font-black ${product.inStock ? 'text-[#1F2937]' : 'text-gray-400'}`}>
               {sol(product.price)}
             </span>
           </div>
@@ -161,7 +161,7 @@ export function ProductCard({
               </div>
               <button
                 onClick={(e) => { e.preventDefault(); handleAddToCart(e); }}
-                className="flex items-center justify-center gap-1.5 bg-[#E3001B] hover:bg-[#c40017] text-white text-[13px] font-bold py-2 px-3 rounded-lg transition-all hover:scale-105 shadow-md whitespace-nowrap"
+                className="flex items-center justify-center gap-1.5 bg-[#1F2937] hover:bg-[#BE185D] text-white text-[13px] font-bold py-2 px-3 rounded-lg transition-all hover:scale-105 shadow-md whitespace-nowrap"
               >
                 <ShoppingCart className="w-3 h-3" />
                 Añadir
@@ -177,7 +177,7 @@ export function ProductCard({
 
   // ─── VISTA GRILLA ────────────────────────────────────────────────────────────
   return (
-    <div className={`bg-white flex flex-col h-full group p-2 md:p-4 relative rounded-xl border border-gray-200 hover:border-gray-300 hover:shadow-md transition-all duration-300 ${!product.inStock ? 'opacity-75' : ''}`}>
+    <div className={`bg-white font-inter flex flex-col h-full group p-2 md:p-4 relative rounded-xl border border-gray-200 hover:border-gray-300 hover:shadow-md transition-all duration-300 ${!product.inStock ? 'opacity-75' : ''}`}>
 
       {/* Imagen */}
       <Link href={`/producto/${product.id}?segment=${product.segment}`} className="relative aspect-square bg-white rounded-lg mb-4 flex items-center justify-center overflow-hidden">
@@ -188,10 +188,10 @@ export function ProductCard({
           ) : (
             <>
               {isBestSeller && (
-                <div className="bg-amber-400 text-amber-900 text-[9px] font-black px-2 py-1 rounded-lg shadow-sm uppercase tracking-wide">⭐ Más pedido</div>
+                <div className="bg-[#A3E635] text-[#365314] text-[9px] font-black px-2 py-1 rounded-lg shadow-sm uppercase tracking-wide">⭐ Más pedido</div>
               )}
               {product.originalPrice && (
-                <div className="bg-[#E3001B] text-white text-[9px] font-bold px-2 py-1 rounded-lg shadow-sm">Oferta</div>
+                <div className="bg-[#1F2937] text-white text-[9px] font-bold px-2 py-1 rounded-lg shadow-sm">Oferta</div>
               )}
             </>
           )}
@@ -199,9 +199,9 @@ export function ProductCard({
         {/* Favorito */}
         <button
           onClick={handleToggleFavorite}
-          className="absolute top-2 right-2 z-20 p-1.5 bg-white hover:bg-gray-50 rounded-full shadow border border-gray-100 text-gray-400 hover:text-[#E3001B] transition-colors md:opacity-0 group-hover:opacity-100 focus:opacity-100 opacity-100"
+          className="absolute top-2 right-2 z-20 p-1.5 bg-white hover:bg-gray-50 rounded-full shadow border border-gray-100 text-gray-400 hover:text-[#1F2937] transition-colors md:opacity-0 group-hover:opacity-100 focus:opacity-100 opacity-100"
         >
-          <Heart className={`w-4 h-4 ${isFavorite ? 'fill-[#E3001B] text-[#E3001B]' : ''}`} />
+          <Heart className={`w-4 h-4 ${isFavorite ? 'fill-[#1F2937] text-[#1F2937]' : ''}`} />
         </button>
         {/* Producto */}
         <div className={`relative w-full h-full min-h-[150px] md:min-h-[160px] transition-transform duration-300 ${product.inStock ? 'group-hover:scale-105' : 'grayscale'}`}>
@@ -213,7 +213,7 @@ export function ProductCard({
       <div className="flex flex-col flex-grow px-1">
         <Link
           href={`/producto/${product.id}?segment=${product.segment}`}
-          className="text-[13px] text-gray-700 leading-snug mb-3 font-semibold hover:text-[#E3001B] transition-colors line-clamp-2"
+          className="text-[13px] text-gray-700 leading-snug mb-3 font-semibold hover:text-[#1F2937] transition-colors line-clamp-2"
         >
           {product.name}
         </Link>
@@ -221,7 +221,7 @@ export function ProductCard({
         {/* Precio principal */}
         <div className="mb-4">
           <div className="flex items-baseline gap-1.5 flex-wrap">
-            <span className={`text-xl font-black ${product.inStock ? 'text-[#E3001B]' : 'text-gray-400'}`}>
+            <span className={`text-xl font-black ${product.inStock ? 'text-[#1F2937]' : 'text-gray-400'}`}>
               {sol(product.price)}
             </span>
             {product.originalPrice && (
@@ -253,7 +253,7 @@ export function ProductCard({
               {/* Botón Añadir */}
               <button
                 onClick={(e) => { e.preventDefault(); handleAddToCart(e); }}
-                className="w-full flex items-center justify-center gap-2 bg-[#E3001B] hover:bg-[#c40017] text-white text-sm font-bold py-2.5 px-4 rounded-xl transition-all hover:scale-[1.02] shadow-md hover:shadow-[0_6px_20px_rgba(227,0,27,0.35)]"
+                className="w-full flex items-center justify-center gap-2 bg-[#1F2937] hover:bg-[#BE185D] text-white text-sm font-bold py-2.5 px-4 rounded-xl transition-all hover:scale-[1.02] shadow-md hover:shadow-[0_6px_20px_rgba(236,72,153,0.35)]"
               >
                 <ShoppingCart className="w-4 h-4" />
                 Añadir al carrito

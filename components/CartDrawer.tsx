@@ -30,7 +30,7 @@ export function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
         {/* Header */}
         <div className="flex items-center justify-between p-4 border-b border-gray-100">
           <div className="flex items-center gap-2">
-            <ShoppingBag className="h-5 w-5 text-[#E3001B]" />
+            <ShoppingBag className="h-5 w-5 text-[#1F2937]" />
             <h2 className="text-lg font-bold text-gray-900">Mi Carrito ({totalItems})</h2>
           </div>
           <button 
@@ -54,7 +54,7 @@ export function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
               </div>
               <button 
                 onClick={onClose}
-                className="mt-4 px-6 py-2 bg-[#E3001B] text-white rounded-full font-medium hover:bg-[#cc0018] transition-colors"
+                className="mt-4 px-6 py-2 bg-[#1F2937] text-white rounded-full font-medium hover:bg-[#BE185D] transition-colors"
               >
                 Seguir comprando
               </button>
@@ -79,7 +79,7 @@ export function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                         <h3 className="text-sm font-semibold text-gray-900 leading-tight truncate">{item.name}</h3>
                         <button 
                           onClick={() => removeFromCart(item.id)}
-                          className="text-gray-400 hover:text-[#E3001B] transition-colors flex-shrink-0"
+                          className="text-gray-400 hover:text-[#1F2937] transition-colors flex-shrink-0"
                         >
                           <Trash2 className="h-4 w-4" />
                         </button>
@@ -91,19 +91,19 @@ export function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                       <div className="flex items-center gap-3 bg-gray-50 rounded-full border border-gray-200 px-2 py-1">
                         <button 
                           onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                          className="w-5 h-5 rounded-full bg-white flex items-center justify-center text-gray-600 hover:text-[#E3001B] border border-gray-200 shadow-sm transition-colors"
+                          className="w-5 h-5 rounded-full bg-white flex items-center justify-center text-gray-600 hover:text-[#1F2937] border border-gray-200 shadow-sm transition-colors"
                         >
                           <Minus className="w-3 h-3" />
                         </button>
                         <span className="font-bold text-xs w-4 text-center">{item.quantity}</span>
                         <button 
                           onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                          className="w-5 h-5 rounded-full bg-white flex items-center justify-center text-gray-600 hover:text-[#E3001B] border border-gray-200 shadow-sm transition-colors"
+                          className="w-5 h-5 rounded-full bg-white flex items-center justify-center text-gray-600 hover:text-[#1F2937] border border-gray-200 shadow-sm transition-colors"
                         >
                           <Plus className="w-3 h-3" />
                         </button>
                       </div>
-                      <p className="text-sm font-bold text-[#E3001B]">
+                      <p className="text-sm font-bold text-[#1F2937]">
                         S/ {(item.price * item.quantity).toFixed(2)}
                       </p>
                     </div>
@@ -129,7 +129,7 @@ export function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                 onClose();
                 router.push('/checkout');
               }}
-              className="w-full py-3.5 px-4 bg-[#E3001B] hover:bg-[#cc0018] text-white rounded-xl font-bold text-lg shadow-md hover:shadow-lg transition-all flex justify-center items-center gap-2"
+              className="w-full py-3.5 px-4 bg-[#1F2937] hover:bg-[#BE185D] text-white rounded-xl font-bold text-lg shadow-md hover:shadow-lg transition-all flex justify-center items-center gap-2"
             >
               Finalizar Compra
             </button>
