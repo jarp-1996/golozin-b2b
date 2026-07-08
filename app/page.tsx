@@ -25,9 +25,9 @@ export default async function Home() {
               {/* Contenido Izquierdo (Texto + Botón) */}
               <div className="flex flex-col items-start">
                 <h1 className="text-[14vw] md:text-[8vw] lg:text-[9vw] font-black leading-[0.85] tracking-tighter uppercase max-w-full break-words">
-                  ANTOJOS <br />
-                  <span className="text-[#EF4444]">PERUANOS</span> <br />
-                  EN <span className="text-[#EF4444]">BOXES.</span>
+                  <span className="text-[#EF4444]">ANTOJOS</span> <br />
+                  PERUANOS EN <br />
+                  <span className="text-[#EF4444]">BOXES.</span>
                 </h1>
                 
                 <Link 
