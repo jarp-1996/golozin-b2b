@@ -23,11 +23,11 @@ export default async function Home() {
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-12 w-full">
               
               {/* Contenido Izquierdo (Texto + Botón) */}
-              <div className="flex flex-col items-start">
-                <h1 className="text-[14vw] md:text-[8vw] lg:text-[9vw] font-black leading-[0.85] tracking-tighter uppercase max-w-full break-words">
+              <div className="flex flex-col items-start min-w-[50%]">
+                <h1 className="text-[14vw] md:text-[7vw] lg:text-[7.5vw] xl:text-[8vw] font-black leading-[0.85] tracking-tighter uppercase max-w-full">
                   <span className="text-[#EF4444]">ANTOJOS</span> <br />
                   PERUANOS <br />
-                  <span className="text-[#EF4444]">EN BOXES.</span>
+                  <span className="text-[#EF4444] whitespace-nowrap">EN BOXES.</span>
                 </h1>
                 
                 <Link 
@@ -40,7 +40,7 @@ export default async function Home() {
               </div>
 
               {/* Imagen Derecha */}
-              <div className="relative aspect-[4/3] w-full max-w-[400px] md:max-w-[50vw] lg:max-w-[800px] rounded-[2rem] md:rounded-[3rem] overflow-hidden hover:scale-[1.02] transition-transform duration-700 ease-out shrink-0 mx-auto md:mx-0">
+              <div className="relative aspect-[4/3] w-full max-w-[400px] md:max-w-[45vw] lg:max-w-[550px] rounded-[2rem] md:rounded-[3rem] overflow-hidden hover:scale-[1.02] transition-transform duration-700 ease-out shrink-0 mx-auto md:mx-0">
                 <Image 
                   src="/images/premium_box_hero.png" 
                   alt="Premium Box" 
