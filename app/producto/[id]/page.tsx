@@ -107,14 +107,7 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
 
       <main className="flex-1 w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col gap-8">
         
-        {/* Breadcrumb */}
-        <div className="text-[13px] text-gray-500 mb-2 flex items-center gap-2">
-          <Link href="/" className="hover:text-black transition-colors">Inicio</Link>
-          <span>/</span>
-          <span>{product.category}</span>
-          <span>/</span>
-          <span className="text-gray-900 font-medium">{product.name}</span>
-        </div>
+
 
         {/* Main Content Area (Full width) */}
         <div className="w-full">
