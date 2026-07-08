@@ -19,23 +19,28 @@ export default async function Home() {
             {/* Background elements if needed */}
           </div>
           
-          <div className="w-full px-6 md:px-12 relative z-10 flex flex-col justify-center h-full">
-            <h1 className="text-[12vw] font-black leading-[0.85] tracking-tighter uppercase max-w-full break-words">
-              ANTOJOS <br />
-              <span className="text-[#EF4444]">PERUANOS</span> <br />
-              EN CAJA.
-            </h1>
-            
-            <div className="mt-12 md:mt-24 flex flex-col md:flex-row items-start md:items-end justify-between gap-8">
-              <Link 
-                href="/producto/antojos-peruanos"
-                data-cursor="link"
-                className="group flex items-center justify-center bg-white text-black font-black py-6 px-14 rounded-full text-xl md:text-2xl transition-all duration-300 hover:bg-[#EF4444] hover:text-white uppercase tracking-widest border border-white"
-              >
-                Comprar Ahora
-              </Link>
+          <div className="w-full px-6 md:px-12 relative z-10 flex flex-col justify-center h-full mt-24 md:mt-0">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-12 w-full">
+              
+              {/* Contenido Izquierdo (Texto + Botón) */}
+              <div className="flex flex-col items-start">
+                <h1 className="text-[14vw] md:text-[8vw] lg:text-[9vw] font-black leading-[0.85] tracking-tighter uppercase max-w-full break-words">
+                  ANTOJOS <br />
+                  <span className="text-[#EF4444]">PERUANOS</span> <br />
+                  EN <span className="text-[#EF4444]">BOXES.</span>
+                </h1>
+                
+                <Link 
+                  href="/producto/antojos-peruanos"
+                  data-cursor="link"
+                  className="mt-8 md:mt-12 group flex items-center justify-center bg-white text-black font-black py-5 px-10 md:py-6 md:px-14 rounded-full text-lg md:text-2xl transition-all duration-300 hover:bg-[#EF4444] hover:text-white uppercase tracking-widest border border-white"
+                >
+                  Comprar Ahora
+                </Link>
+              </div>
 
-              <div className="relative aspect-[4/3] w-full max-w-[400px] md:max-w-[500px] rounded-3xl overflow-hidden hover:scale-105 transition-transform duration-700 ease-out origin-bottom-right">
+              {/* Imagen Derecha */}
+              <div className="relative aspect-[4/3] w-full max-w-[400px] md:max-w-[50vw] lg:max-w-[800px] rounded-[2rem] md:rounded-[3rem] overflow-hidden hover:scale-[1.02] transition-transform duration-700 ease-out shrink-0 mx-auto md:mx-0">
                 <Image 
                   src="/images/premium_box_hero.png" 
                   alt="Premium Box" 
@@ -45,6 +50,7 @@ export default async function Home() {
                   unoptimized
                 />
               </div>
+
             </div>
           </div>
         </section>
