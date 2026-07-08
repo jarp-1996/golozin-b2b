@@ -15,6 +15,8 @@ export interface Product {
   inStock: boolean;
   packSize?: string;
   description?: string;
+  idealFor?: string[];
+  contents?: string[];
 }
 
 // Función helper para mapear de BD a frontend
@@ -161,7 +163,9 @@ const B2C_BOXES: Product[] = [
     category: "Cajas",
     segment: "fiestas",
     inStock: true,
-    description: '¡El kit perfecto para que el cumpleañero sonría a más no poder! Incluye chocolates, gomitas y chupetines para celebrar a lo grande.'
+    description: '¡El kit perfecto para que el cumpleañero sonría a más no poder! Incluye chocolates, gomitas y chupetines para celebrar a lo grande.',
+    idealFor: ['La sorpresa', 'La mesa de bocaditos'],
+    contents: ['Selección de chocolates', 'Gomitas surtidas', 'Chupetines frutales', 'Mix de galletas']
   },
   {
     id: 'box-pinata',
@@ -172,7 +176,9 @@ const B2C_BOXES: Product[] = [
     category: "Cajas",
     segment: "fiestas",
     inStock: true,
-    description: '¿Listo para romper la piñata? Este box viene recargado de caramelos, chicles y galletas variadas para que a ningún invitado le falte su dulce.'
+    description: '¿Listo para romper la piñata? Este box viene recargado de caramelos, chicles y galletas variadas para que a ningún invitado le falte su dulce.',
+    idealFor: ['Rellenar la piñata', 'Compartir con amigos'],
+    contents: ['Mix de caramelos surtidos', 'Chicles bomba', 'Galletas variadas', 'Snacks salados']
   },
   {
     id: 'mega-pack-dulcero',
@@ -183,7 +189,9 @@ const B2C_BOXES: Product[] = [
     category: "Cajas",
     segment: "fiestas",
     inStock: true,
-    description: '¡La madre de todos los packs! Ideal para eventos grandes o fiestas infantiles donde el azúcar es la estrella. Surtido premium que no te decepcionará.'
+    description: '¡La madre de todos los packs! Ideal para eventos grandes o fiestas infantiles donde el azúcar es la estrella. Surtido premium que no te decepcionará.',
+    idealFor: ['Eventos grandes', 'Regalo premium'],
+    contents: ['Selección de chocolates premium', 'Mix golosinas peruanas', '1 Inca Kola en lata', 'Snacks importados']
   }
 ];
 
