@@ -159,7 +159,7 @@ const B2C_BOXES: Product[] = [
     name: 'Antojos Peruanos',
     brand: "GOLOZIN BOX",
     price: 65.00,
-    image: "/images/peruvian_box.png",
+    image: "/images/antojos_peruanos_box.png",
     category: "Cajas",
     segment: "fiestas",
     inStock: true,

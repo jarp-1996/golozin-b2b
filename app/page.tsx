@@ -90,9 +90,9 @@ export default async function Home() {
               
               {/* Pilar 1 (Large, left aligned) */}
               <div className="md:col-span-8 group">
-                <Link href="/producto/antojos-peruanos" data-cursor="product" className="block relative aspect-video bg-gray-200 overflow-hidden rounded-[2rem] mb-8">
+                <Link href="/producto/antojos-peruanos" data-cursor="product" className="block relative aspect-[4/5] bg-gray-200 overflow-hidden rounded-[2rem] mb-8">
                   <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors z-10"></div>
-                  <Image src="/images/peruvian_box.png" alt="Antojos Peruanos" fill className="object-cover group-hover:scale-105 transition-transform duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)]" />
+                  <Image src="/images/antojos_peruanos_box.png" alt="Antojos Peruanos" fill className="object-cover group-hover:scale-105 transition-transform duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)]" />
                 </Link>
                 <h3 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-4">Antojos Peruanos</h3>
                 <p className="text-xl text-gray-600 max-w-xl">Tus clásicos favoritos del Perú en una sola caja. Perfecta para matar el antojo o sorprender a quien está lejos con un pedacito de casa.</p>
