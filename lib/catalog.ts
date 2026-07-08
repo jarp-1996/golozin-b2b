@@ -188,16 +188,15 @@ const B2C_BOXES: Product[] = [
 ];
 
 export async function getCategories(): Promise<Category[]> {
-  const { data } = await supabase.from('products').select('category');
-  const dbCategories = data ? data.map(p => p.category) : [];
+  // En modo B2C estricto, solo mostramos las categorías de nuestras cajas premium
   const boxCategories = B2C_BOXES.map(box => box.category);
-  return Array.from(new Set([...dbCategories, ...boxCategories]));
+  return Array.from(new Set([...boxCategories]));
 }
 
 export async function getBrands(): Promise<string[]> {
-  const { data } = await supabase.from('products').select('brand');
-  if (!data) return [];
-  return Array.from(new Set(data.map(p => p.brand)));
+  // En modo B2C estricto, solo mostramos las marcas de nuestras cajas
+  const boxBrands = B2C_BOXES.map(box => box.brand);
+  return Array.from(new Set([...boxBrands]));
 }
 
 export async function getProducts(segment?: Segment): Promise<Product[]> {
@@ -288,22 +287,26 @@ export async function getProductsPaginated(params: {
     return { products: [], total: 0 };
   }
   
-  let dbProducts = (data || []).map(mapProduct);
+  // MODO B2C ESTRICTO: Ocultamos los productos individuales de la vitrina principal.
+  // Solo mostraremos las Cajas (B2C_BOXES)
+  
+  let finalProducts = [...B2C_BOXES];
 
-  // Inyectar cajas si estamos en la primera página
-  if (params.page === 1 && (!params.segment || params.segment === 'fiestas') && !params.category && !params.brand && !params.q) {
-    dbProducts = [...B2C_BOXES, ...dbProducts];
+  // Si hay una búsqueda, filtramos en las cajas
+  if (params.q) {
+    const query = params.q.toLowerCase();
+    finalProducts = finalProducts.filter(p => p.name.toLowerCase().includes(query) || p.description?.toLowerCase().includes(query));
   }
 
   // mock original price for some
-  dbProducts = dbProducts.map((p, i) => ({
+  finalProducts = finalProducts.map((p, i) => ({
     ...p,
     originalPrice: i % 3 === 0 ? p.price * 1.5 : undefined
   }));
 
   return {
-    products: dbProducts,
-    total: count || 0
+    products: finalProducts,
+    total: finalProducts.length
   };
 }
 

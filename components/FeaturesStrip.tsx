@@ -8,7 +8,7 @@ export function FeaturesStrip() {
 
   return (
     <div className="bg-[#991B1B] text-white py-2.5 overflow-hidden relative text-xs md:text-sm font-bold uppercase tracking-widest border-b border-[#5B21B6]">
-      <div className="flex w-max animate-marquee-lr hover:[animation-play-state:paused]">
+      <div className="flex w-max animate-marquee-lr hover:[animation-play-state:paused]" style={{ animationDuration: '150s' }}>
         {[...Array(2)].map((_, blockIndex) => (
           <div key={blockIndex} className="flex">
             {[...titles, ...titles, ...titles, ...titles, ...titles, ...titles].map((title, index) => (
