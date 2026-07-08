@@ -11,27 +11,7 @@ export function Footer() {
     <footer className="bg-[#0a0a0a] text-white pt-32 pb-12 overflow-hidden border-t border-white/10 flex flex-col justify-between relative z-10">
       
       <div className="w-full px-6 md:px-12 max-w-[1800px] mx-auto">
-        {/* Top Section: CTA (Gidex style) */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-12 mb-24 md:mb-40">
-          <h2 className="text-5xl md:text-[7vw] font-black uppercase tracking-tighter leading-[0.9] max-w-4xl">
-            TIENES UNA <br/> 
-            <span className="text-gray-500">IDEA EN MENTE?</span>
-          </h2>
-          
-          <a
-            href={WA_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            data-cursor="button"
-            className="group relative flex items-center justify-center w-32 h-32 md:w-48 md:h-48 rounded-full bg-[#EF4444] text-white overflow-hidden shrink-0 hover:scale-105 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]"
-          >
-            <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]"></div>
-            <div className="relative z-10 flex flex-col items-center gap-2 group-hover:text-black transition-colors duration-500">
-              <span className="font-bold uppercase tracking-widest text-sm md:text-base">Hablemos</span>
-              <ArrowRight className="w-8 h-8 md:w-12 md:h-12 -rotate-45 group-hover:rotate-0 transition-transform duration-500" />
-            </div>
-          </a>
-        </div>
+
 
         {/* Middle Section: Links Grid */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 py-12 border-t border-white/10">
