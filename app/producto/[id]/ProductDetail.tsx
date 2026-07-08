@@ -5,7 +5,6 @@ import Image from 'next/image';
 import { Product } from '@/lib/catalog';
 import { useCart } from '@/components/CartContext';
 import { useToast } from '@/components/ToastContext';
-import { Heart, Maximize2, Minus, Plus, Gift, CheckCircle2, Sparkles, PartyPopper } from 'lucide-react';
 
 export function ProductDetail({ product }: { product: Product }) {
   const [quantity, setQuantity] = useState(1);
@@ -21,99 +20,81 @@ export function ProductDetail({ product }: { product: Product }) {
   };
 
   return (
-    <div className="flex flex-col">
-      <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
-        {/* Left: Product Image */}
-        <div className="w-full lg:w-1/2">
-          <div className="sticky top-24">
-            <div className="relative aspect-square bg-[#F9FAFB] border border-[#111827]/5 rounded-3xl flex items-center justify-center p-8 group overflow-hidden">
-              <div className="absolute top-6 left-6 flex flex-col gap-2 z-10">
-                {!product.inStock ? (
-                  <div className="bg-gray-800 text-white text-[12px] font-bold px-4 py-2 rounded-full shadow-sm self-start uppercase tracking-wider">
-                    Agotado
-                  </div>
-                ) : (
-                  <>
-                    {product.originalPrice && (
-                      <div className="bg-[#111827] text-white text-[13px] font-bold px-4 py-1.5 rounded-full shadow-sm flex items-center gap-1">
-                        <Sparkles className="w-3.5 h-3.5" />
-                        Oferta Especial
-                      </div>
-                    )}
-                    <div className="bg-[#991B1B] text-white text-[13px] font-bold px-4 py-1.5 rounded-full shadow-sm self-start flex items-center gap-1">
-                      <Gift className="w-3.5 h-3.5" />
-                      Premium Box
-                    </div>
-                  </>
-                )}
-              </div>
-              <button className="absolute bottom-6 left-6 w-12 h-12 bg-white shadow-lg border border-gray-100 rounded-full flex items-center justify-center text-gray-500 hover:text-black hover:scale-110 transition-all z-10">
-                <Maximize2 className="w-5 h-5" />
-              </button>
-              
-              {/* Decoración de fondo */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+    <div className="flex flex-col font-sans pt-32 pb-24 selection:bg-red-500 selection:text-white">
+      
+      {/* Title Section (Massive) */}
+      <div className="w-full text-center mb-16">
+        <h1 className="text-[12vw] font-black leading-[0.85] tracking-tighter uppercase break-words px-4">
+          {product.name}
+        </h1>
+      </div>
 
-              <div className={`relative w-full h-full max-w-[500px] max-h-[500px] transition-transform duration-500 group-hover:scale-105 ${!product.inStock ? 'grayscale opacity-75' : ''}`}>
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  fill
-                  className="object-contain drop-shadow-2xl"
-                  referrerPolicy="no-referrer"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  priority
-                />
-              </div>
+      <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 w-full">
+        {/* Left: Product Image */}
+        <div className="w-full lg:w-3/5">
+          <div className="relative aspect-square bg-[#F3F4F6] rounded-[3rem] flex items-center justify-center p-8 overflow-hidden group">
+            
+            {/* Status badges Brutalist style */}
+            <div className="absolute top-8 left-8 flex flex-col gap-4 z-10">
+              {!product.inStock ? (
+                <div className="bg-black text-white text-xl font-black px-6 py-3 rounded-full uppercase tracking-widest border-2 border-transparent">
+                  AGOTADO
+                </div>
+              ) : (
+                <>
+                  {product.originalPrice && (
+                    <div className="bg-[#EF4444] text-white text-xl font-black px-6 py-3 rounded-full uppercase tracking-widest">
+                      OFERTA
+                    </div>
+                  )}
+                  <div className="bg-black text-white text-xl font-black px-6 py-3 rounded-full uppercase tracking-widest">
+                    PREMIUM
+                  </div>
+                </>
+              )}
+            </div>
+
+            <div className={`relative w-full h-full max-w-[600px] max-h-[600px] transition-transform duration-1000 group-hover:scale-105 ${!product.inStock ? 'grayscale opacity-50' : ''}`}>
+              <Image
+                src={product.image}
+                alt={product.name}
+                fill
+                className="object-contain"
+                sizes="(max-width: 1024px) 100vw, 60vw"
+                priority
+              />
             </div>
           </div>
         </div>
 
-        {/* Right: Product Info & Landing Copy */}
-        <div className="w-full lg:w-1/2 flex flex-col pt-4 lg:pt-8">
+        {/* Right: Product Info & Brutalist Action */}
+        <div className="w-full lg:w-2/5 flex flex-col justify-center">
           
-          {/* Ideal For Badges */}
-          {product.idealFor && product.idealFor.length > 0 && (
-            <div className="flex flex-wrap gap-2 mb-4">
-              {product.idealFor.map((ideal, idx) => (
-                <span key={idx} className="inline-flex items-center gap-1.5 px-3 py-1 bg-yellow-50 text-yellow-800 text-[13px] font-bold rounded-full border border-yellow-200">
-                  <PartyPopper className="w-3.5 h-3.5" />
-                  {ideal}
-                </span>
-              ))}
-            </div>
-          )}
-
-          <h1 className="text-3xl lg:text-5xl font-black text-gray-900 leading-tight mb-4 tracking-tight">
-            {product.name}
-          </h1>
-
-          <div className="flex items-end gap-4 mb-8">
-            <p className="text-4xl lg:text-5xl font-black text-[#991B1B]">
-              S/ {product.price.toFixed(2)}
+          <div className="flex items-end gap-6 mb-12 border-b-4 border-black pb-8">
+            <p className="text-7xl lg:text-8xl font-black text-black tracking-tighter">
+              S/{product.price.toFixed(0)}
             </p>
             {product.originalPrice && (
-              <p className="text-xl text-gray-400 line-through mb-1 font-medium">
-                S/ {product.originalPrice.toFixed(2)}
+              <p className="text-3xl text-gray-400 line-through font-black pb-2">
+                S/{product.originalPrice.toFixed(0)}
               </p>
             )}
           </div>
 
-          <p className="text-lg text-gray-600 leading-relaxed mb-10 font-medium">
+          <p className="text-2xl text-gray-600 leading-relaxed mb-12 font-medium">
             {product.description}
           </p>
 
           {/* Qué Incluye Section */}
           {product.contents && product.contents.length > 0 && (
-            <div className="mb-10 bg-[#F9FAFB] border border-gray-100 p-6 rounded-2xl">
-              <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-                <Gift className="w-5 h-5 text-[#991B1B]" />
-                ¿Qué incluye esta experiencia?
+            <div className="mb-16">
+              <h3 className="text-3xl font-black text-black mb-6 uppercase tracking-tight">
+                INCLUYE:
               </h3>
-              <ul className="space-y-3">
+              <ul className="space-y-4">
                 {product.contents.map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-gray-700 font-medium">
-                    <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
+                  <li key={idx} className="flex items-start gap-4 text-gray-800 text-xl font-bold uppercase tracking-wide">
+                    <span className="text-[#EF4444] shrink-0 mt-1">✦</span>
                     <span>{item}</span>
                   </li>
                 ))}
@@ -122,59 +103,44 @@ export function ProductDetail({ product }: { product: Product }) {
           )}
 
           {/* Add to Cart Actions */}
-          <div className="flex flex-col sm:flex-row items-center gap-4 mb-8 bg-white p-2 rounded-2xl border border-gray-200 shadow-sm">
-            <div className={`flex items-center h-14 bg-[#F9FAFB] rounded-xl px-2 ${!product.inStock ? 'opacity-50' : ''}`}>
+          <div className="flex flex-col gap-6">
+            <div className={`flex items-center h-20 bg-[#F3F4F6] rounded-full px-4 border-2 border-transparent ${!product.inStock ? 'opacity-50' : ''}`}>
               <button 
                 onClick={() => setQuantity(Math.max(1, quantity - 1))}
                 disabled={!product.inStock}
-                className="w-12 h-10 flex items-center justify-center text-gray-500 hover:text-black hover:bg-white rounded-lg transition-all disabled:cursor-not-allowed"
+                data-cursor="button"
+                className="w-16 h-16 flex items-center justify-center text-black font-black text-3xl hover:bg-white rounded-full transition-all disabled:cursor-not-allowed"
               >
-                <Minus className="w-5 h-5" />
+                -
               </button>
               <input 
                 type="number"
                 value={quantity}
                 readOnly
-                className="w-12 text-center font-bold text-lg text-gray-900 outline-none bg-transparent"
+                className="flex-1 text-center font-black text-3xl text-black outline-none bg-transparent"
               />
               <button 
                 onClick={() => setQuantity(quantity + 1)}
                 disabled={!product.inStock}
-                className="w-12 h-10 flex items-center justify-center text-gray-500 hover:text-black hover:bg-white rounded-lg transition-all disabled:cursor-not-allowed"
+                data-cursor="button"
+                className="w-16 h-16 flex items-center justify-center text-black font-black text-3xl hover:bg-white rounded-full transition-all disabled:cursor-not-allowed"
               >
-                <Plus className="w-5 h-5" />
+                +
               </button>
             </div>
             
             <button 
               onClick={handleAddToCart}
               disabled={!product.inStock}
-              className={`flex-1 h-14 font-black text-lg rounded-xl transition-all flex items-center justify-center gap-2 ${
+              data-cursor="link"
+              className={`w-full h-24 font-black text-2xl md:text-3xl rounded-full transition-all flex items-center justify-center gap-4 uppercase tracking-widest ${
                 product.inStock 
-                  ? 'bg-[#111827] hover:bg-[#991B1B] text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5' 
+                  ? 'bg-black hover:bg-[#EF4444] text-white' 
                   : 'bg-gray-200 text-gray-500 cursor-not-allowed'
               }`}
             >
-              <Gift className="w-5 h-5" />
-              {product.inStock ? '¡LO QUIERO!' : 'AGOTADO'}
+              {product.inStock ? 'Agregar al Carrito' : 'Agotado'}
             </button>
-          </div>
-
-          <button className="flex items-center justify-center gap-2 text-gray-500 hover:text-[#991B1B] transition-colors font-medium w-full sm:w-auto mb-10">
-            <Heart className="w-5 h-5" />
-            Guardar para otra ocasión
-          </button>
-
-          {/* Social Proof / Shipping Info */}
-          <div className="grid grid-cols-2 gap-4 pt-8 border-t border-gray-100">
-            <div className="flex flex-col gap-1">
-              <span className="text-[13px] text-gray-500 font-medium">📦 Envío Seguro</span>
-              <span className="text-[14px] font-bold text-gray-900">A todo el Perú</span>
-            </div>
-            <div className="flex flex-col gap-1">
-              <span className="text-[13px] text-gray-500 font-medium">✨ Calidad</span>
-              <span className="text-[14px] font-bold text-gray-900">100% Originales</span>
-            </div>
           </div>
 
         </div>

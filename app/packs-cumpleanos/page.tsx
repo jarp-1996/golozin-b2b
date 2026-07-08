@@ -10,55 +10,50 @@ export default async function PacksCumpleanosPage() {
   const packs = allProducts.filter(p => ['pack-sorpresitas', 'mesa-cumpleanera'].includes(p.id));
 
   return (
-    <div className="min-h-screen flex flex-col font-sans bg-[#FDFCFB]">
-      <Suspense fallback={<div className="h-[80px] bg-white border-b border-gray-100"></div>}>
+    <div className="min-h-screen flex flex-col font-sans bg-black text-white selection:bg-red-500 selection:text-white">
+      <Suspense fallback={<div className="h-[100px] bg-black"></div>}>
         <Header />
       </Suspense>
 
       <main className="flex-1 w-full">
         {/* Hero Section */}
-        <section className="relative w-full bg-[#111827] py-20 md:py-32 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-pink-900/20 via-black to-[#111827] z-0"></div>
-          <div className="max-w-[1200px] mx-auto px-6 relative z-10 text-center">
-            <h1 className="text-5xl md:text-7xl font-black text-white tracking-tight mb-6">
-              Packs <span className="text-pink-500">Cumpleaños</span>
+        <section className="relative w-full pt-48 pb-24 overflow-hidden border-b border-white/20">
+          <div className="w-full px-6 md:px-12 max-w-[1600px] mx-auto relative z-10 text-center">
+            <h1 className="text-[12vw] font-black leading-[0.85] tracking-tighter uppercase break-words">
+              PACKS <br/> <span className="text-[#EF4444]">CUMPLEAÑOS</span>
             </h1>
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto font-light leading-relaxed">
-              Organizar la fiesta nunca fue tan fácil. Surtidos perfectos para piñatas, sorpresitas y mesas espectaculares.
+            <p className="text-2xl text-gray-400 max-w-2xl mx-auto font-light leading-relaxed mt-12 uppercase tracking-widest">
+              Organizar la fiesta nunca fue tan fácil y épico.
             </p>
           </div>
         </section>
 
-        {/* Product Grid */}
-        <section className="py-24">
-          <div className="max-w-[1000px] mx-auto px-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              {packs.map(pack => (
-                <div key={pack.id} className="group flex flex-col bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100">
-                  <Link href={`/producto/${pack.id}`} className="block relative aspect-[4/3] overflow-hidden bg-gray-50">
-                    <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors z-10"></div>
-                    <Image 
-                      src={pack.image} 
-                      alt={pack.name} 
-                      fill 
-                      className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                    />
-                  </Link>
-                  <div className="p-8 flex flex-col flex-1">
-                    <h3 className="text-3xl font-black text-gray-900 mb-3">{pack.name}</h3>
-                    <p className="text-gray-500 mb-8 flex-1 text-base leading-relaxed">{pack.description}</p>
-                    <div className="flex items-center justify-between mt-auto pt-6 border-t border-gray-100">
-                      <span className="text-3xl font-black text-pink-600">S/ {pack.price.toFixed(2)}</span>
-                      <Link 
-                        href={`/producto/${pack.id}`}
-                        className="bg-gray-900 text-white px-8 py-3 rounded-xl font-bold text-sm hover:bg-pink-600 transition-colors"
-                      >
-                        Ver detalles
-                      </Link>
+        {/* Product Grid (Asymmetric) */}
+        <section className="py-24 md:py-48">
+          <div className="w-full px-6 md:px-12 max-w-[1600px] mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-x-12 md:gap-y-32">
+              {packs.map((pack, index) => {
+                const colSpan = index === 0 ? "md:col-span-8" : "md:col-start-6 md:col-span-7 mt-24";
+                
+                return (
+                  <div key={pack.id} className={`${colSpan} group`}>
+                    <Link href={`/producto/${pack.id}`} data-cursor="product" className="block relative aspect-video bg-gray-900 overflow-hidden rounded-[2rem] mb-8">
+                      <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors z-10 duration-500"></div>
+                      <Image 
+                        src={pack.image} 
+                        alt={pack.name} 
+                        fill 
+                        className="object-cover group-hover:scale-105 transition-transform duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)]"
+                      />
+                    </Link>
+                    <h3 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-4">{pack.name}</h3>
+                    <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                      <p className="text-xl text-gray-400 max-w-xl">{pack.description}</p>
+                      <span className="text-4xl font-black text-[#EF4444]">S/ {pack.price.toFixed(2)}</span>
                     </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>
