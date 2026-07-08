@@ -102,7 +102,7 @@ export default async function Home() {
               <div className="md:col-start-7 md:col-span-6 group mt-12 md:mt-0">
                 <Link href="/producto/sabor-americano" data-cursor="product" className="block relative aspect-square bg-gray-200 overflow-hidden rounded-[2rem] mb-8">
                   <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors z-10"></div>
-                  <Image src="/images/mystery_box.png" alt="Sabor Americano" fill className="object-cover group-hover:scale-105 transition-transform duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)]" />
+                  <Image src="/images/premium_box_hero.png" alt="Sabor Americano" fill className="object-cover group-hover:scale-105 transition-transform duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)]" />
                 </Link>
                 <h3 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-4">Sabor Americano</h3>
                 <p className="text-xl text-gray-600 max-w-xl">Una selección de los chocolates y caramelos más virales de USA.</p>
@@ -112,7 +112,7 @@ export default async function Home() {
               <div className="md:col-span-10 md:col-start-2 group mt-12 md:mt-0 text-center">
                 <Link href="/producto/pack-sorpresitas" data-cursor="product" className="block relative aspect-[21/9] bg-gray-200 overflow-hidden rounded-[2rem] mb-8">
                   <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors z-10"></div>
-                  <Image src="/images/hero-banner.png" alt="Pack Sorpresitas" fill className="object-cover group-hover:scale-105 transition-transform duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)]" />
+                  <Image src="/images/peruvian_box.png" alt="Pack Sorpresitas" fill className="object-cover group-hover:scale-105 transition-transform duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)]" />
                 </Link>
                 <h3 className="text-4xl md:text-6xl font-black uppercase tracking-tight mb-4">Packs Cumpleaños</h3>
                 <p className="text-xl text-gray-600 max-w-2xl mx-auto">Resuelve las cajitas sorpresa de tus fiestas infantiles con un solo clic. Diseñados para compartir alegría.</p>
