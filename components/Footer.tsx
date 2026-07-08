@@ -51,12 +51,7 @@ export function Footer() {
           </div>
         </div>
         
-        {/* Massive Typography spanning full width */}
-        <div className="w-full text-center overflow-hidden flex items-end justify-center">
-          <h1 className="text-[22vw] font-black leading-[0.75] tracking-tighter uppercase text-white/90 select-none">
-            GOLOZIN
-          </h1>
-        </div>
+
       </div>
 
     </footer>
