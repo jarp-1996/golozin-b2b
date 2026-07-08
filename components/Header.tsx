@@ -47,9 +47,9 @@ export function Header() {
 
               {/* Boxes de Regalo Dropdown */}
               <div className="relative group h-[80px] flex items-center">
-                <span className="text-[14px] font-bold text-gray-700 hover:text-[#991B1B] uppercase tracking-wider cursor-pointer flex items-center gap-1 transition-colors">
+                <Link href="/boxes-de-regalo" className="text-[14px] font-bold text-gray-700 hover:text-[#991B1B] uppercase tracking-wider cursor-pointer flex items-center gap-1 transition-colors">
                   Boxes de Regalo <ChevronDown className="w-4 h-4" />
-                </span>
+                </Link>
                 <div className="absolute top-full left-1/2 -translate-x-1/2 w-72 bg-white text-gray-800 shadow-xl border-t-4 border-[#991B1B] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top translate-y-2 group-hover:translate-y-0 rounded-b-md">
                   <div className="flex flex-col py-2">
                     <Link href="/producto/antojos-peruanos" className="px-5 py-3 hover:bg-gray-50 flex items-center gap-3 transition-colors border-b border-gray-50">
@@ -79,9 +79,9 @@ export function Header() {
 
               {/* Packs Cumpleaños Dropdown */}
               <div className="relative group h-[80px] flex items-center">
-                <span className="text-[14px] font-bold text-gray-700 hover:text-[#991B1B] uppercase tracking-wider cursor-pointer flex items-center gap-1 transition-colors">
+                <Link href="/packs-cumpleanos" className="text-[14px] font-bold text-gray-700 hover:text-[#991B1B] uppercase tracking-wider cursor-pointer flex items-center gap-1 transition-colors">
                   Packs Cumpleaños <ChevronDown className="w-4 h-4" />
-                </span>
+                </Link>
                 <div className="absolute top-full left-1/2 -translate-x-1/2 w-64 bg-white text-gray-800 shadow-xl border-t-4 border-[#991B1B] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top translate-y-2 group-hover:translate-y-0 rounded-b-md">
                   <div className="flex flex-col py-2">
                     <Link href="/producto/pack-sorpresitas" className="px-5 py-3 hover:bg-gray-50 flex items-center gap-3 transition-colors border-b border-gray-50">
@@ -102,7 +102,7 @@ export function Header() {
                 </div>
               </div>
 
-              <Link href="/#corporativo" className="text-[14px] font-bold text-gray-700 hover:text-[#991B1B] uppercase tracking-wider transition-colors">
+              <Link href="/corporativo" className="text-[14px] font-bold text-gray-700 hover:text-[#991B1B] uppercase tracking-wider transition-colors">
                 Corporativo
               </Link>
             </nav>
