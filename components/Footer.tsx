@@ -8,55 +8,77 @@ const WA_URL = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent('Hola, me g
 
 export function Footer() {
   return (
-    <>
-      <footer className="bg-black text-white pt-24 pb-12 overflow-hidden border-t border-white/20">
-        <div className="w-full px-6 md:px-12 flex flex-col md:flex-row justify-between items-start md:items-end gap-16 mb-24">
+    <footer className="bg-[#0a0a0a] text-white pt-32 pb-12 overflow-hidden border-t border-white/10 flex flex-col justify-between relative z-10">
+      
+      <div className="w-full px-6 md:px-12 max-w-[1800px] mx-auto">
+        {/* Top Section: CTA (Gidex style) */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-12 mb-24 md:mb-40">
+          <h2 className="text-5xl md:text-[7vw] font-black uppercase tracking-tighter leading-[0.9] max-w-4xl">
+            TIENES UNA <br/> 
+            <span className="text-gray-500">IDEA EN MENTE?</span>
+          </h2>
           
-          <div className="flex flex-col gap-6 w-full md:w-1/2">
-            <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tight leading-none">
-              ¿Listo para <br/> sorprender?
-            </h2>
-            <a
-              href={WA_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-cursor="button"
-              className="inline-flex items-center gap-4 text-2xl font-bold uppercase tracking-widest hover:text-[#EF4444] transition-colors w-fit group"
-            >
-              Hablemos <ArrowRight className="w-8 h-8 group-hover:translate-x-2 transition-transform" />
-            </a>
-          </div>
-
-          <div className="flex flex-col md:flex-row gap-12 md:gap-24 w-full md:w-auto">
-            <div className="flex flex-col gap-4">
-              <span className="text-gray-500 font-bold uppercase tracking-widest text-sm mb-2">Navegación</span>
-              <Link href="/boxes-de-regalo" className="text-xl font-bold uppercase hover:text-[#EF4444] transition-colors">Boxes</Link>
-              <Link href="/packs-cumpleanos" className="text-xl font-bold uppercase hover:text-[#EF4444] transition-colors">Cumpleaños</Link>
-              <Link href="/corporativo" className="text-xl font-bold uppercase hover:text-[#EF4444] transition-colors">Corporativo</Link>
+          <a
+            href={WA_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-cursor="button"
+            className="group relative flex items-center justify-center w-32 h-32 md:w-48 md:h-48 rounded-full bg-[#EF4444] text-white overflow-hidden shrink-0 hover:scale-105 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]"
+          >
+            <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]"></div>
+            <div className="relative z-10 flex flex-col items-center gap-2 group-hover:text-black transition-colors duration-500">
+              <span className="font-bold uppercase tracking-widest text-sm md:text-base">Hablemos</span>
+              <ArrowRight className="w-8 h-8 md:w-12 md:h-12 -rotate-45 group-hover:rotate-0 transition-transform duration-500" />
             </div>
-            <div className="flex flex-col gap-4">
-              <span className="text-gray-500 font-bold uppercase tracking-widest text-sm mb-2">Social</span>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-xl font-bold uppercase hover:text-[#EF4444] transition-colors">Instagram</a>
-              <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" className="text-xl font-bold uppercase hover:text-[#EF4444] transition-colors">TikTok</a>
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-xl font-bold uppercase hover:text-[#EF4444] transition-colors">Facebook</a>
-            </div>
-          </div>
+          </a>
         </div>
 
-        <div className="w-full px-6 md:px-12 flex flex-col items-center">
-          <div className="w-full border-t border-white/20 pt-8 pb-12 flex flex-col md:flex-row justify-between items-center gap-4 text-sm font-bold uppercase tracking-widest text-gray-500">
-            <span>© {new Date().getFullYear()} GOLOZIN</span>
-            <div className="flex gap-8">
-              <Link href="/terminos" className="hover:text-white transition-colors">Términos</Link>
-              <Link href="/privacidad" className="hover:text-white transition-colors">Privacidad</Link>
-            </div>
-          </div>
+        {/* Middle Section: Links Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 py-12 border-t border-white/10">
           
-          <h1 className="text-[18vw] font-black leading-[0.75] tracking-tighter uppercase text-center w-full">
+          <div className="col-span-1 md:col-span-2">
+            <h3 className="text-2xl font-black uppercase tracking-tight mb-6">GOLOZIN</h3>
+            <p className="text-gray-400 max-w-sm text-lg font-light leading-relaxed">
+              Elevando el estándar de los regalos corporativos y las sorpresas personales en todo el Perú.
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-6">
+            <span className="text-gray-600 font-bold uppercase tracking-widest text-xs mb-2">Navegación</span>
+            <Link href="/" className="text-lg font-medium uppercase hover:text-[#EF4444] hover:translate-x-2 transition-all w-fit">Inicio</Link>
+            <Link href="/boxes-de-regalo" className="text-lg font-medium uppercase hover:text-[#EF4444] hover:translate-x-2 transition-all w-fit">Boxes de Regalo</Link>
+            <Link href="/packs-cumpleanos" className="text-lg font-medium uppercase hover:text-[#EF4444] hover:translate-x-2 transition-all w-fit">Packs Cumpleaños</Link>
+            <Link href="/corporativo" className="text-lg font-medium uppercase hover:text-[#EF4444] hover:translate-x-2 transition-all w-fit">B2B Corporativo</Link>
+          </div>
+
+          <div className="flex flex-col gap-6">
+            <span className="text-gray-600 font-bold uppercase tracking-widest text-xs mb-2">Redes Sociales</span>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-lg font-medium uppercase hover:text-[#EF4444] hover:translate-x-2 transition-all w-fit">Instagram</a>
+            <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" className="text-lg font-medium uppercase hover:text-[#EF4444] hover:translate-x-2 transition-all w-fit">TikTok</a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-lg font-medium uppercase hover:text-[#EF4444] hover:translate-x-2 transition-all w-fit">Facebook</a>
+          </div>
+
+        </div>
+      </div>
+
+      {/* Bottom Section: Massive Brand Name & Copyright */}
+      <div className="w-full px-6 md:px-12 mt-12 flex flex-col">
+        <div className="w-full flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-bold uppercase tracking-widest text-gray-600 mb-8 px-4">
+          <span>© {new Date().getFullYear()} GOLOZIN TODOS LOS DERECHOS RESERVADOS</span>
+          <div className="flex gap-8">
+            <Link href="/terminos" className="hover:text-white transition-colors">Términos</Link>
+            <Link href="/privacidad" className="hover:text-white transition-colors">Privacidad</Link>
+          </div>
+        </div>
+        
+        {/* Massive Typography spanning full width */}
+        <div className="w-full text-center overflow-hidden flex items-end justify-center">
+          <h1 className="text-[22vw] font-black leading-[0.75] tracking-tighter uppercase text-white/90 select-none">
             GOLOZIN
           </h1>
         </div>
-      </footer>
-    </>
+      </div>
+
+    </footer>
   );
 }
