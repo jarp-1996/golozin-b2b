@@ -1,9 +1,7 @@
 export function FeaturesStrip() {
   const titles = [
-    "Envíos a todo el Perú",
-    "Golosinas internacionales 🇺🇸",
-    "Golosinas peruanas 🇵🇪",
-    "Una nueva experiencia"
+    "Un pedacito de Perú en cada caja",
+    "Regalos que emocionan"
   ];
 
   return (

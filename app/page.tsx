@@ -29,7 +29,7 @@ export default async function Home() {
               
               <div className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center md:justify-start">
                 <Link 
-                  href="/tienda"
+                  href="/producto/pack-cumpleanos"
                   className="group relative flex items-center justify-center gap-2 bg-white text-black font-black py-4 px-10 rounded-xl text-lg transition-all shadow-xl hover:shadow-white/20 hover:bg-gray-100 hover:-translate-y-1"
                 >
                   <span className="relative z-10">¡Quiero mi Box Peruana!</span>
@@ -65,7 +65,7 @@ export default async function Home() {
         </section>
 
         {/* ── 3 Pilares ──────────────────────────────── */}
-        <section className="py-24 bg-[#F9FAFB] relative border-t border-gray-200">
+        <section id="experiencias" className="py-24 bg-[#F9FAFB] relative border-t border-gray-200">
           <div className="max-w-[1400px] mx-auto px-6 md:px-12">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4 tracking-tight">Nuestras Experiencias</h2>
@@ -87,7 +87,7 @@ export default async function Home() {
                   <p className="text-gray-600 text-base mb-6 leading-relaxed font-light">
                     Diseñado especialmente para llevar en la maleta. Las golosinas peruanas más icónicas en formatos prácticos para cruzar fronteras sin problemas.
                   </p>
-                  <Link href="/tienda" className="inline-flex items-center text-gray-900 font-bold hover:text-red-700 transition-colors group-hover:underline text-sm uppercase tracking-wider">
+                  <Link href="/producto/pack-cumpleanos" className="inline-flex items-center text-gray-900 font-bold hover:text-red-700 transition-colors group-hover:underline text-sm uppercase tracking-wider">
                     Ver contenido <span className="ml-2" aria-hidden="true">&rarr;</span>
                   </Link>
                 </div>
@@ -107,7 +107,7 @@ export default async function Home() {
                   <p className="text-gray-600 text-base mb-6 leading-relaxed font-light">
                     ¿Te gustan las sorpresas? Recibe una selección rotativa de dulces, galletas y chocolates peruanos. Cada caja es una nueva aventura de sabores.
                   </p>
-                  <Link href="/tienda" className="inline-flex items-center text-gray-900 font-bold hover:text-red-700 transition-colors group-hover:underline text-sm uppercase tracking-wider">
+                  <Link href="/producto/box-pinata" className="inline-flex items-center text-gray-900 font-bold hover:text-red-700 transition-colors group-hover:underline text-sm uppercase tracking-wider">
                     Quiero sorprenderme <span className="ml-2" aria-hidden="true">&rarr;</span>
                   </Link>
                 </div>
@@ -127,7 +127,7 @@ export default async function Home() {
                   <p className="text-gray-600 text-base mb-6 leading-relaxed font-light">
                     Resuelve las sorpresitas y bocaditos de tu fiesta con un solo clic. Packs surtidos diseñados para compartir la alegría con sabor a Perú.
                   </p>
-                  <Link href="/tienda" className="inline-flex items-center text-gray-900 font-bold hover:text-red-700 transition-colors group-hover:underline text-sm uppercase tracking-wider">
+                  <Link href="/producto/mega-pack-dulcero" className="inline-flex items-center text-gray-900 font-bold hover:text-red-700 transition-colors group-hover:underline text-sm uppercase tracking-wider">
                     Planear fiesta <span className="ml-2" aria-hidden="true">&rarr;</span>
                   </Link>
                 </div>
@@ -137,7 +137,7 @@ export default async function Home() {
         </section>
 
         {/* ── B2B Banner: Regalos Corporativos ──────────────────────────────── */}
-        <section className="relative w-full bg-[#111827] py-20 md:py-28 overflow-hidden">
+        <section id="corporativo" className="relative w-full bg-[#111827] py-20 md:py-28 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black z-0"></div>
           
           <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
@@ -146,7 +146,7 @@ export default async function Home() {
                 Regalos Corporativos para Empresas
               </span>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight mb-6 leading-[1.1]">
-                <span className="text-red-500">Perú</span> en una caja
+                <span className="text-red-500">Antojos peruanos</span><br /> en una caja
               </h2>
               <p className="text-gray-400 text-lg md:text-xl mb-10 max-w-xl mx-auto md:mx-0 leading-relaxed font-light">
                 Nuestra versión premium exclusiva para empresas e instituciones. El detalle perfecto para destacar en eventos culturales o sorprender a tu equipo con aguinaldos llenos de tradición y orgullo peruano.

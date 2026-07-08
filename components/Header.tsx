@@ -187,11 +187,12 @@ export function Header() {
           <nav className="w-full hidden md:block">
             <ul className="flex flex-wrap items-center justify-center text-white text-[14px] font-bold tracking-wider uppercase h-14 gap-10">
               
-              <li className="relative group h-full flex items-center">
-                <span className="cursor-pointer hover:text-[#1F2937] transition-colors flex items-center gap-1">
-                  Regalos por Ocasión
-                </span>
-                {/* Desactivado el dropdown de tienda porque ya no hay catálogo genérico, se navega por boxes */}
+              <li className="h-full flex items-center">
+                <Link href="/" className="hover:text-[#1F2937] transition-colors">Inicio</Link>
+              </li>
+
+              <li className="h-full flex items-center">
+                <Link href="/#experiencias" className="hover:text-[#1F2937] transition-colors">Nuestras Experiencias</Link>
               </li>
 
               <li className="relative group h-full flex items-center">
@@ -226,11 +227,7 @@ export function Header() {
               </li>
 
               <li className="h-full flex items-center">
-                <span className="text-gray-400 cursor-not-allowed uppercase">Arma tu Pack (Próximamente)</span>
-              </li>
-
-              <li className="h-full flex items-center">
-                <a href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? '51967171097'}?text=${encodeURIComponent('Hola, me gustaría cotizar regalos corporativos para mi empresa.')}`} target="_blank" rel="noopener noreferrer" className="hover:text-[#1F2937] transition-colors">Regalos Corporativos</a>
+                <Link href="/#corporativo" className="hover:text-[#1F2937] transition-colors">Corporativo</Link>
               </li>
 
             </ul>
