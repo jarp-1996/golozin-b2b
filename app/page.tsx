@@ -30,7 +30,7 @@ export default async function Home() {
               
               <div className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center md:justify-start">
                 <Link 
-                  href="/producto/pack-cumpleanos"
+                  href="/producto/antojos-peruanos"
                   className="group relative flex items-center justify-center gap-2 bg-red-700 text-white font-black py-4 px-10 rounded-xl text-lg transition-all shadow-xl hover:shadow-red-700/20 hover:bg-red-600 hover:-translate-y-1"
                 >
                   <span className="relative z-10">¡Quiero mi Box Peruana!</span>
@@ -76,15 +76,15 @@ export default async function Home() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent z-10"></div>
                   <div className="absolute w-64 h-64 bg-red-800 rounded-full blur-[80px] opacity-20 -top-10 -right-10"></div>
                   <div className="absolute bottom-6 left-6 z-20">
-                    <h3 className="text-2xl font-black text-white mb-2">Pack Viajero</h3>
+                    <h3 className="text-2xl font-black text-white mb-2">Antojos Peruanos</h3>
                     <span className="inline-block px-3 py-1 bg-red-700 text-white text-[10px] font-bold rounded-sm uppercase tracking-widest">Favorito</span>
                   </div>
                 </div>
                 <div className="p-8">
                   <p className="text-gray-600 text-base mb-6 leading-relaxed font-light">
-                    Diseñado especialmente para llevar en la maleta. Las golosinas peruanas más icónicas en formatos prácticos para cruzar fronteras sin problemas.
+                    Tus clásicos favoritos del Perú en una sola caja. Perfecta para matar el antojo o sorprender a quien está lejos con un pedacito de casa.
                   </p>
-                  <Link href="/producto/pack-cumpleanos" className="inline-flex items-center text-gray-900 font-bold hover:text-red-700 transition-colors group-hover:underline text-sm uppercase tracking-wider">
+                  <Link href="/producto/antojos-peruanos" className="inline-flex items-center text-gray-900 font-bold hover:text-red-700 transition-colors group-hover:underline text-sm uppercase tracking-wider">
                     Ver contenido <span className="ml-2" aria-hidden="true">&rarr;</span>
                   </Link>
                 </div>
@@ -96,16 +96,16 @@ export default async function Home() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent z-10"></div>
                   <div className="absolute w-64 h-64 bg-gray-600 rounded-full blur-[80px] opacity-20 -bottom-10 -left-10"></div>
                   <div className="absolute bottom-6 left-6 z-20">
-                    <h3 className="text-2xl font-black text-white mb-2">Mystery Boxes</h3>
-                    <span className="inline-block px-3 py-1 bg-gray-900 text-white text-[10px] font-bold rounded-sm uppercase tracking-widest">Sorpresa</span>
+                    <h3 className="text-2xl font-black text-white mb-2">Sabor Americano</h3>
+                    <span className="inline-block px-3 py-1 bg-gray-900 text-white text-[10px] font-bold rounded-sm uppercase tracking-widest">Top Ventas</span>
                   </div>
                 </div>
                 <div className="p-8">
                   <p className="text-gray-600 text-base mb-6 leading-relaxed font-light">
-                    ¿Te gustan las sorpresas? Recibe una selección rotativa de dulces, galletas y chocolates peruanos. Cada caja es una nueva aventura de sabores.
+                    Una selección de los chocolates y caramelos más virales de USA. Cada caja es una explosión de sabores internacionales de primera.
                   </p>
-                  <Link href="/producto/box-pinata" className="inline-flex items-center text-gray-900 font-bold hover:text-red-700 transition-colors group-hover:underline text-sm uppercase tracking-wider">
-                    Quiero sorprenderme <span className="ml-2" aria-hidden="true">&rarr;</span>
+                  <Link href="/producto/sabor-americano" className="inline-flex items-center text-gray-900 font-bold hover:text-red-700 transition-colors group-hover:underline text-sm uppercase tracking-wider">
+                    Quiero probarlos <span className="ml-2" aria-hidden="true">&rarr;</span>
                   </Link>
                 </div>
               </div>
@@ -116,15 +116,15 @@ export default async function Home() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent z-10"></div>
                   <div className="absolute w-64 h-64 bg-red-900 rounded-full blur-[80px] opacity-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
                   <div className="absolute bottom-6 left-6 z-20">
-                    <h3 className="text-2xl font-black text-white mb-2">Packs Cumpleañeros</h3>
+                    <h3 className="text-2xl font-black text-white mb-2">Pack Sorpresitas</h3>
                     <span className="inline-block px-3 py-1 bg-red-800 text-white text-[10px] font-bold rounded-sm uppercase tracking-widest">Para fiestas</span>
                   </div>
                 </div>
                 <div className="p-8">
                   <p className="text-gray-600 text-base mb-6 leading-relaxed font-light">
-                    Resuelve las sorpresitas y bocaditos de tu fiesta con un solo clic. Packs surtidos diseñados para compartir la alegría con sabor a Perú.
+                    Resuelve las cajitas sorpresa de tus fiestas infantiles con un solo clic. Packs surtidos diseñados para compartir la alegría en los cumpleaños.
                   </p>
-                  <Link href="/producto/mega-pack-dulcero" className="inline-flex items-center text-gray-900 font-bold hover:text-red-700 transition-colors group-hover:underline text-sm uppercase tracking-wider">
+                  <Link href="/producto/pack-sorpresitas" className="inline-flex items-center text-gray-900 font-bold hover:text-red-700 transition-colors group-hover:underline text-sm uppercase tracking-wider">
                     Planear fiesta <span className="ml-2" aria-hidden="true">&rarr;</span>
                   </Link>
                 </div>

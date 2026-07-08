@@ -155,43 +155,69 @@ export const catalog: Product[] = [
 
 const B2C_BOXES: Product[] = [
   {
-    id: 'pack-cumpleanos',
-    name: 'Pack Cumpleaños',
+    id: 'antojos-peruanos',
+    name: 'Antojos Peruanos',
     brand: "GOLOZIN BOX",
-    price: 45.00,
+    price: 65.00,
     image: "/images/peruvian_box.png",
     category: "Cajas",
     segment: "fiestas",
     inStock: true,
-    description: '¡El kit perfecto para que el cumpleañero sonría a más no poder! Incluye chocolates, gomitas y chupetines para celebrar a lo grande.',
-    idealFor: ['La sorpresa', 'La mesa de bocaditos'],
-    contents: ['Selección de chocolates', 'Gomitas surtidas', 'Chupetines frutales', 'Mix de galletas']
+    description: 'Tus clásicos favoritos del Perú en una sola caja. Perfecta para matar el antojo o sorprender a quien está lejos.',
+    idealFor: ['Regalo Especial', 'Para compartir'],
+    contents: ['Doña Pepa', 'Sublime', 'Cua Cua', 'Inca Kola']
   },
   {
-    id: 'box-pinata',
-    name: 'Box Piñata',
+    id: 'sabor-americano',
+    name: 'Sabor Americano',
     brand: "GOLOZIN BOX",
     price: 85.00,
     image: "/images/international_box.png",
     category: "Cajas",
     segment: "fiestas",
     inStock: true,
-    description: '¿Listo para romper la piñata? Este box viene recargado de caramelos, chicles y galletas variadas para que a ningún invitado le falte su dulce.',
-    idealFor: ['Rellenar la piñata', 'Compartir con amigos'],
-    contents: ['Mix de caramelos surtidos', 'Chicles bomba', 'Galletas variadas', 'Snacks salados']
+    description: 'Una selección de los chocolates y caramelos más virales de USA.',
+    idealFor: ['Amantes del dulce', 'Regalo premium'],
+    contents: ['Snickers', 'Skittles', 'M&Ms', 'Reese\'s']
   },
   {
-    id: 'mega-pack-dulcero',
-    name: 'Mega Pack Dulcero',
+    id: 'chocolates-peruanos',
+    name: 'Chocolates Peruanos',
+    brand: "GOLOZIN BOX",
+    price: 55.00,
+    image: "/images/premium_box.png",
+    category: "Cajas",
+    segment: "fiestas",
+    inStock: true,
+    description: 'La tradición chocolatera del Perú en un empaque de lujo. Ideal para los más exigentes.',
+    idealFor: ['Regalo romántico', 'Para mamá/papá'],
+    contents: ['Vizzio', 'Chocolates La Ibérica', 'Bombones Monfer']
+  },
+  {
+    id: 'pack-sorpresitas',
+    name: 'Pack Sorpresitas',
+    brand: "GOLOZIN BOX",
+    price: 45.00,
+    image: "/images/peruvian_box.png",
+    category: "Cajas",
+    segment: "fiestas",
+    inStock: true,
+    description: 'Resuelve las cajitas sorpresa de tus fiestas infantiles al instante con este surtido.',
+    idealFor: ['Fiestas infantiles', 'Piñatas'],
+    contents: ['Chupetines', 'Caramelos', 'Galletitas', 'Gomitas']
+  },
+  {
+    id: 'mesa-cumpleanera',
+    name: 'Mesa Cumpleañera',
     brand: "GOLOZIN BOX",
     price: 150.00,
     image: "/images/premium_box.png",
     category: "Cajas",
     segment: "fiestas",
     inStock: true,
-    description: '¡La madre de todos los packs! Ideal para eventos grandes o fiestas infantiles donde el azúcar es la estrella. Surtido premium que no te decepcionará.',
-    idealFor: ['Eventos grandes', 'Regalo premium'],
-    contents: ['Selección de chocolates premium', 'Mix golosinas peruanas', '1 Inca Kola en lata', 'Snacks importados']
+    description: 'Todo lo que necesitas para armar la mesa de dulces más espectacular.',
+    idealFor: ['Cumpleaños', 'Eventos'],
+    contents: ['Golosinas premium', 'Chocolates surtidos', 'Bebidas', 'Snacks salados']
   }
 ];
 
