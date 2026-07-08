@@ -13,24 +13,25 @@ export default async function Home() {
       
       <main className="flex-1 w-full bg-white">
         {/* ── Hero Banner ──────────────────────────────── */}
-        <section id="inicio" className="relative w-full bg-gradient-to-br from-[#111827] via-black to-[#991B1B] pt-16 pb-20 md:pt-24 md:pb-32 overflow-hidden">
-          <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-[0.03] mix-blend-overlay"></div>
+        <section id="inicio" className="relative w-full bg-[#111827] pt-16 pb-20 md:pt-24 md:pb-32 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black z-0"></div>
+          <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-[0.03] mix-blend-overlay z-0"></div>
+          
           <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row items-center justify-between px-6 md:px-12 gap-12 relative z-10">
-            <div className="w-full md:w-1/2 flex flex-col justify-center text-center md:text-left">
-              <span className="inline-block self-center md:self-start py-1.5 px-5 rounded-full bg-white/10 border border-white/20 text-white text-xs md:text-sm font-bold tracking-widest mb-6 uppercase">
+            <div className="w-full md:w-1/2 flex flex-col justify-center text-center md:text-left pt-4 md:pt-10">
+              <span className="inline-block self-center md:self-start py-1.5 px-5 rounded-full bg-white/5 border border-white/10 text-gray-300 text-xs md:text-sm font-bold tracking-widest mb-6 uppercase">
                 Edición Limitada
               </span>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tight mb-6 leading-[1.1]">
-                Un pedacito de <span className="text-red-500">Perú</span>,<br className="hidden md:block"/> donde quiera que vayas.
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tight mb-10 leading-[1.1]">
+                <span className="text-red-500">Antojos peruanos</span><br /> en una caja
               </h1>
-              <p className="text-gray-300 text-lg md:text-xl mb-10 max-w-xl mx-auto md:mx-0 leading-relaxed font-light">
-                El regalo perfecto para llevar en la maleta. Conecta con los sabores de tu infancia o sorprende a ese peruano que está lejos con nuestras boxes listas para viajar.
-              </p>
+              
+              {/* Sin texto descriptivo según solicitud del usuario */}
               
               <div className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center md:justify-start">
                 <Link 
                   href="/producto/pack-cumpleanos"
-                  className="group relative flex items-center justify-center gap-2 bg-white text-black font-black py-4 px-10 rounded-xl text-lg transition-all shadow-xl hover:shadow-white/20 hover:bg-gray-100 hover:-translate-y-1"
+                  className="group relative flex items-center justify-center gap-2 bg-red-700 text-white font-black py-4 px-10 rounded-xl text-lg transition-all shadow-xl hover:shadow-red-700/20 hover:bg-red-600 hover:-translate-y-1"
                 >
                   <span className="relative z-10">¡Quiero mi Box Peruana!</span>
                 </Link>
@@ -46,14 +47,10 @@ export default async function Home() {
             </div>
 
             <div className="w-full md:w-1/2 relative flex justify-center mt-8 md:mt-0">
-              <div className="relative aspect-square md:aspect-[4/3] w-full max-w-[550px] rounded-[2rem] overflow-hidden shadow-[0_20px_50px_rgba(153,27,27,0.3)] border border-white/10 transition-transform duration-700 hover:scale-[1.02]">
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10"></div>
-                <div className="absolute inset-0 bg-gray-900 flex items-center justify-center -z-10">
-                   <span className="text-gray-800 font-bold text-4xl">GOLOZIN</span>
-                </div>
+              <div className="relative aspect-square md:aspect-[4/3] w-full max-w-[550px] rounded-[2rem] overflow-hidden shadow-[0_0_40px_rgba(153,27,27,0.15)] border border-white/5 transition-transform duration-700 hover:scale-[1.02]">
                 <Image 
-                  src="/images/hero-banner.png" 
-                  alt="Boxes de Golosinas Peruanas" 
+                  src="/images/premium_box_hero.png" 
+                  alt="Antojos peruanos en una caja" 
                   fill 
                   className="object-cover object-center z-0"
                   priority
@@ -146,7 +143,7 @@ export default async function Home() {
                 Regalos Corporativos para Empresas
               </span>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight mb-6 leading-[1.1]">
-                <span className="text-red-500">Antojos peruanos</span><br /> en una caja
+                <span className="text-red-500">Regalos</span> Corporativos
               </h2>
               <p className="text-gray-400 text-lg md:text-xl mb-10 max-w-xl mx-auto md:mx-0 leading-relaxed font-light">
                 Nuestra versión premium exclusiva para empresas e instituciones. El detalle perfecto para destacar en eventos culturales o sorprender a tu equipo con aguinaldos llenos de tradición y orgullo peruano.
