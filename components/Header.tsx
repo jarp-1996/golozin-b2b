@@ -189,16 +189,9 @@ export function Header() {
               
               <li className="relative group h-full flex items-center">
                 <span className="cursor-pointer hover:text-[#1F2937] transition-colors flex items-center gap-1">
-                  Regalos por Ocasión <ChevronDown className="w-4 h-4 ml-0.5 opacity-80" strokeWidth={2.5} />
+                  Regalos por Ocasión
                 </span>
-                <div className="absolute top-full left-1/2 -translate-x-1/2 w-56 bg-white text-gray-800 shadow-xl border-t-4 border-[#1F2937] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top translate-y-2 group-hover:translate-y-0 rounded-b-md">
-                  <div className="flex flex-col py-3">
-                    <Link href="/tienda?filter=cumpleanos" className="px-5 py-2.5 hover:bg-gray-50 hover:text-[#1F2937] font-medium transition-colors text-[13px] tracking-normal capitalize">Cumpleaños</Link>
-                    <Link href="/tienda?filter=aniversario" className="px-5 py-2.5 hover:bg-gray-50 hover:text-[#1F2937] font-medium transition-colors text-[13px] tracking-normal capitalize">Aniversarios</Link>
-                    <Link href="/tienda?filter=agradecimiento" className="px-5 py-2.5 hover:bg-gray-50 hover:text-[#1F2937] font-medium transition-colors text-[13px] tracking-normal capitalize">Agradecimientos</Link>
-                    <Link href="/tienda?filter=ninos" className="px-5 py-2.5 hover:bg-gray-50 hover:text-[#1F2937] font-medium transition-colors text-[13px] tracking-normal capitalize">Día del Niño</Link>
-                  </div>
-                </div>
+                {/* Desactivado el dropdown de tienda porque ya no hay catálogo genérico, se navega por boxes */}
               </li>
 
               <li className="relative group h-full flex items-center">
@@ -207,25 +200,25 @@ export function Header() {
                 </span>
                 <div className="absolute top-full left-1/2 -translate-x-1/2 w-64 bg-white text-gray-800 shadow-xl border-t-4 border-[#1F2937] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top translate-y-2 group-hover:translate-y-0 rounded-b-md">
                   <div className="flex flex-col py-3">
-                    <Link href="/producto/box-1?segment=fiestas" className="px-5 py-3 hover:bg-gray-50 flex items-center gap-3 transition-colors border-b border-gray-50">
+                    <Link href="/producto/pack-cumpleanos" className="px-5 py-3 hover:bg-gray-50 flex items-center gap-3 transition-colors border-b border-gray-50">
                       <div className="bg-[#991B1B] p-1.5 rounded-md"><Candy className="w-4 h-4 text-white" /></div>
                       <div>
-                        <span className="block text-[14px] font-bold text-[#991B1B] capitalize tracking-normal">Mystery Box</span>
-                        <span className="block text-[11px] text-gray-500 normal-case tracking-normal">Sorpresas dulces garantizadas</span>
+                        <span className="block text-[14px] font-bold text-[#991B1B] capitalize tracking-normal">Pack Cumpleaños</span>
+                        <span className="block text-[11px] text-gray-500 normal-case tracking-normal">La sorpresa perfecta</span>
                       </div>
                     </Link>
-                    <Link href="/producto/box-2?segment=fiestas" className="px-5 py-3 hover:bg-gray-50 flex items-center gap-3 transition-colors border-b border-gray-50">
+                    <Link href="/producto/box-pinata" className="px-5 py-3 hover:bg-gray-50 flex items-center gap-3 transition-colors border-b border-gray-50">
                       <div className="bg-[#1F2937] p-1.5 rounded-md"><Candy className="w-4 h-4 text-white" /></div>
                       <div>
-                        <span className="block text-[14px] font-bold text-[#1F2937] capitalize tracking-normal">Premium Box</span>
-                        <span className="block text-[11px] text-gray-500 normal-case tracking-normal">Chocolates americanos y europeos</span>
+                        <span className="block text-[14px] font-bold text-[#1F2937] capitalize tracking-normal">Box Piñata</span>
+                        <span className="block text-[11px] text-gray-500 normal-case tracking-normal">Alegra a todos tus invitados</span>
                       </div>
                     </Link>
-                    <Link href="/producto/box-3?segment=fiestas" className="px-5 py-3 hover:bg-gray-50 flex items-center gap-3 transition-colors">
+                    <Link href="/producto/mega-pack-dulcero" className="px-5 py-3 hover:bg-gray-50 flex items-center gap-3 transition-colors">
                       <div className="bg-orange-500 p-1.5 rounded-md"><Candy className="w-4 h-4 text-white" /></div>
                       <div>
-                        <span className="block text-[14px] font-bold text-orange-600 capitalize tracking-normal">Dulces Peruanos</span>
-                        <span className="block text-[11px] text-gray-500 normal-case tracking-normal">Tus marcas peruanas favoritas</span>
+                        <span className="block text-[14px] font-bold text-orange-600 capitalize tracking-normal">Mega Pack Dulcero</span>
+                        <span className="block text-[11px] text-gray-500 normal-case tracking-normal">Para eventos inolvidables</span>
                       </div>
                     </Link>
                   </div>
@@ -233,7 +226,7 @@ export function Header() {
               </li>
 
               <li className="h-full flex items-center">
-                <Link href="/tienda" className="hover:text-[#1F2937] transition-colors">Arma tu Pack</Link>
+                <span className="text-gray-400 cursor-not-allowed uppercase">Arma tu Pack (Próximamente)</span>
               </li>
 
               <li className="h-full flex items-center">

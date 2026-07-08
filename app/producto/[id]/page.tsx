@@ -111,7 +111,7 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
         <div className="text-[13px] text-gray-500 mb-2 flex items-center gap-2">
           <Link href="/" className="hover:text-black transition-colors">Inicio</Link>
           <span>/</span>
-          <Link href={`/tienda?category=${encodeURIComponent(product.category)}`} className="hover:text-black transition-colors">{product.category}</Link>
+          <span>{product.category}</span>
           <span>/</span>
           <span className="text-gray-900 font-medium">{product.name}</span>
         </div>
@@ -120,18 +120,6 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
         <div className="w-full">
           <ProductDetail product={productWithOriginalPrice} />
         </div>
-
-        {/* Productos Relacionados al fondo */}
-        {relatedProducts.length > 0 && (
-          <div className="mt-20 border-t border-gray-100 pt-16">
-            <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">Otras cajas que te encantarán</h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-[1000px] mx-auto">
-              {relatedProducts.map(p => (
-                <ProductCard key={p.id} product={{...p, originalPrice: p.price * 1.5}} />
-              ))}
-            </div>
-          </div>
-        )}
       </main>
 
       <Footer />
