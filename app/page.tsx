@@ -26,8 +26,8 @@ export default async function Home() {
               <div className="flex flex-col items-start">
                 <h1 className="text-[14vw] md:text-[8vw] lg:text-[9vw] font-black leading-[0.85] tracking-tighter uppercase max-w-full break-words">
                   <span className="text-[#EF4444]">ANTOJOS</span> <br />
-                  PERUANOS EN <br />
-                  <span className="text-[#EF4444]">BOXES.</span>
+                  PERUANOS <br />
+                  <span className="text-[#EF4444]">EN BOXES.</span>
                 </h1>
                 
                 <Link 
