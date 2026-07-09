@@ -39,7 +39,7 @@ export function ProductDetail({ product }: { product: Product }) {
           <div className="relative aspect-square bg-[#F3F4F6] rounded-[3rem] flex items-center justify-center p-8 overflow-hidden group">
             
             {/* Status badges Brutalist style */}
-            <div className="absolute top-8 left-8 flex flex-col gap-4 z-10">
+            <div className="absolute top-12 left-12 flex flex-col gap-4 z-10">
               {!product.inStock ? (
                 <div className="bg-black text-white text-xl font-black px-6 py-3 rounded-full uppercase tracking-widest border-2 border-transparent">
                   AGOTADO

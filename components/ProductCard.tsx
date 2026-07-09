@@ -189,7 +189,7 @@ export function ProductCard({
       {/* Imagen */}
       <Link href={`/producto/${product.id}?segment=${product.segment}`} className="relative aspect-square bg-white rounded-[1.5rem] mb-5 flex items-center justify-center overflow-hidden">
         {/* Badges */}
-        <div className="absolute top-2 left-2 flex flex-col gap-1 z-10">
+        <div className="absolute top-4 left-4 flex flex-col gap-2 z-10">
           {!product.inStock ? (
             <div className="bg-gray-800 text-white text-[9px] font-bold px-2 py-1 rounded-lg shadow-sm uppercase">Agotado</div>
           ) : (
@@ -206,7 +206,7 @@ export function ProductCard({
         {/* Favorito */}
         <button
           onClick={handleToggleFavorite}
-          className="absolute top-2 right-2 z-20 p-1.5 bg-white hover:bg-gray-50 rounded-full shadow border border-gray-100 text-gray-400 hover:text-[#1F2937] transition-colors md:opacity-0 group-hover:opacity-100 focus:opacity-100 opacity-100"
+          className="absolute top-4 right-4 z-20 p-2 bg-white hover:bg-gray-50 rounded-full shadow-md border border-gray-100 text-gray-400 hover:text-[#1F2937] transition-colors md:opacity-0 group-hover:opacity-100 focus:opacity-100 opacity-100"
         >
           <Heart className={`w-4 h-4 ${isFavorite ? 'fill-[#1F2937] text-[#1F2937]' : ''}`} />
         </button>
