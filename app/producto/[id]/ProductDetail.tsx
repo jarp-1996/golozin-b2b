@@ -41,13 +41,13 @@ export function ProductDetail({ product }: { product: Product }) {
             {/* Status badges Brutalist style */}
             <div className="absolute top-12 left-12 flex flex-col items-start gap-4 z-10">
               {!product.inStock ? (
-                <div className="bg-black text-white text-xl font-black px-6 py-3 rounded-full uppercase tracking-widest border-2 border-transparent flex items-center justify-center pl-[0.2em]">
+                <div className="bg-black text-white text-xl font-black px-6 py-3 rounded-full uppercase tracking-widest border-2 border-transparent text-center w-fit">
                   AGOTADO
                 </div>
               ) : (
                 <>
                   {product.originalPrice && (
-                    <div className="bg-[#EF4444] text-white text-xl font-black px-6 py-3 rounded-full uppercase tracking-widest flex items-center justify-center pl-[0.2em]">
+                    <div className="bg-[#EF4444] text-white text-xl font-black px-6 py-3 rounded-full uppercase tracking-widest text-center w-fit">
                       OFERTA
                     </div>
                   )}
