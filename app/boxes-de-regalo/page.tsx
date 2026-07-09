@@ -29,7 +29,7 @@ export default async function BoxesDeRegaloPage() {
         </section>
 
         {/* Product Grid (Asymmetric) */}
-        <section className="pt-12 pb-24 md:pt-16 md:pb-32">
+        <section className="pt-12 pb-12 md:pt-16 md:pb-16">
           <div className="w-full px-6 md:px-12 max-w-[1600px] mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-x-12 md:gap-y-32">
               {boxes.map((box, index) => {

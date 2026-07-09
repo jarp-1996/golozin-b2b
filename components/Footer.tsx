@@ -8,13 +8,12 @@ const WA_URL = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent('Hola, me g
 
 export function Footer() {
   return (
-    <footer className="bg-[#0a0a0a] text-white pt-16 pb-12 overflow-hidden border-t border-white/10 flex flex-col justify-between relative z-10">
+    <footer className="bg-[#0a0a0a] text-white py-12 overflow-hidden border-t border-white/10 flex flex-col justify-between relative z-10">
       
       <div className="w-full px-6 md:px-12 max-w-[1800px] mx-auto">
 
-
         {/* Middle Section: Links Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 py-12 border-t border-white/10">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           
           <div className="col-span-1 md:col-span-2">
             <h3 className="text-2xl font-black uppercase tracking-tight mb-6">GOLOZIN</h3>
