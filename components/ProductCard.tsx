@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { Product } from '@/lib/catalog';
 import { useCart } from './CartContext';
 import { useToast } from './ToastContext';
-import { Heart, ShoppingCart, Plus, Minus } from 'lucide-react';
+import { Heart, ShoppingCart, Plus, Minus, Check } from 'lucide-react';
 
 // WhatsApp SVG icon reutilizable
 function WhatsAppIcon({ className }: { className?: string }) {
@@ -62,6 +62,7 @@ export function ProductCard({
   const { showToast } = useToast();
   const [isFavorite, setIsFavorite] = useState(false);
   const [quantity, setQuantity] = useState(1);
+  const [isAdded, setIsAdded] = useState(false);
 
   const waNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? '51967171097';
   const units = detectPackUnits(product.name);
@@ -103,6 +104,8 @@ export function ProductCard({
     addToCart(product, quantity);
     showToast(`¡${quantity}x ${product.name} al carrito!`);
     setQuantity(1); // reiniciar cantidad después de agregar
+    setIsAdded(true);
+    setTimeout(() => setIsAdded(false), 800);
   };
 
   // ─── VISTA LISTA ────────────────────────────────────────────────────────────
@@ -161,10 +164,14 @@ export function ProductCard({
               </div>
               <button
                 onClick={(e) => { e.preventDefault(); handleAddToCart(e); }}
-                className="flex items-center justify-center gap-1.5 bg-[#1F2937] hover:bg-[#BE185D] text-white text-[13px] font-bold py-2 px-3 rounded-lg transition-all hover:scale-105 shadow-md whitespace-nowrap"
+                className={`flex items-center justify-center gap-1.5 text-white text-[13px] font-bold py-2 px-4 rounded-xl transition-all duration-300 transform active:scale-95 shadow-sm hover:shadow-md whitespace-nowrap ${
+                  isAdded 
+                    ? 'bg-[#10B981] hover:bg-[#059669] scale-[1.03]' 
+                    : 'bg-[#111111] hover:bg-[#EF4444] hover:scale-[1.03]'
+                }`}
               >
-                <ShoppingCart className="w-3 h-3" />
-                Añadir
+                {isAdded ? <Check className="w-3 h-3" /> : <ShoppingCart className="w-3 h-3" />}
+                {isAdded ? 'Añadido' : 'Añadir'}
               </button>
             </>
           ) : (
@@ -177,10 +184,10 @@ export function ProductCard({
 
   // ─── VISTA GRILLA ────────────────────────────────────────────────────────────
   return (
-    <div className={`bg-white font-inter flex flex-col h-full group p-2 md:p-4 relative rounded-xl border border-gray-200 hover:border-gray-300 hover:shadow-md transition-all duration-300 ${!product.inStock ? 'opacity-75' : ''}`}>
+    <div className={`bg-white font-inter flex flex-col h-full group p-4 relative rounded-[2rem] border-2 border-transparent hover:border-gray-100 hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] transition-all duration-500 ${!product.inStock ? 'opacity-75' : ''}`}>
 
       {/* Imagen */}
-      <Link href={`/producto/${product.id}?segment=${product.segment}`} className="relative aspect-square bg-white rounded-lg mb-4 flex items-center justify-center overflow-hidden">
+      <Link href={`/producto/${product.id}?segment=${product.segment}`} className="relative aspect-square bg-white rounded-[1.5rem] mb-5 flex items-center justify-center overflow-hidden">
         {/* Badges */}
         <div className="absolute top-2 left-2 flex flex-col gap-1 z-10">
           {!product.inStock ? (
@@ -253,10 +260,14 @@ export function ProductCard({
               {/* Botón Añadir */}
               <button
                 onClick={(e) => { e.preventDefault(); handleAddToCart(e); }}
-                className="w-full flex items-center justify-center gap-2 bg-[#1F2937] hover:bg-[#BE185D] text-white text-sm font-bold py-2.5 px-4 rounded-xl transition-all hover:scale-[1.02] shadow-md hover:shadow-[0_6px_20px_rgba(236,72,153,0.35)]"
+                className={`w-full flex items-center justify-center gap-2 text-sm font-bold py-3 px-4 rounded-xl transition-all duration-300 transform active:scale-95 shadow-sm hover:shadow-lg ${
+                  isAdded 
+                    ? 'bg-[#10B981] hover:bg-[#059669] text-white scale-[1.02]' 
+                    : 'bg-[#111111] hover:bg-[#EF4444] text-white hover:scale-[1.03]'
+                }`}
               >
-                <ShoppingCart className="w-4 h-4" />
-                Añadir al carrito
+                {isAdded ? <Check className="w-4 h-4" /> : <ShoppingCart className="w-4 h-4" />}
+                {isAdded ? 'Añadido' : 'Añadir al carrito'}
               </button>
             </>
           ) : (

@@ -5,9 +5,11 @@ import Image from 'next/image';
 import { Product } from '@/lib/catalog';
 import { useCart } from '@/components/CartContext';
 import { useToast } from '@/components/ToastContext';
+import { Check } from 'lucide-react';
 
 export function ProductDetail({ product }: { product: Product }) {
   const [quantity, setQuantity] = useState(1);
+  const [isAdded, setIsAdded] = useState(false);
   const { addToCart } = useCart();
   const { showToast } = useToast();
 
@@ -17,6 +19,8 @@ export function ProductDetail({ product }: { product: Product }) {
     }
     showToast(`¡${quantity}x ${product.name} agregado al carrito!`);
     setQuantity(1);
+    setIsAdded(true);
+    setTimeout(() => setIsAdded(false), 800);
   };
 
   return (
@@ -133,13 +137,16 @@ export function ProductDetail({ product }: { product: Product }) {
               onClick={handleAddToCart}
               disabled={!product.inStock}
               data-cursor="link"
-              className={`w-full h-24 font-black text-2xl md:text-3xl rounded-full transition-all flex items-center justify-center gap-4 uppercase tracking-widest ${
-                product.inStock 
-                  ? 'bg-black hover:bg-[#EF4444] text-white' 
-                  : 'bg-gray-200 text-gray-500 cursor-not-allowed'
+              className={`w-full h-24 font-black text-2xl md:text-3xl rounded-[2rem] transition-all duration-300 transform active:scale-[0.98] flex items-center justify-center gap-4 uppercase tracking-widest shadow-lg hover:shadow-2xl ${
+                !product.inStock 
+                  ? 'bg-gray-200 text-gray-500 cursor-not-allowed'
+                  : isAdded
+                  ? 'bg-[#10B981] hover:bg-[#059669] text-white scale-[1.02]'
+                  : 'bg-black hover:bg-[#EF4444] text-white hover:scale-[1.02]'
               }`}
             >
-              {product.inStock ? 'Agregar al Carrito' : 'Agotado'}
+              {isAdded && <Check className="w-8 h-8" />}
+              {product.inStock ? (isAdded ? '¡AÑADIDO!' : 'AGREGAR AL CARRITO') : 'AGOTADO'}
             </button>
           </div>
 
