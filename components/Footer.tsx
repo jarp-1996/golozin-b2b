@@ -8,7 +8,7 @@ const WA_URL = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent('Hola, me g
 
 export function Footer() {
   return (
-    <footer className="bg-[#0a0a0a] text-white pt-32 pb-12 overflow-hidden border-t border-white/10 flex flex-col justify-between relative z-10">
+    <footer className="bg-[#0a0a0a] text-white pt-16 pb-12 overflow-hidden border-t border-white/10 flex flex-col justify-between relative z-10">
       
       <div className="w-full px-6 md:px-12 max-w-[1800px] mx-auto">
 

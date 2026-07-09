@@ -17,19 +17,19 @@ export default async function BoxesDeRegaloPage() {
 
       <main className="flex-1 w-full">
         {/* Hero Section */}
-        <section className="relative w-full pt-48 pb-24 overflow-hidden border-b border-white/20">
+        <section className="relative w-full pt-32 pb-8 overflow-hidden">
           <div className="w-full px-6 md:px-12 max-w-[1600px] mx-auto relative z-10 text-center">
             <h1 className="text-[12vw] font-black leading-[0.85] tracking-tighter uppercase break-words">
               BOXES DE <br/> <span className="text-[#EF4444]">REGALO</span>
             </h1>
-            <p className="text-2xl text-gray-400 max-w-2xl mx-auto font-light leading-relaxed mt-12 uppercase tracking-widest">
+            <p className="text-2xl text-gray-400 max-w-2xl mx-auto font-light leading-relaxed mt-8 uppercase tracking-widest">
               Sorprende con una cuidada selección lista para regalar.
             </p>
           </div>
         </section>
 
         {/* Product Grid (Asymmetric) */}
-        <section className="py-24 md:py-48">
+        <section className="pt-12 pb-24 md:pt-16 md:pb-32">
           <div className="w-full px-6 md:px-12 max-w-[1600px] mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-x-12 md:gap-y-32">
               {boxes.map((box, index) => {

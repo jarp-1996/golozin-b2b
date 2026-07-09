@@ -35,7 +35,7 @@ export default async function Home() {
                   data-cursor="link"
                   className="mt-8 md:mt-12 group flex items-center justify-center bg-white text-black font-black py-5 px-10 md:py-6 md:px-14 rounded-full text-lg md:text-2xl transition-all duration-300 hover:bg-[#EF4444] hover:text-white uppercase tracking-widest border border-white"
                 >
-                  Comprar Ahora
+                  Ver los Boxes
                 </Link>
               </div>
 
@@ -60,22 +60,22 @@ export default async function Home() {
           <div className="animate-marquee-left flex items-center gap-10 font-black text-4xl uppercase tracking-widest">
             <span>REGALOS PREMIUM</span> <span>•</span>
             <span>GOLOZIN</span> <span>•</span>
-            <span>SABOR PERUANO</span> <span>•</span>
-            <span>EDICIÓN LIMITADA</span> <span>•</span>
+            <span>PACKS PARA FIESTAS</span> <span>•</span>
+            <span>ANTOJOS PERUANOS</span> <span>•</span>
             <span>REGALOS PREMIUM</span> <span>•</span>
             <span>GOLOZIN</span> <span>•</span>
-            <span>SABOR PERUANO</span> <span>•</span>
-            <span>EDICIÓN LIMITADA</span> <span>•</span>
+            <span>PACKS PARA FIESTAS</span> <span>•</span>
+            <span>ANTOJOS PERUANOS</span> <span>•</span>
           </div>
           <div className="animate-marquee-left flex items-center gap-10 font-black text-4xl uppercase tracking-widest" aria-hidden="true">
             <span>REGALOS PREMIUM</span> <span>•</span>
             <span>GOLOZIN</span> <span>•</span>
-            <span>SABOR PERUANO</span> <span>•</span>
-            <span>EDICIÓN LIMITADA</span> <span>•</span>
+            <span>PACKS PARA FIESTAS</span> <span>•</span>
+            <span>ANTOJOS PERUANOS</span> <span>•</span>
             <span>REGALOS PREMIUM</span> <span>•</span>
             <span>GOLOZIN</span> <span>•</span>
-            <span>SABOR PERUANO</span> <span>•</span>
-            <span>EDICIÓN LIMITADA</span> <span>•</span>
+            <span>PACKS PARA FIESTAS</span> <span>•</span>
+            <span>ANTOJOS PERUANOS</span> <span>•</span>
           </div>
         </div>
 
@@ -105,7 +105,7 @@ export default async function Home() {
                   <Image src="/images/sabor_americano_box.png" alt="Sabor Americano" fill className="object-cover group-hover:scale-105 transition-transform duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)]" />
                 </Link>
                 <h3 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-4">Sabor Americano</h3>
-                <p className="text-xl text-gray-600 max-w-xl">Una selección de los chocolates y caramelos más virales de USA.</p>
+                <p className="text-xl text-gray-600 max-w-xl">Los chocolates y caramelos americanos más virales. Sabores que no encuentras en cualquier bodega.</p>
               </div>
 
               {/* Pilar 3 (Full width or centered) */}
@@ -115,7 +115,7 @@ export default async function Home() {
                   <Image src="/images/peruvian_box.png" alt="Pack Sorpresitas" fill className="object-cover group-hover:scale-105 transition-transform duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)]" />
                 </Link>
                 <h3 className="text-4xl md:text-6xl font-black uppercase tracking-tight mb-4">Packs Cumpleaños</h3>
-                <p className="text-xl text-gray-600 max-w-2xl mx-auto">Resuelve las cajitas sorpresa de tus fiestas infantiles con un solo clic. Diseñados para compartir alegría.</p>
+                <p className="text-xl text-gray-600 max-w-2xl mx-auto">Olvídate de armar bolsitas. Sorpresitas listas para repartir y disfrutar.</p>
               </div>
 
             </div>
@@ -128,7 +128,7 @@ export default async function Home() {
             REGALOS <br /> CORPORATIVOS
           </h2>
           <p className="text-2xl md:text-3xl text-gray-500 max-w-3xl mb-16 font-light">
-            Soluciones premium exclusivas para empresas. El detalle perfecto para destacar en eventos o sorprender a tu equipo.
+            Sal del clásico corporativo. Regala nuestros boxes y sorprende de verdad a tu equipo o clientes.
           </p>
           <a
             href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? '51967171097'}?text=${encodeURIComponent('Hola, me gustaría cotizar regalos corporativos B2B.')}`}
@@ -137,7 +137,7 @@ export default async function Home() {
             data-cursor="link"
             className="group flex items-center justify-center bg-black text-white font-black py-8 px-20 rounded-full text-2xl md:text-3xl transition-all duration-300 hover:bg-[#EF4444] hover:text-white uppercase tracking-widest w-full md:w-auto"
           >
-            Cotizar B2B
+            Cotizar para mi empresa
           </a>
         </section>
       </main>
