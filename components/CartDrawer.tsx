@@ -15,34 +15,26 @@ export function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
   const { items, updateQuantity, removeFromCart, totalPrice, totalItems } = useCart();
   const router = useRouter();
 
-  if (!isOpen) return null;
-
   return (
     <Fragment>
-      {/* Backdrop */}
-      <div 
-        className={`fixed inset-0 bg-black/50 z-[100] transition-opacity ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
-        onClick={onClose}
-      />
-
-      {/* Drawer */}
-      <div className={`fixed inset-y-0 right-0 z-[101] w-full max-w-md bg-white shadow-2xl flex flex-col transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+      {/* Full Screen Drawer (Brutalist Style Dropdown) */}
+      <div className={`fixed inset-0 z-[101] bg-white flex flex-col transform transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] ${isOpen ? 'translate-y-0' : '-translate-y-full'}`}>
         {/* Header */}
-        <div className="flex items-center justify-between p-4 border-b border-gray-100">
-          <div className="flex items-center gap-2">
-            <ShoppingBag className="h-5 w-5 text-[#1F2937]" />
-            <h2 className="text-lg font-bold text-gray-900">Mi Carrito ({totalItems})</h2>
+        <div className="flex items-center justify-between p-6 md:p-8 border-b-4 border-black w-full max-w-4xl mx-auto">
+          <div className="flex items-center gap-3">
+            <ShoppingBag className="h-8 w-8 text-black" strokeWidth={2.5} />
+            <h2 className="text-3xl font-black text-black uppercase tracking-tighter">Mi Carrito ({totalItems})</h2>
           </div>
           <button 
             onClick={onClose}
-            className="p-2 text-gray-400 hover:text-gray-900 hover:bg-gray-100 rounded-full transition-colors"
+            className="p-2 text-black hover:bg-black hover:text-white rounded-full transition-colors"
           >
-            <X className="h-5 w-5" />
+            <X className="h-8 w-8" strokeWidth={2.5} />
           </button>
         </div>
 
         {/* Content */}
-        <div className="flex-1 overflow-y-auto p-4">
+        <div className="flex-1 overflow-y-auto p-6 md:p-8 w-full max-w-4xl mx-auto">
           {items.length === 0 ? (
             <div className="h-full flex flex-col items-center justify-center text-center space-y-4">
               <div className="w-20 h-20 bg-gray-50 rounded-full flex items-center justify-center">
@@ -116,7 +108,8 @@ export function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
 
         {/* Footer */}
         {items.length > 0 && (
-          <div className="border-t-2 border-black p-6 bg-white">
+          <div className="border-t-4 border-black p-6 md:p-8 bg-white w-full mt-auto">
+            <div className="max-w-4xl mx-auto w-full">
             <div className="flex items-center justify-between mb-4">
               <span className="text-gray-500 font-bold uppercase tracking-widest text-sm">Subtotal</span>
               <span className="text-2xl font-black text-black">S/ {totalPrice.toFixed(2)}</span>
@@ -129,10 +122,11 @@ export function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                 onClose();
                 router.push('/checkout');
               }}
-              className="w-full py-4 px-4 bg-black hover:bg-[#EF4444] text-white rounded-full font-black text-lg transition-all flex justify-center items-center gap-2 uppercase tracking-widest"
+              className="w-full py-6 px-6 bg-black hover:bg-[#EF4444] text-white rounded-full font-black text-xl transition-all flex justify-center items-center gap-2 uppercase tracking-widest"
             >
               Finalizar Compra
             </button>
+            </div>
           </div>
         )}
       </div>
