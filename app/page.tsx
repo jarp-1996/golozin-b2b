@@ -86,36 +86,36 @@ export default async function Home() {
               Nuestras <br/> Experiencias
             </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-x-12 md:gap-y-32">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 text-center">
               
-              {/* Pilar 1 (Large, left aligned) */}
-              <div className="md:col-span-8 group">
-                <Link href="/producto/antojos-peruanos" data-cursor="product" className="block relative aspect-[4/5] bg-gray-200 overflow-hidden rounded-[2rem] mb-8">
+              {/* Pilar 1 */}
+              <div className="group flex flex-col items-center">
+                <Link href="/producto/antojos-peruanos" data-cursor="product" className="block relative w-full aspect-[4/5] bg-gray-200 overflow-hidden rounded-[2rem] mb-8">
                   <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors z-10"></div>
                   <Image src="/images/antojos_peruanos_box.png" alt="Antojos Peruanos" fill className="object-cover group-hover:scale-105 transition-transform duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)]" />
                 </Link>
                 <h3 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-4">Antojos Peruanos</h3>
-                <p className="text-body text-gray-600 max-w-xl">Tus clásicos favoritos del Perú en una sola caja. Perfecta para matar el antojo o sorprender a quien está lejos con un pedacito de casa.</p>
+                <p className="text-body text-gray-600 max-w-sm">Tus clásicos favoritos del Perú en una sola caja. Perfecta para matar el antojo o sorprender a quien está lejos con un pedacito de casa.</p>
               </div>
 
-              {/* Pilar 2 (Medium, right aligned offset) */}
-              <div className="md:col-start-7 md:col-span-6 group mt-12 md:mt-0">
-                <Link href="/producto/sabor-americano" data-cursor="product" className="block relative aspect-square bg-gray-200 overflow-hidden rounded-[2rem] mb-8">
+              {/* Pilar 2 */}
+              <div className="group flex flex-col items-center">
+                <Link href="/producto/sabor-americano" data-cursor="product" className="block relative w-full aspect-[4/5] bg-gray-200 overflow-hidden rounded-[2rem] mb-8">
                   <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors z-10"></div>
                   <Image src="/images/sabor_americano_box.png" alt="Sabor Americano" fill className="object-cover group-hover:scale-105 transition-transform duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)]" />
                 </Link>
                 <h3 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-4">Sabor Americano</h3>
-                <p className="text-body text-gray-600 max-w-xl">Los chocolates y caramelos americanos más virales. Sabores que no encuentras en cualquier bodega.</p>
+                <p className="text-body text-gray-600 max-w-sm">Los chocolates y caramelos americanos más virales. Sabores que no encuentras en cualquier bodega.</p>
               </div>
 
-              {/* Pilar 3 (Full width or centered) */}
-              <div className="md:col-span-10 md:col-start-2 group mt-12 md:mt-0 text-center">
-                <Link href="/producto/pack-sorpresitas" data-cursor="product" className="block relative aspect-[21/9] bg-gray-200 overflow-hidden rounded-[2rem] mb-8">
+              {/* Pilar 3 */}
+              <div className="group flex flex-col items-center">
+                <Link href="/producto/pack-sorpresitas" data-cursor="product" className="block relative w-full aspect-[4/5] bg-gray-200 overflow-hidden rounded-[2rem] mb-8">
                   <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors z-10"></div>
                   <Image src="/images/peruvian_box.png" alt="Pack Sorpresitas" fill className="object-cover group-hover:scale-105 transition-transform duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)]" />
                 </Link>
-                <h3 className="text-4xl md:text-6xl font-black uppercase tracking-tight mb-4">Packs Cumpleaños</h3>
-                <p className="text-body text-gray-600 max-w-2xl mx-auto">Olvídate de armar bolsitas. Sorpresitas listas para repartir y disfrutar.</p>
+                <h3 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-4">Packs Cumpleaños</h3>
+                <p className="text-body text-gray-600 max-w-sm">Olvídate de armar bolsitas. Sorpresitas listas para repartir y disfrutar.</p>
               </div>
 
             </div>
@@ -124,7 +124,7 @@ export default async function Home() {
 
         {/* ── B2B Banner (Brutalist Corporate) ──────────────────────────────── */}
         <section id="corporativo" className="relative w-full bg-white text-black py-32 md:py-48 flex flex-col items-center justify-center text-center px-6">
-          <h2 className="text-[10vw] font-black leading-[0.9] tracking-tighter uppercase mb-12">
+          <h2 className="text-[8vw] md:text-[6vw] font-black leading-none tracking-tighter uppercase mb-12">
             REGALOS <br /> CORPORATIVOS
           </h2>
           <p className="text-body text-gray-500 max-w-3xl mb-16 font-light">
