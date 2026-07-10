@@ -1,14 +1,22 @@
 'use client';
 
-import { useState } from 'react';
-import { ShoppingBag, ChevronDown, Candy, Gift, PartyPopper } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { ShoppingBag, ChevronDown, Candy, Gift, PartyPopper, Menu, X } from 'lucide-react';
 import { useCart } from './CartContext';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { CartDrawer } from './CartDrawer';
 
 export function Header() {
   const { totalItems } = useCart();
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    // Cerrar menú móvil al cambiar de ruta
+    setIsMobileMenuOpen(false);
+  }, [pathname]);
 
   return (
     <>
@@ -76,11 +84,49 @@ export function Header() {
                   </span>
                 )}
               </button>
+              
+              {/* Mobile Menu Toggle */}
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="lg:hidden relative flex items-center justify-center w-12 h-12 rounded-full hover:opacity-50 transition-opacity"
+              >
+                {isMobileMenuOpen ? <X className="h-8 w-8" strokeWidth={2} /> : <Menu className="h-8 w-8" strokeWidth={2} />}
+              </button>
             </div>
 
           </div>
         </div>
       </header>
+
+      {/* Mobile Menu Overlay */}
+      <div 
+        className={`fixed inset-0 bg-white text-black z-40 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] lg:hidden flex flex-col overflow-y-auto pt-[120px] px-6 pb-24 ${
+          isMobileMenuOpen ? 'translate-y-0' : '-translate-y-full'
+        }`}
+      >
+        <nav className="flex flex-col gap-10 text-[10vw] font-black uppercase tracking-tighter leading-none">
+          <Link href="/" className="hover:text-red-500 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Inicio</Link>
+          
+          <div className="flex flex-col gap-6">
+            <Link href="/boxes-de-regalo" className="hover:text-red-500 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Boxes</Link>
+            <div className="flex flex-col gap-4 pl-4 border-l-4 border-black/10">
+              <Link href="/producto/antojos-peruanos" className="text-2xl text-gray-500 hover:text-red-500 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Antojos Peruanos</Link>
+              <Link href="/producto/sabor-americano" className="text-2xl text-gray-500 hover:text-red-500 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Sabor Americano</Link>
+              <Link href="/producto/chocolates-peruanos" className="text-2xl text-gray-500 hover:text-red-500 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Chocolates Peruanos</Link>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-6">
+            <Link href="/packs-cumpleanos" className="hover:text-red-500 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Packs</Link>
+            <div className="flex flex-col gap-4 pl-4 border-l-4 border-black/10">
+              <Link href="/producto/pack-sorpresitas" className="text-2xl text-gray-500 hover:text-red-500 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Pack Sorpresitas</Link>
+              <Link href="/producto/mesa-cumpleanera" className="text-2xl text-gray-500 hover:text-red-500 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Mesa Cumpleañera</Link>
+            </div>
+          </div>
+
+          <Link href="/corporativo" className="hover:text-red-500 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Corporativo</Link>
+        </nav>
+      </div>
 
       {/* Cart Drawer */}
       <CartDrawer isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
