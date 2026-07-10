@@ -28,17 +28,13 @@ export default async function BoxesDeRegaloPage() {
           </div>
         </section>
 
-        {/* Product Grid (Asymmetric) */}
+        {/* Product Grid (Symmetrical) */}
         <section className="pt-12 pb-12 md:pt-16 md:pb-16">
           <div className="w-full px-6 md:px-12 max-w-[1600px] mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-x-12 md:gap-y-32">
-              {boxes.map((box, index) => {
-                // Alternating layout for that "offset" Awwwards style
-                const colSpan = index === 0 ? "md:col-span-8" : index === 1 ? "md:col-start-7 md:col-span-6" : "md:col-span-10 md:col-start-2 text-center";
-                
-                return (
-                  <div key={box.id} className={`${colSpan} group mt-12 md:mt-0`}>
-                    <Link href={`/producto/${box.id}`} data-cursor="product" className="block relative aspect-[4/3] bg-gray-900 overflow-hidden rounded-[2rem] mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+              {boxes.map((box) => (
+                  <div key={box.id} className="group flex flex-col items-center text-center">
+                    <Link href={`/producto/${box.id}`} data-cursor="product" className="block w-full relative aspect-[4/5] bg-gray-900 overflow-hidden rounded-[2rem] mb-8">
                       <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors z-10 duration-500"></div>
                       <Image 
                         src={box.image} 
@@ -47,14 +43,11 @@ export default async function BoxesDeRegaloPage() {
                         className="object-cover group-hover:scale-105 transition-transform duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)]"
                       />
                     </Link>
-                    <h3 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-4">{box.name}</h3>
-                    <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-                      <p className="text-caption text-gray-400 max-w-xl">{box.description}</p>
-                      <span className="text-title font-black text-[#EF4444]">S/ {box.price.toFixed(2)}</span>
-                    </div>
+                    <h3 className="text-4xl font-black uppercase tracking-tight mb-4">{box.name}</h3>
+                    <p className="text-body text-gray-400 max-w-sm mb-4">{box.description}</p>
+                    <span className="text-2xl font-black text-[#EF4444]">S/ {box.price.toFixed(2)}</span>
                   </div>
-                );
-              })}
+              ))}
             </div>
           </div>
         </section>

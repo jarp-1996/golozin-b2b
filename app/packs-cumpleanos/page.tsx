@@ -28,16 +28,13 @@ export default async function PacksCumpleanosPage() {
           </div>
         </section>
 
-        {/* Product Grid (Asymmetric) */}
-        <section className="py-24 md:py-48">
+        {/* Product Grid (Symmetrical) */}
+        <section className="py-16 md:py-24">
           <div className="w-full px-6 md:px-12 max-w-[1600px] mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-x-12 md:gap-y-32">
-              {packs.map((pack, index) => {
-                const colSpan = index === 0 ? "md:col-span-8" : "md:col-start-6 md:col-span-7 mt-24";
-                
-                return (
-                  <div key={pack.id} className={`${colSpan} group`}>
-                    <Link href={`/producto/${pack.id}`} data-cursor="product" className="block relative aspect-video bg-gray-900 overflow-hidden rounded-[2rem] mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 max-w-5xl mx-auto">
+              {packs.map((pack) => (
+                  <div key={pack.id} className="group flex flex-col items-center text-center">
+                    <Link href={`/producto/${pack.id}`} data-cursor="product" className="block w-full relative aspect-[4/5] bg-gray-900 overflow-hidden rounded-[2rem] mb-8">
                       <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors z-10 duration-500"></div>
                       <Image 
                         src={pack.image} 
@@ -46,14 +43,11 @@ export default async function PacksCumpleanosPage() {
                         className="object-cover group-hover:scale-105 transition-transform duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)]"
                       />
                     </Link>
-                    <h3 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-4">{pack.name}</h3>
-                    <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-                      <p className="text-xl text-gray-400 max-w-xl">{pack.description}</p>
-                      <span className="text-4xl font-black text-[#EF4444]">S/ {pack.price.toFixed(2)}</span>
-                    </div>
+                    <h3 className="text-4xl font-black uppercase tracking-tight mb-4">{pack.name}</h3>
+                    <p className="text-xl text-gray-400 max-w-sm mb-4">{pack.description}</p>
+                    <span className="text-3xl font-black text-[#EF4444]">S/ {pack.price.toFixed(2)}</span>
                   </div>
-                );
-              })}
+              ))}
             </div>
           </div>
         </section>
