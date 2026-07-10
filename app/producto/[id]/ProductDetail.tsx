@@ -26,9 +26,8 @@ export function ProductDetail({ product }: { product: Product }) {
   return (
     <div className="flex flex-col font-sans pt-32 pb-24 selection:bg-red-500 selection:text-white">
       
-      {/* Title Section (Massive) */}
       <div className="w-full text-center mb-16">
-        <h1 className="text-hero font-black leading-[0.85] tracking-tighter uppercase break-words px-4">
+        <h1 className="text-[12vw] font-black leading-[0.85] tracking-tighter uppercase break-words px-4">
           {product.name}
         </h1>
       </div>
@@ -72,7 +71,7 @@ export function ProductDetail({ product }: { product: Product }) {
         <div className="w-full lg:w-2/5 flex flex-col justify-center">
           
           <div className="flex items-end gap-6 mb-12 border-b-4 border-black pb-8">
-            <p className="text-hero font-black text-black tracking-tighter">
+            <p className="text-7xl lg:text-8xl font-black text-black tracking-tighter">
               S/{product.price.toFixed(0)}
             </p>
             {product.originalPrice && (

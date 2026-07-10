@@ -19,7 +19,7 @@ export default async function BoxesDeRegaloPage() {
         {/* Hero Section */}
         <section className="relative w-full pt-32 pb-8 overflow-hidden">
           <div className="w-full px-6 md:px-12 max-w-[1600px] mx-auto relative z-10 text-center">
-            <h1 className="text-hero font-black leading-[0.85] tracking-tighter uppercase break-words">
+            <h1 className="text-[12vw] font-black leading-[0.85] tracking-tighter uppercase break-words">
               BOXES DE <br/> <span className="text-[#EF4444]">REGALO</span>
             </h1>
             <p className="text-body text-gray-400 max-w-2xl mx-auto font-light leading-relaxed mt-8 uppercase tracking-widest">
