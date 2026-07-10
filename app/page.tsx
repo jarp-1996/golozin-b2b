@@ -80,9 +80,9 @@ export default async function Home() {
         </div>
 
         {/* ── Experiencias (Offset Grid Beech Style) ──────────────────────────────── */}
-        <section id="experiencias" className="py-32 md:py-48 bg-[#F3F4F6] text-black rounded-t-[3rem] mt-12 md:mt-24">
+        <section id="experiencias" className="py-16 md:py-24 bg-[#F3F4F6] text-black rounded-t-[3rem] mt-8 md:mt-16">
           <div className="w-full px-6 md:px-12 max-w-[1600px] mx-auto">
-            <h2 className="text-[8vw] md:text-[6vw] font-black leading-none tracking-tighter uppercase mb-24 max-w-5xl">
+            <h2 className="text-[8vw] md:text-[6vw] font-black leading-none tracking-tighter uppercase mb-12 md:mb-16 max-w-5xl">
               Nuestras <br/> Experiencias
             </h2>
 
@@ -123,7 +123,7 @@ export default async function Home() {
         </section>
 
         {/* ── B2B Banner (Brutalist Corporate) ──────────────────────────────── */}
-        <section id="corporativo" className="relative w-full bg-white text-black py-32 md:py-48 flex flex-col items-center justify-center text-center px-6">
+        <section id="corporativo" className="relative w-full bg-white text-black py-16 md:py-24 flex flex-col items-center justify-center text-center px-6">
           <h2 className="text-[8vw] md:text-[6vw] font-black leading-none tracking-tighter uppercase mb-12">
             REGALOS <br /> CORPORATIVOS
           </h2>
