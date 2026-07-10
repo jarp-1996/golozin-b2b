@@ -46,7 +46,7 @@ export default function CorporativoPage() {
         {/* Hero Section */}
         <section className="relative w-full pt-48 pb-24 overflow-hidden border-b border-black">
           <div className="w-full px-6 md:px-12 max-w-[1600px] mx-auto relative z-10">
-            <h1 className="text-[12vw] font-black leading-[0.85] tracking-tighter uppercase break-words">
+            <h1 className="text-[12vw] md:text-[8vw] lg:text-[7vw] font-black leading-[0.85] tracking-tighter uppercase break-words">
               B2B <br/> <span className="text-[#EF4444]">CORPORATIVO</span>
             </h1>
             <div className="mt-12 flex flex-col md:flex-row justify-between items-start md:items-end gap-10">
@@ -72,7 +72,7 @@ export default function CorporativoPage() {
             {solutions.map((sol, i) => (
               <div key={i} className="group border-b border-black/10 py-12 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 hover:bg-black/5 transition-colors cursor-pointer">
                 <div className="flex-1">
-                  <h3 className="text-5xl md:text-7xl font-black uppercase tracking-tight mb-4 group-hover:text-[#EF4444] transition-colors">{sol.title}</h3>
+                  <h3 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-4 group-hover:text-[#EF4444] transition-colors">{sol.title}</h3>
                   <p className="text-xl md:text-2xl text-gray-500 max-w-3xl">{sol.description}</p>
                 </div>
                 <a

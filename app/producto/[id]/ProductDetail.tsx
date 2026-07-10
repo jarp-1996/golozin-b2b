@@ -27,7 +27,7 @@ export function ProductDetail({ product }: { product: Product }) {
     <div className="flex flex-col font-sans pt-32 pb-24 selection:bg-red-500 selection:text-white">
       
       <div className="w-full text-center mb-16">
-        <h1 className="text-[12vw] font-black leading-[0.85] tracking-tighter uppercase break-words px-4">
+        <h1 className="text-[12vw] md:text-[8vw] lg:text-[6vw] font-black leading-[0.85] tracking-tighter uppercase break-words px-4">
           {product.name}
         </h1>
       </div>

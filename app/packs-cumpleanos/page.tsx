@@ -19,7 +19,7 @@ export default async function PacksCumpleanosPage() {
         {/* Hero Section */}
         <section className="relative w-full pt-48 pb-24 overflow-hidden border-b border-white/20">
           <div className="w-full px-6 md:px-12 max-w-[1600px] mx-auto relative z-10 text-center">
-            <h1 className="text-[12vw] font-black leading-[0.85] tracking-tighter uppercase break-words">
+            <h1 className="text-[12vw] md:text-[8vw] lg:text-[7vw] font-black leading-[0.85] tracking-tighter uppercase break-words">
               PACKS <br/> <span className="text-[#EF4444]">CUMPLEAÑOS</span>
             </h1>
             <p className="text-2xl text-gray-400 max-w-2xl mx-auto font-light leading-relaxed mt-12 uppercase tracking-widest">
