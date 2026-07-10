@@ -19,10 +19,10 @@ export default async function BoxesDeRegaloPage() {
         {/* Hero Section */}
         <section className="relative w-full pt-32 pb-8 overflow-hidden">
           <div className="w-full px-6 md:px-12 max-w-[1600px] mx-auto relative z-10 text-center">
-            <h1 className="text-[12vw] font-black leading-[0.85] tracking-tighter uppercase break-words">
+            <h1 className="text-hero font-black leading-[0.85] tracking-tighter uppercase break-words">
               BOXES DE <br/> <span className="text-[#EF4444]">REGALO</span>
             </h1>
-            <p className="text-2xl text-gray-400 max-w-2xl mx-auto font-light leading-relaxed mt-8 uppercase tracking-widest">
+            <p className="text-body text-gray-400 max-w-2xl mx-auto font-light leading-relaxed mt-8 uppercase tracking-widest">
               Sorprende con una cuidada selección lista para regalar.
             </p>
           </div>
@@ -47,10 +47,10 @@ export default async function BoxesDeRegaloPage() {
                         className="object-cover group-hover:scale-105 transition-transform duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)]"
                       />
                     </Link>
-                    <h3 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-4">{box.name}</h3>
+                    <h3 className="text-title font-black uppercase tracking-tight mb-4">{box.name}</h3>
                     <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-                      <p className="text-xl text-gray-400 max-w-xl">{box.description}</p>
-                      <span className="text-4xl font-black text-[#EF4444]">S/ {box.price.toFixed(2)}</span>
+                      <p className="text-caption text-gray-400 max-w-xl">{box.description}</p>
+                      <span className="text-title font-black text-[#EF4444]">S/ {box.price.toFixed(2)}</span>
                     </div>
                   </div>
                 );

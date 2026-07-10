@@ -28,7 +28,7 @@ export function ProductDetail({ product }: { product: Product }) {
       
       {/* Title Section (Massive) */}
       <div className="w-full text-center mb-16">
-        <h1 className="text-[12vw] font-black leading-[0.85] tracking-tighter uppercase break-words px-4">
+        <h1 className="text-hero font-black leading-[0.85] tracking-tighter uppercase break-words px-4">
           {product.name}
         </h1>
       </div>
@@ -41,13 +41,13 @@ export function ProductDetail({ product }: { product: Product }) {
             {/* Status badges Brutalist style */}
             <div className="absolute top-12 left-12 flex flex-col items-start gap-4 z-10">
               {!product.inStock ? (
-                <div className="bg-black text-white text-xl font-black px-6 py-3 rounded-full uppercase tracking-widest border-2 border-transparent text-center w-fit">
+                <div className="bg-black text-white text-micro font-black px-6 py-3 rounded-full uppercase tracking-widest border-2 border-transparent text-center w-fit">
                   AGOTADO
                 </div>
               ) : (
                 <>
                   {product.originalPrice && (
-                    <div className="bg-[#EF4444] text-white text-xl font-black px-6 py-3 rounded-full uppercase tracking-widest text-center w-fit">
+                    <div className="bg-[#EF4444] text-white text-micro font-black px-6 py-3 rounded-full uppercase tracking-widest text-center w-fit">
                       OFERTA
                     </div>
                   )}
@@ -72,29 +72,29 @@ export function ProductDetail({ product }: { product: Product }) {
         <div className="w-full lg:w-2/5 flex flex-col justify-center">
           
           <div className="flex items-end gap-6 mb-12 border-b-4 border-black pb-8">
-            <p className="text-7xl lg:text-8xl font-black text-black tracking-tighter">
+            <p className="text-hero font-black text-black tracking-tighter">
               S/{product.price.toFixed(0)}
             </p>
             {product.originalPrice && (
-              <p className="text-3xl text-gray-400 line-through font-black pb-2">
+              <p className="text-title text-gray-400 line-through font-black pb-2">
                 S/{product.originalPrice.toFixed(0)}
               </p>
             )}
           </div>
 
-          <p className="text-2xl text-gray-600 leading-relaxed mb-12 font-medium">
+          <p className="text-body text-gray-600 leading-relaxed mb-12 font-medium">
             {product.description}
           </p>
 
           {/* Qué Incluye Section */}
           {product.contents && product.contents.length > 0 && (
             <div className="mb-16">
-              <h3 className="text-3xl font-black text-black mb-6 uppercase tracking-tight">
+              <h3 className="text-title font-black text-black mb-6 uppercase tracking-tight">
                 INCLUYE:
               </h3>
               <ul className="space-y-4">
                 {product.contents.map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-4 text-gray-800 text-xl font-bold uppercase tracking-wide">
+                  <li key={idx} className="flex items-start gap-4 text-gray-800 text-body font-bold uppercase tracking-wide">
                     <span className="text-[#EF4444] shrink-0 mt-1">✦</span>
                     <span>{item}</span>
                   </li>
@@ -110,7 +110,7 @@ export function ProductDetail({ product }: { product: Product }) {
                 onClick={() => setQuantity(Math.max(1, quantity - 1))}
                 disabled={!product.inStock}
                 data-cursor="button"
-                className="w-16 h-16 flex items-center justify-center text-black font-black text-3xl hover:bg-white rounded-full transition-all disabled:cursor-not-allowed"
+                className="w-16 h-16 flex items-center justify-center text-black font-black text-title hover:bg-white rounded-full transition-all disabled:cursor-not-allowed"
               >
                 -
               </button>
@@ -118,13 +118,13 @@ export function ProductDetail({ product }: { product: Product }) {
                 type="number"
                 value={quantity}
                 readOnly
-                className="flex-1 text-center font-black text-3xl text-black outline-none bg-transparent"
+                className="flex-1 text-center font-black text-title text-black outline-none bg-transparent"
               />
               <button 
                 onClick={() => setQuantity(quantity + 1)}
                 disabled={!product.inStock}
                 data-cursor="button"
-                className="w-16 h-16 flex items-center justify-center text-black font-black text-3xl hover:bg-white rounded-full transition-all disabled:cursor-not-allowed"
+                className="w-16 h-16 flex items-center justify-center text-black font-black text-title hover:bg-white rounded-full transition-all disabled:cursor-not-allowed"
               >
                 +
               </button>
@@ -134,7 +134,7 @@ export function ProductDetail({ product }: { product: Product }) {
               onClick={handleAddToCart}
               disabled={!product.inStock}
               data-cursor="link"
-              className={`w-full h-24 font-black text-2xl md:text-3xl rounded-[2rem] transition-all duration-300 transform active:scale-[0.98] flex items-center justify-center gap-4 uppercase tracking-widest shadow-lg hover:shadow-2xl ${
+              className={`w-full h-24 font-black text-title rounded-[2rem] transition-all duration-300 transform active:scale-[0.98] flex items-center justify-center gap-4 uppercase tracking-widest shadow-lg hover:shadow-2xl ${
                 !product.inStock 
                   ? 'bg-gray-200 text-gray-500 cursor-not-allowed'
                   : isAdded

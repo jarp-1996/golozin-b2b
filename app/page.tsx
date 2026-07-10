@@ -24,7 +24,7 @@ export default async function Home() {
               
               {/* Contenido Izquierdo (Texto + Botón) */}
               <div className="flex flex-col items-start min-w-[50%]">
-                <h1 className="text-[14vw] md:text-[7vw] lg:text-[7.5vw] xl:text-[8vw] font-black leading-[0.85] tracking-tighter uppercase max-w-full">
+                <h1 className="text-hero font-black leading-[0.85] tracking-tighter uppercase max-w-full">
                   <span className="text-[#EF4444]">ANTOJOS</span> <br />
                   PERUANOS <br />
                   <span className="text-[#EF4444] whitespace-nowrap">EN BOXES.</span>
@@ -33,7 +33,7 @@ export default async function Home() {
                 <Link 
                   href="/producto/antojos-peruanos"
                   data-cursor="link"
-                  className="mt-8 md:mt-12 group flex items-center justify-center bg-white text-black font-black py-5 px-10 md:py-6 md:px-14 rounded-full text-lg md:text-2xl transition-all duration-300 hover:bg-[#EF4444] hover:text-white uppercase tracking-widest border border-white"
+                  className="mt-8 md:mt-12 group flex items-center justify-center bg-white text-black font-black py-5 px-10 md:py-6 md:px-14 rounded-full text-title transition-all duration-300 hover:bg-[#EF4444] hover:text-white uppercase tracking-widest border border-white"
                 >
                   Ver los Boxes
                 </Link>
@@ -57,7 +57,7 @@ export default async function Home() {
 
         {/* ── Marquee Ribbon ──────────────────────────────── */}
         <div className="w-full bg-[#EF4444] text-white py-6 overflow-hidden flex whitespace-nowrap border-y border-white/20">
-          <div className="animate-marquee-left flex items-center gap-10 font-black text-4xl uppercase tracking-widest">
+          <div className="animate-marquee-left flex items-center gap-10 font-black text-title uppercase tracking-widest">
             <span>REGALOS PREMIUM</span> <span>•</span>
             <span>GOLOZIN</span> <span>•</span>
             <span>PACKS PARA FIESTAS</span> <span>•</span>
@@ -67,7 +67,7 @@ export default async function Home() {
             <span>PACKS PARA FIESTAS</span> <span>•</span>
             <span>ANTOJOS PERUANOS</span> <span>•</span>
           </div>
-          <div className="animate-marquee-left flex items-center gap-10 font-black text-4xl uppercase tracking-widest" aria-hidden="true">
+          <div className="animate-marquee-left flex items-center gap-10 font-black text-title uppercase tracking-widest" aria-hidden="true">
             <span>REGALOS PREMIUM</span> <span>•</span>
             <span>GOLOZIN</span> <span>•</span>
             <span>PACKS PARA FIESTAS</span> <span>•</span>
@@ -82,7 +82,7 @@ export default async function Home() {
         {/* ── Experiencias (Offset Grid Beech Style) ──────────────────────────────── */}
         <section id="experiencias" className="py-32 md:py-48 bg-[#F3F4F6] text-black rounded-t-[3rem] mt-12 md:mt-24">
           <div className="w-full px-6 md:px-12 max-w-[1600px] mx-auto">
-            <h2 className="text-[8vw] md:text-[6vw] font-black leading-none tracking-tighter uppercase mb-24 max-w-5xl">
+            <h2 className="text-display font-black leading-none tracking-tighter uppercase mb-24 max-w-5xl">
               Nuestras <br/> Experiencias
             </h2>
 
@@ -94,8 +94,8 @@ export default async function Home() {
                   <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors z-10"></div>
                   <Image src="/images/antojos_peruanos_box.png" alt="Antojos Peruanos" fill className="object-cover group-hover:scale-105 transition-transform duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)]" />
                 </Link>
-                <h3 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-4">Antojos Peruanos</h3>
-                <p className="text-xl text-gray-600 max-w-xl">Tus clásicos favoritos del Perú en una sola caja. Perfecta para matar el antojo o sorprender a quien está lejos con un pedacito de casa.</p>
+                <h3 className="text-title font-black uppercase tracking-tight mb-4">Antojos Peruanos</h3>
+                <p className="text-body text-gray-600 max-w-xl">Tus clásicos favoritos del Perú en una sola caja. Perfecta para matar el antojo o sorprender a quien está lejos con un pedacito de casa.</p>
               </div>
 
               {/* Pilar 2 (Medium, right aligned offset) */}
@@ -104,8 +104,8 @@ export default async function Home() {
                   <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors z-10"></div>
                   <Image src="/images/sabor_americano_box.png" alt="Sabor Americano" fill className="object-cover group-hover:scale-105 transition-transform duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)]" />
                 </Link>
-                <h3 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-4">Sabor Americano</h3>
-                <p className="text-xl text-gray-600 max-w-xl">Los chocolates y caramelos americanos más virales. Sabores que no encuentras en cualquier bodega.</p>
+                <h3 className="text-title font-black uppercase tracking-tight mb-4">Sabor Americano</h3>
+                <p className="text-body text-gray-600 max-w-xl">Los chocolates y caramelos americanos más virales. Sabores que no encuentras en cualquier bodega.</p>
               </div>
 
               {/* Pilar 3 (Full width or centered) */}
@@ -114,8 +114,8 @@ export default async function Home() {
                   <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors z-10"></div>
                   <Image src="/images/peruvian_box.png" alt="Pack Sorpresitas" fill className="object-cover group-hover:scale-105 transition-transform duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)]" />
                 </Link>
-                <h3 className="text-4xl md:text-6xl font-black uppercase tracking-tight mb-4">Packs Cumpleaños</h3>
-                <p className="text-xl text-gray-600 max-w-2xl mx-auto">Olvídate de armar bolsitas. Sorpresitas listas para repartir y disfrutar.</p>
+                <h3 className="text-title font-black uppercase tracking-tight mb-4">Packs Cumpleaños</h3>
+                <p className="text-body text-gray-600 max-w-2xl mx-auto">Olvídate de armar bolsitas. Sorpresitas listas para repartir y disfrutar.</p>
               </div>
 
             </div>
@@ -124,10 +124,10 @@ export default async function Home() {
 
         {/* ── B2B Banner (Brutalist Corporate) ──────────────────────────────── */}
         <section id="corporativo" className="relative w-full bg-white text-black py-32 md:py-48 flex flex-col items-center justify-center text-center px-6">
-          <h2 className="text-[10vw] font-black leading-[0.9] tracking-tighter uppercase mb-12">
+          <h2 className="text-display font-black leading-[0.9] tracking-tighter uppercase mb-12">
             REGALOS <br /> CORPORATIVOS
           </h2>
-          <p className="text-2xl md:text-3xl text-gray-500 max-w-3xl mb-16 font-light">
+          <p className="text-body text-gray-500 max-w-3xl mb-16 font-light">
             Sal del clásico corporativo. Regala nuestros boxes y sorprende de verdad a tu equipo o clientes.
           </p>
           <a
@@ -135,7 +135,7 @@ export default async function Home() {
             target="_blank"
             rel="noopener noreferrer"
             data-cursor="link"
-            className="group flex items-center justify-center bg-black text-white font-black py-8 px-20 rounded-full text-2xl md:text-3xl transition-all duration-300 hover:bg-[#EF4444] hover:text-white uppercase tracking-widest w-full md:w-auto"
+            className="group flex items-center justify-center bg-black text-white font-black py-8 px-20 rounded-full text-title transition-all duration-300 hover:bg-[#EF4444] hover:text-white uppercase tracking-widest w-full md:w-auto"
           >
             Cotizar para mi empresa
           </a>

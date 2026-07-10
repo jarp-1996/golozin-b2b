@@ -9,6 +9,12 @@
   --color-golozin-muted: #374151;
   --font-sans: var(--font-poppins);
   --font-inter: var(--font-inter);
+  --font-size-hero: clamp(2.5rem, 8vw, 7.5rem);
+  --font-size-display: clamp(1.8rem, 5vw, 4rem);
+  --font-size-title: clamp(1.25rem, 3vw, 2.2rem);
+  --font-size-body: 1.125rem;
+  --font-size-caption: 0.875rem;
+  --font-size-micro: 0.625rem;
 }
 
 html {
