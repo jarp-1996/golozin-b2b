@@ -47,7 +47,7 @@ export default async function BoxesDeRegaloPage() {
                         className="object-cover group-hover:scale-105 transition-transform duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)]"
                       />
                     </Link>
-                    <h3 className="text-title font-black uppercase tracking-tight mb-4">{box.name}</h3>
+                    <h3 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-4">{box.name}</h3>
                     <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
                       <p className="text-caption text-gray-400 max-w-xl">{box.description}</p>
                       <span className="text-title font-black text-[#EF4444]">S/ {box.price.toFixed(2)}</span>

@@ -94,7 +94,7 @@ export default async function Home() {
                   <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors z-10"></div>
                   <Image src="/images/antojos_peruanos_box.png" alt="Antojos Peruanos" fill className="object-cover group-hover:scale-105 transition-transform duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)]" />
                 </Link>
-                <h3 className="text-title font-black uppercase tracking-tight mb-4">Antojos Peruanos</h3>
+                <h3 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-4">Antojos Peruanos</h3>
                 <p className="text-body text-gray-600 max-w-xl">Tus clásicos favoritos del Perú en una sola caja. Perfecta para matar el antojo o sorprender a quien está lejos con un pedacito de casa.</p>
               </div>
 
@@ -104,7 +104,7 @@ export default async function Home() {
                   <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors z-10"></div>
                   <Image src="/images/sabor_americano_box.png" alt="Sabor Americano" fill className="object-cover group-hover:scale-105 transition-transform duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)]" />
                 </Link>
-                <h3 className="text-title font-black uppercase tracking-tight mb-4">Sabor Americano</h3>
+                <h3 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-4">Sabor Americano</h3>
                 <p className="text-body text-gray-600 max-w-xl">Los chocolates y caramelos americanos más virales. Sabores que no encuentras en cualquier bodega.</p>
               </div>
 
@@ -114,7 +114,7 @@ export default async function Home() {
                   <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors z-10"></div>
                   <Image src="/images/peruvian_box.png" alt="Pack Sorpresitas" fill className="object-cover group-hover:scale-105 transition-transform duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)]" />
                 </Link>
-                <h3 className="text-title font-black uppercase tracking-tight mb-4">Packs Cumpleaños</h3>
+                <h3 className="text-4xl md:text-6xl font-black uppercase tracking-tight mb-4">Packs Cumpleaños</h3>
                 <p className="text-body text-gray-600 max-w-2xl mx-auto">Olvídate de armar bolsitas. Sorpresitas listas para repartir y disfrutar.</p>
               </div>
 
