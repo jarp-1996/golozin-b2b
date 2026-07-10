@@ -17,24 +17,30 @@ export function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
 
   return (
     <Fragment>
-      {/* Full Screen Drawer (Brutalist Style Dropdown) */}
-      <div className={`fixed inset-0 z-[101] bg-white flex flex-col transform transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] ${isOpen ? 'translate-y-0' : '-translate-y-full'}`}>
+      {/* Backdrop */}
+      <div 
+        className={`fixed inset-0 bg-black/50 z-[100] transition-opacity duration-500 ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+        onClick={onClose}
+      />
+
+      {/* Drawer: Full screen top-down on mobile, Right-side panel on desktop */}
+      <div className={`fixed inset-0 lg:inset-y-0 lg:left-auto lg:right-0 z-[101] lg:w-full lg:max-w-md bg-white shadow-2xl flex flex-col transform transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] ${isOpen ? 'translate-y-0 lg:translate-x-0' : '-translate-y-full lg:translate-y-0 lg:translate-x-full'}`}>
         {/* Header */}
-        <div className="flex items-center justify-between p-6 md:p-8 border-b-4 border-black w-full max-w-4xl mx-auto">
-          <div className="flex items-center gap-3">
-            <ShoppingBag className="h-8 w-8 text-black" strokeWidth={2.5} />
-            <h2 className="text-3xl font-black text-black uppercase tracking-tighter">Mi Carrito ({totalItems})</h2>
+        <div className="flex items-center justify-between p-6 lg:p-4 border-b-4 lg:border-b border-black lg:border-gray-100 w-full">
+          <div className="flex items-center gap-3 lg:gap-2">
+            <ShoppingBag className="h-8 w-8 lg:h-5 lg:w-5 text-black lg:text-[#1F2937]" strokeWidth={2.5} />
+            <h2 className="text-3xl lg:text-lg font-black lg:font-bold text-black lg:text-gray-900 uppercase lg:normal-case tracking-tighter lg:tracking-normal">Mi Carrito ({totalItems})</h2>
           </div>
           <button 
             onClick={onClose}
-            className="p-2 text-black hover:bg-black hover:text-white rounded-full transition-colors"
+            className="p-2 text-black lg:text-gray-400 hover:bg-black lg:hover:bg-gray-100 hover:text-white lg:hover:text-gray-900 rounded-full transition-colors"
           >
-            <X className="h-8 w-8" strokeWidth={2.5} />
+            <X className="h-8 w-8 lg:h-5 lg:w-5" strokeWidth={2.5} />
           </button>
         </div>
 
         {/* Content */}
-        <div className="flex-1 overflow-y-auto p-6 md:p-8 w-full max-w-4xl mx-auto">
+        <div className="flex-1 overflow-y-auto p-6 lg:p-4 w-full">
           {items.length === 0 ? (
             <div className="h-full flex flex-col items-center justify-center text-center space-y-4">
               <div className="w-20 h-20 bg-gray-50 rounded-full flex items-center justify-center">
@@ -108,8 +114,8 @@ export function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
 
         {/* Footer */}
         {items.length > 0 && (
-          <div className="border-t-4 border-black p-6 md:p-8 bg-white w-full mt-auto">
-            <div className="max-w-4xl mx-auto w-full">
+          <div className="border-t-4 lg:border-t-2 border-black p-6 lg:p-6 bg-white w-full mt-auto">
+            <div className="w-full">
             <div className="flex items-center justify-between mb-4">
               <span className="text-gray-500 font-bold uppercase tracking-widest text-sm">Subtotal</span>
               <span className="text-2xl font-black text-black">S/ {totalPrice.toFixed(2)}</span>
@@ -122,7 +128,7 @@ export function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                 onClose();
                 router.push('/checkout');
               }}
-              className="w-full py-6 px-6 bg-black hover:bg-[#EF4444] text-white rounded-full font-black text-xl transition-all flex justify-center items-center gap-2 uppercase tracking-widest"
+              className="w-full py-6 lg:py-4 px-6 lg:px-4 bg-black hover:bg-[#EF4444] text-white rounded-full font-black text-xl lg:text-lg transition-all flex justify-center items-center gap-2 uppercase tracking-widest"
             >
               Finalizar Compra
             </button>
